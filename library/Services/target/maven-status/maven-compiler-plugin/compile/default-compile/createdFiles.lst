@@ -1,0 +1,4 @@
+service\TradeService.class
+service\StickerService.class
+service\UserService.class
+service\ProfileService.class

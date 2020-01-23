@@ -1,0 +1,8 @@
+services\ITradeService.class
+services\IStickerService.class
+repositories\ITradeRepository.class
+services\IProfileService.class
+repositories\IUserRepository.class
+repositories\IProfileRepository.class
+services\IUserService.class
+repositories\IStickerRepository.class

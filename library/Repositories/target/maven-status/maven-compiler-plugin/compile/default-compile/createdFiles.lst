@@ -1,0 +1,5 @@
+repository\TradeRepository.class
+repository\UserRepository.class
+common\DBConnection.class
+repository\StickerRepository.class
+repository\ProfileRepository.class
