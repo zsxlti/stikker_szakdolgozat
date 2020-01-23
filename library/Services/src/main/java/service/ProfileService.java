@@ -15,28 +15,6 @@ public class ProfileService implements IProfileService {
     @Autowired
     IProfileRepository _profileRepository;
 
-    /*@Override
-    public ServiceObjectResponse<ProfileEntity> create(ProfileEntity profile)
-    {
-        ServiceObjectResponse<ProfileEntity> response = new ServiceObjectResponse<>();
-
-        try
-        {
-            ProfileEntity data = _profileRepository.create(profile);
-
-            response.setObject(data);
-            response.setIsSuccess(true);
-            response.setMessage("No errors.");
-        }
-        catch (Exception ex)
-        {
-            response.setIsSuccess(false);
-            response.setMessage(ex.getMessage());
-        }
-
-        return response;
-    }*/
-
     @Override
     public ServiceObjectResponse<List<ProfileEntity>> getAll()
     {

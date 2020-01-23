@@ -1,0 +1,45 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint-config-airbnb"],
+  "rules": 
+  {
+    "variable-name": [false, "ban-keywords", "check-format", "allow-pascal-case"],
+    "import-name": false,
+    "object-shorthand-properties-first": false,
+    "ordered-imports": [
+      false,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "lowercase-first"
+      }
+    ],
+    "max-line-length": [
+      true,
+      10240
+    ],
+    "ter-func-call-spacing" : false,
+    "brace-style": false,
+    "semicolon": false,
+    "eofline": false,
+    "function-name": false,
+    "ter-indent": false,
+    "trailing-comma": false,
+    "no-increment-decrement": false,
+    "no-duplicate-imports": false,
+    "prefer-const": false,
+    "comment-format": 
+    {
+      "severity": "warning"
+    },
+    "prefer-template": false,
+    "no-else-after-return": false,
+    "align": false,
+    "curly": [true, "ignore-same-line"],
+    "prefer-array-literal": false,
+    "ter-arrow-parens": false,
+    "block-spacing": false,
+    "one-variable-per-declaration": true,
+    "no-eval": false,
+    "quotemark": [true, "double", "avoid-escape", "jsx-double"]
+  }
+}

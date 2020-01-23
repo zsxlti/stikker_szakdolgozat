@@ -22,6 +22,8 @@ public class UserService implements IUserService
     @Autowired
     IUserRepository _userRepository;
 
+    @Autowired
+    IProfileRepository _profileRepository;
 
     @Override
     public ServiceObjectResponse<UserEntity> create(RegisterRequest data) throws Exception
@@ -46,7 +48,7 @@ public class UserService implements IUserService
 
             ProfileEntity profile=new ProfileEntity(user.UniqID,data);
             response.setIsSuccess(true);
-            //profile=_userRepository.create()
+            profile=_profileRepository.create(profile);
 
             response.setObject(user);
             response.setIsSuccess(true);

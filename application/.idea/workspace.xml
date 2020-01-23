@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c261a5b9-bdf5-461a-8970-2c56b18782aa" name="Default Changelist" comment="" />
+    <list default="true" id="562e775d-24fc-4e8a-90ed-6687c2ebc873" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/tsconfig-webpack.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/webpack.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../React Base Setup [webAPI]/webpack.prod.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ProfileEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ProfileEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/request/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/response/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/ProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/ProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/src/main/java/service/ProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/ProfileController.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -15,7 +44,14 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1WngFzr4o04KaCs3jeUmiYbbFX7" />
+  <component name="ProjectId" id="1Wnm1bohqMv5JZd1SNGhBiQPuLY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -33,12 +69,26 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c261a5b9-bdf5-461a-8970-2c56b18782aa" name="Default Changelist" comment="" />
-      <created>1579790672761</created>
+      <changelist id="562e775d-24fc-4e8a-90ed-6687c2ebc873" name="Default Changelist" comment="" />
+      <created>1579793518075</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1579790672761</updated>
+      <updated>1579793518075</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

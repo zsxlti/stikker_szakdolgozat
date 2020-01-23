@@ -5,6 +5,7 @@ import org.joda.time.DateTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.util.Date;
 
 @ApiModel
@@ -19,5 +20,5 @@ public class RegisterRequest
     public String Password;
 
     public String Name;
-    public Date BirthDate;
+    public LocalDate BirthDate;
 }

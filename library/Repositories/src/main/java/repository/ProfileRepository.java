@@ -7,6 +7,7 @@ import repositories.IProfileRepository;
 
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ProfileRepository implements IProfileRepository {
         CallableStatement stmt = connection.prepareCall(SQL);
         stmt.setString(1, profile.Id);
         stmt.setString(2, profile.Name);
-        stmt.setDate(3, (Date) profile.BirthDate);
+        stmt.setDate(3, Date.valueOf(profile.BirthDate));
 
 
 
@@ -87,7 +88,7 @@ public class ProfileRepository implements IProfileRepository {
         CallableStatement stmt = connection.prepareCall(SQL);
         stmt.setString("paramId", profile.Id);
         stmt.setString("paramName", profile.Name);
-        stmt.setDate("paramBirthDate", (Date) profile.BirthDate);
+        stmt.setDate("paramBirthDate", Date.valueOf(profile.BirthDate));
 
         int affectedRows  = stmt.executeUpdate();
 
@@ -141,7 +142,7 @@ public class ProfileRepository implements IProfileRepository {
         ProfileEntity profile = new ProfileEntity();
         profile.Id = dataSet.getString("Id");
         profile.Name = dataSet.getString("Name");
-        profile.BirthDate = Date.valueOf(dataSet.getString("BirthDate"));
+        profile.BirthDate = LocalDate.parse(dataSet.getString("BirthDate"));
         return profile;
     }
 }

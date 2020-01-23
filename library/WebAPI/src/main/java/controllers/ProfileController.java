@@ -20,21 +20,6 @@ public class ProfileController {
     @Autowired
     IProfileService _profileService;
 
-    @ApiOperation(value = "create", nickname = "create")
-    @PostMapping("/api/profile")
-    @ResponseBody
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
-    public ProfileEntity CreateProfile(@RequestBody ProfileEntity profile) throws Exception
-    {
-        ServiceObjectResponse<ProfileEntity> request = _profileService.create(profile);
-
-        if(!request.getIsSuccess())
-        {
-            throw new Exception(request.getMessage());
-        }
-        return request.getObject();
-    }
-
     @ApiOperation(value = "all", nickname = "all")
     @GetMapping("/api/profile/all")
     @ResponseBody

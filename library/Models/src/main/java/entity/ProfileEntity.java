@@ -2,17 +2,19 @@ package entity;
 
 import request.RegisterRequest;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProfileEntity {
     public String Id;
     public String Name;
-    public Date BirthDate;
+    public LocalDate BirthDate;
 
     public ProfileEntity() {
     }
 
-    public ProfileEntity(String id, String name, Date birthDate) {
+    public ProfileEntity(String id, String name, LocalDate birthDate) {
         Id = id;
         Name = name;
         BirthDate = birthDate;
@@ -41,11 +43,11 @@ public class ProfileEntity {
         Name = name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return BirthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         BirthDate = birthDate;
     }
 }
