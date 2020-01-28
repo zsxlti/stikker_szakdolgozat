@@ -24,14 +24,7 @@ public class ProfileRepository implements IProfileRepository {
         stmt.setString(2, profile.Name);
         stmt.setDate(3, Date.valueOf(profile.BirthDate));
 
-
-
-        ResultSet resultSets  = stmt.executeQuery();
-        if (resultSets.next())
-        {
-            profile.Id = resultSets.getString(1);
-        }
-
+       stmt.execute();
 
         return profile;
     }

@@ -1,18 +1,7 @@
 import { SecurityService } from "./../client/securityService";
-import { DiakService } from "./../client/diakService";
-import { StorageService } from "./../client/storage.service";
 import { UserService } from "../client/userService";
 
 export class SecurityAPI extends SecurityService
-{
-    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> })
-    {
-        super(baseUrl, http);
-        this.jsonParseReviver = ReviveDateTime;
-    }
-}
-
-export class DiakAPI extends DiakService
 {
     constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> })
     {
