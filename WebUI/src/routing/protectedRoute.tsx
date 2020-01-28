@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect, Route, RouteProps } from "react-router";
 import { StorageService } from "./../services/client/storage.service";
-import { StorageKeys } from "./../settings/constats";
+import { StorageKeys } from "../settings/constans";
 
 export interface ProtectedRouteProps extends RouteProps
 {

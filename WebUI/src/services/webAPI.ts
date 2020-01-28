@@ -1,7 +1,7 @@
 import { SecurityAPI, UserAPI } from "./settings/wrappers";
 import { baseURL } from "./settings/base.url";
 import { FetchProxy } from "./settings/fetch.proxy";
-import { StorageKeys } from "./../settings/constats";
+import { StorageKeys } from "../settings/constans";
 import { StorageService } from "./client/storage.service";
 
 export module WebAPI

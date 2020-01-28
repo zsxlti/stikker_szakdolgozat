@@ -2,55 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af4550c6-fd06-4804-a526-0a697197ae2c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/settings/constats.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/ProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/ProfileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Repositories/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/extensions.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/appState.store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/appStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/connected.mixin.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/deep.assign.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/deep.partial.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/store.manager.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/lib/store/synchronizer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/pages/diak.component.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/pages/home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/routing/protectedRoute.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/routing/routes.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/routing/urls.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/profileService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/securityService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/stickerService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/storage.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/tradeService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/client/userService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/settings/base.url.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/settings/fetch.proxy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/settings/wrappers.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/services/webAPI.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/settings/constats.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/typeDefinitions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/web.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/src/withRoot.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/tsconfig-webpack.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/webpack.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/React Base Setup [webAPI]/webpack.prod.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +27,12 @@
     </option>
   </component>
   <component name="ProjectId" id="1X1821IdC2Y6bH9md8HvZB4OfWz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -105,5 +68,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

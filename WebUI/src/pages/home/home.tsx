@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Connected } from "./../lib/store/connected.mixin";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "./../lib/appStore";
-import { StorageService } from "./../services/client/storage.service";
+import { AppStore } from "../../lib/appStore";
+import { StorageService } from "../../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles } from "@material-ui/core"
-import withRoot from "./../withRoot";
+import withRoot from "../../withRoot";
 
 const styles = (theme: Theme) =>
   createStyles
   ({
-    contaier:
+    container:
     {
       display: "flex",
       flexGrow: 1,
@@ -20,7 +20,10 @@ const styles = (theme: Theme) =>
   });
 
 interface IState
-{}
+{
+  email: string;
+  password: string;
+}
 
 interface IProps
 {}
@@ -34,7 +37,10 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         super(props);
 
         this.state =
-        {}
+        {
+          email: "",
+          password:""
+        }
     }
 
     render()
@@ -42,7 +48,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       const css = this.props.classes;
 
       const Body = () =>
-        <div className={css.contaier}>
+        <div className={css.container}>
           HOME PAGE
          </div>
       return Body();

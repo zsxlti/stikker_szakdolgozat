@@ -2,7 +2,7 @@ import * as React from "react";
 import { Route } from "react-router-dom";
 import { Urls } from "./urls";
 
-import HomePage from "../pages/home";
+import HomePage from "../pages/home/home";
 import { ProtectedRouteProps, ProtectedRoute } from "./protectedRoute";
 
 const defaultProtectedRouteProps: ProtectedRouteProps =
