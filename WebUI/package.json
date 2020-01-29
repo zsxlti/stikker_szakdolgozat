@@ -34,6 +34,7 @@
     "save": "^2.3.3",
     "styled-components": "^3.4.10",
     "svg-url-loader": "^2.3.2",
+    "typeface-roboto": "0.0.75",
     "utility-types": "^3.4.1",
     "webfontloader": "^1.6.28"
   },

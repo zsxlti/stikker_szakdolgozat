@@ -1,4 +1,4 @@
 export module LocalImages
 {
-    export const productImages = require.context("./../assets/images", true);
+    export const images = require.context("./../assets/images", true);
 }

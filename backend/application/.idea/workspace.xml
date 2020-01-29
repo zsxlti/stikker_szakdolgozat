@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af4550c6-fd06-4804-a526-0a697197ae2c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/settings/constats.ts" beforeDir="false" />
+    <list default="true" id="29de3914-36d3-4cc3-a540-8c69f825302e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,13 +21,8 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1X1821IdC2Y6bH9md8HvZB4OfWz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-  </component>
+  <component name="ProjectId" id="1X4aDVjh1FB5tJEXpdQO6rG3EeC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -50,11 +40,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="af4550c6-fd06-4804-a526-0a697197ae2c" name="Default Changelist" comment="" />
-      <created>1580202029399</created>
+      <changelist id="29de3914-36d3-4cc3-a540-8c69f825302e" name="Default Changelist" comment="" />
+      <created>1580307700875</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1580202029399</updated>
+      <updated>1580307700875</updated>
     </task>
     <servers />
   </component>
@@ -68,8 +58,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
