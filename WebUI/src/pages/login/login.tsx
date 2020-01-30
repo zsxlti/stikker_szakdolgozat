@@ -37,7 +37,7 @@ const styles = (theme: Theme) =>
         justifyContent: "center",
         marginTop: "30px",
       },
-      registerContainer:
+      loginContainer:
       {
         display: "flex",
         alignItems: "center",
@@ -69,14 +69,12 @@ const styles = (theme: Theme) =>
         backgroundColor: CustomColors.purple + "!important",
         color: CustomColors.gold,
         fontFamily: "Roboto",
-        width: "100%",
-        marginTop: "10px",
-        marginBottom: "10px"
+        width: "100%"
       },
       grid: {
         color: CustomColors.purple,
         fontFamily: "Roboto",
-      },
+      }
     });
 const customTextProps = {
   style: {
@@ -86,15 +84,13 @@ const customTextProps = {
 
 
 interface IState {
-  name: string;
   email: string;
   password: string;
-  //birthday:Date;
 }
 
 interface IProps { }
 
-class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
+class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
   storageService: StorageService = new StorageService();
 
@@ -103,10 +99,8 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
     this.state =
     {
-      name:"",
       email: "",
-      password: "",
-      //birthday:
+      password: ""
     }
   }
 
@@ -154,114 +148,80 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
   render() {
     const css = this.props.classes;
 
-    const registerButton = this.isFormFilled() ?
+    const loginButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit}>
-        Regisztráció
+        Bejelentkezés
       </Button> :
       <Button variant="contained" disabled className={css.submit}>
-        Regisztráció
+        Bejelentkezés
       </Button>
 
     const Body = () =>
-      <React.Fragment>
-        <CssBaseline />
-        {/* The rest of your application */}
-
-        <div className={css.container}>
-          <div className={css.logoContainer}>
-            <img src={LocalImages.images('./stikker.png')} />
-          </div>
-          <form>
-            <div className={css.registerContainer}>
-              <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
-              <TextField InputProps={{
-                classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
-                }
-              }
-              }
-                variant="outlined"
-                margin="normal"
-                id="name"
-                label="Név"
-                name="name"
-                autoComplete="name"
-                autoFocus
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <TextField InputProps={{
-                classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
-                }
-              }
-              }
-                variant="outlined"
-                margin="normal"
-                id="email"
-                label="E-mail cím"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <TextField InputProps={{
-                classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
-                }
-              }
-              }
-                variant="outlined"
-                margin="normal"
-                id="password"
-                label="Jelszó"
-                name="password"
-                autoComplete="password"
-                autoFocus
-                type="password"
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <TextField InputProps={{
-                classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
-                }
-              }
-              }
-                id="date"
-                label="Születési dátum"
-                type="date"
-                variant="outlined"
-                margin="normal"
-                autoFocus
-                required
-                defaultValue={Date.now()}
-                className={css.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              {registerButton}
-              <Grid container className={css.grid}>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Van már fiókja?
-              </Link>
-                </Grid>
-              </Grid>
-            </div>
-          </form>
-          <FooterComponent />
+      <div className={css.container}>
+        <div className={css.logoContainer}>
+          <img src={LocalImages.images('./stikker.png')} />
         </div>
-      </React.Fragment>
+        <form>
+          <div className={css.loginContainer}>
+            <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
+            <TextField InputProps={{
+              classes: {
+                notchedOutline: css.textField,
+                input: css.inputColor
+              }
+            }
+            }
+              variant="outlined"
+              margin="normal"
+              id="email"
+              label="E-mail cím"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              className={css.textField}
+              onChange={this.onTextChanged} />
+            <TextField InputProps={{
+              classes: {
+                notchedOutline: css.textField,
+                input: css.inputColor
+              }
+            }
+            }
+              variant="outlined"
+              margin="normal"
+              id="password"
+              label="Jelszó"
+              name="password"
+              autoComplete="password"
+              autoFocus
+              type="password"
+              className={css.textField}
+              onChange={this.onTextChanged} />
+
+            <FormControlLabel className={css.inputColor}
+              control={<Checkbox value="remember" />}
+              label="Emlékezz rám"
+            />
+            {loginButton}
+            <Grid container className={css.grid}>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Elfelejtett jelszó
+              </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Még nem regisztrált?"}
+                </Link>
+              </Grid>
+            </Grid>
+          </div>
+        </form>
+        <FooterComponent />
+      </div>
     return Body();
   }
 }
 
-const HomePage = withRoot(withStyles(styles)(Home));
-export default HomePage;
+const LoginPage = withRoot(withStyles(styles)(Login));
+export default LoginPage;
