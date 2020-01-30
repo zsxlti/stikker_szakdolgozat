@@ -3,7 +3,7 @@ import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "../../lib/appStore";
 import { StorageService } from "../../services/client/storage.service";
-import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline } from "@material-ui/core"
+import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
 import withRoot from "../../withRoot";
 import { CustomColors } from "./../../style/colors";
 import { LocalImages } from "./../../staticFiles/images";
@@ -19,16 +19,17 @@ import 'typeface-roboto';
 const styles = (theme: Theme) =>
   createStyles
     ({
-      container:
+      root:
       {
         display: "flex",
-        flexGrow: 1,
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: CustomColors.white,
-        color: CustomColors.purple,
-        justifyContent: "center"
-
+        '& > *': {
+          flexGrow: 1,
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: CustomColors.gold,
+          color: CustomColors.purple,
+          justifyContent: "center",
+        }
       },
       logoContainer:
       {
@@ -43,7 +44,7 @@ const styles = (theme: Theme) =>
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        width: "100%",
+        maxWidth: "40%",
         fontFamily: "Roboto",
         color: CustomColors.purple + "!important",
         margin: "auto"
@@ -53,9 +54,12 @@ const styles = (theme: Theme) =>
         color: CustomColors.purple + "!important",
         fontSize: "30px",
         fontFamily: "Roboto",
+        alignItems:"center",
+        justifyContent:"center",
       },
       textField:
       {
+        borderWidth:2,
         borderColor: CustomColors.purple + "!important",
         fontFamily: "Roboto",
         width: "100%"
@@ -69,20 +73,19 @@ const styles = (theme: Theme) =>
         backgroundColor: CustomColors.purple + "!important",
         color: CustomColors.gold,
         fontFamily: "Roboto",
-        width: "100%"
+        width: "100%",
+        marginTop: "10px",
+        marginBottom: "10px"
       },
       grid: {
         color: CustomColors.purple,
         fontFamily: "Roboto",
-      }
+      },
+      link:{
+        color:CustomColors.purple,
+        fontSize:"16px"
+       }
     });
-const customTextProps = {
-  style: {
-    fontFamily: "Roboto"
-  }
-}
-
-
 interface IState {
   email: string;
   password: string;
@@ -133,7 +136,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     const data: LoginRequest =
     {
       email: this.state.email,
-      jelszo: this.state.password
+      password: this.state.password
     };
     const token = await WebAPI.Security.login(data).then(x => x.Token)
       .catch();
@@ -157,68 +160,73 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       </Button>
 
     const Body = () =>
-      <div className={css.container}>
-        <div className={css.logoContainer}>
-          <img src={LocalImages.images('./stikker.png')} />
-        </div>
-        <form>
-          <div className={css.loginContainer}>
-            <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
-            <TextField InputProps={{
-              classes: {
-                notchedOutline: css.textField,
-                input: css.inputColor
-              }
-            }
-            }
-              variant="outlined"
-              margin="normal"
-              id="email"
-              label="E-mail cím"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              className={css.textField}
-              onChange={this.onTextChanged} />
-            <TextField InputProps={{
-              classes: {
-                notchedOutline: css.textField,
-                input: css.inputColor
-              }
-            }
-            }
-              variant="outlined"
-              margin="normal"
-              id="password"
-              label="Jelszó"
-              name="password"
-              autoComplete="password"
-              autoFocus
-              type="password"
-              className={css.textField}
-              onChange={this.onTextChanged} />
-
-            <FormControlLabel className={css.inputColor}
-              control={<Checkbox value="remember" />}
-              label="Emlékezz rám"
-            />
-            {loginButton}
-            <Grid container className={css.grid}>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Elfelejtett jelszó
-              </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Még nem regisztrált?"}
-                </Link>
-              </Grid>
-            </Grid>
+    <React.Fragment>
+      <CssBaseline/>
+      <div className={css.root}>
+        <Paper>
+          <div className={css.logoContainer}>
+            <img src={LocalImages.images('./stikker.png')} />
           </div>
-        </form>
-        <FooterComponent />
+          <form className={css.loginContainer}>
+            <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
+            <div>
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
+                }
+              }
+              }
+                variant="outlined"
+                margin="normal"
+                id="email"
+                label="E-mail cím"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                className={css.textField}
+                onChange={this.onTextChanged} />
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
+                }
+              }
+              }
+                variant="outlined"
+                margin="normal"
+                id="password"
+                label="Jelszó"
+                name="password"
+                autoComplete="password"
+                autoFocus
+                type="password"
+                className={css.textField}
+                onChange={this.onTextChanged} />
+
+              <FormControlLabel className={css.inputColor}
+                control={<Checkbox value="remember" />}
+                label="Emlékezz rám"
+              />
+              {loginButton}
+              <Grid container className={css.grid}>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Elfelejtett jelszó
+              </Link>
+                </Grid>
+                <Grid item>
+                  <Link className={css.link} href="#" variant="body2">
+                    {"Még nem regisztrált?"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </div>
+          </form>
+          <FooterComponent />
+        </Paper>
       </div>
+      </React.Fragment>
     return Body();
   }
 }
