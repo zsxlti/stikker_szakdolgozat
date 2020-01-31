@@ -13,6 +13,7 @@ import { WebAPI } from "./../../services/webAPI";
 import { Validation } from "./../../validators";
 import FooterComponent from "../footer/footer";
 import 'typeface-roboto';
+import { Enumerable } from "linq-es5/lib/enumerable";
 
 
 
@@ -84,16 +85,15 @@ const styles = (theme: Theme) =>
       link: {
         color: CustomColors.purple+ "!important",
         fontSize: "16px",
-        justifyContent: "end"
       }
     });
 
 
 interface IState {
-  name: string;
+  name : "login" | "register";
   email: string;
   password: string;
-  //birthday:Date;
+  birthday:Date;
 }
 
 interface IProps { }
@@ -110,7 +110,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       name: "",
       email: "",
       password: "",
-      //birthday:
+      birthday:new Date()
     }
   }
 
@@ -144,8 +144,11 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     {
       Email: this.state.email,
       Password: this.state.password,
-      Name: this.state.name
+      Name: this.state.name,
+      BirthDate:this.state.birthday
     };
+
+    console.log(data);
     const token = await WebAPI.Security.login(data).then(x => x.Token)
       .catch();
     if (!token) {
@@ -160,7 +163,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     const css = this.props.classes;
 
     const registerButton = this.isFormFilled() ?
-      <Button variant="contained" color="primary" type="submit" className={css.submit}>
+      <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onClickHandler}>
         Regisztráció
       </Button> :
       <Button variant="contained" disabled className={css.submit}>
