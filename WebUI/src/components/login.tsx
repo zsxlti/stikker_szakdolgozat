@@ -1,18 +1,19 @@
 import * as React from "react";
-import { Connected } from "../../lib/store/connected.mixin";
+import { Connected } from "./../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "../../lib/appStore";
-import { StorageService } from "../../services/client/storage.service";
+import { AppStore } from "./../lib/appStore";
+import { StorageService } from "./../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
-import withRoot from "../../withRoot";
-import { CustomColors } from "./../../style/colors";
-import { LocalImages } from "./../../staticFiles/images";
-import { StorageKeys } from "./../../settings/constans";
-import { LoginRequest } from "./../../services/client/securityService";
-import { WebAPI } from "./../../services/webAPI";
-import { Validation } from "./../../validators";
-import FooterComponent from "../footer/footer";
+import withRoot from "./../withRoot";
+import { CustomColors } from "./../style/colors";
+import { LocalImages } from "./../staticFiles/images";
+import { StorageKeys } from "./../settings/constans";
+import { LoginRequest } from "./../services/client/securityService";
+import { WebAPI } from "./../services/webAPI";
+import { Validation } from "./../validators";
+import FooterComponent from "./../pages/footer/footer";
 import 'typeface-roboto';
+import { Routes } from "./../routing/urls";
 
 
 
@@ -48,6 +49,17 @@ const styles = (theme: Theme) =>
         fontFamily: "Roboto",
         color: CustomColors.purple + "!important",
         margin: "auto"
+      },
+      bottom:
+      {
+      minHeight: 215,
+      margin: 10,
+      fontSize: 50,
+      color: CustomColors.purple,
+      backgroundColor: CustomColors.gold,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
       },
       typography:
       {
@@ -145,14 +157,14 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
-
+    this.props.history.push(Routes.Home);
     //TODO: navigate to  page
   }
   render() {
     const css = this.props.classes;
 
     const loginButton = this.isFormFilled() ?
-      <Button variant="contained" color="primary" type="submit" className={css.submit}>
+      <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onLoginClickHandler}>
         Bejelentkezés
       </Button> :
       <Button variant="contained" disabled className={css.submit}>
@@ -216,14 +228,16 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
               </Link>
                 </Grid>
                 <Grid item>
-                  <Link className={css.link} href="#" variant="body2">
+                  <Link className={css.link} href=""/*{Routes.Home}*/ variant="body2">
                     {"Még nem regisztrált?"}
                   </Link>
                 </Grid>
               </Grid>
             </div>
           </form>
+          <div className={css.bottom}>
           <FooterComponent />
+          </div>
         </Paper>
       </div>
       </React.Fragment>
@@ -231,5 +245,5 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
   }
 }
 
-const LoginPage = withRoot(withStyles(styles)(Login));
-export default LoginPage;
+const LoginComponent = withRoot(withStyles(styles)(Login));
+export default LoginComponent;

@@ -4,6 +4,7 @@ import { Urls } from "./urls";
 
 import HomePage from "../pages/home/home";
 import { ProtectedRouteProps, ProtectedRoute } from "./protectedRoute";
+import LoginComponent from "./../components/login";
 
 const defaultProtectedRouteProps: ProtectedRouteProps =
 {
@@ -13,4 +14,5 @@ const defaultProtectedRouteProps: ProtectedRouteProps =
 export const AppRoutes = () =>
     <React.Fragment>
         <Route exact path={ Urls.home } component={ HomePage } />
+        <Route exact path={ Urls.login } component={ LoginComponent } />
     </React.Fragment>

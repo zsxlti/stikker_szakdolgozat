@@ -12,10 +12,9 @@ import { RegisterRequest, TokenResponse } from "./../../services/client/security
 import { WebAPI } from "./../../services/webAPI";
 import { Validation } from "./../../validators";
 import FooterComponent from "../footer/footer";
-import 'typeface-roboto';
+import "typeface-roboto";
 import { Enumerable } from "linq-es5/lib/enumerable";
-
-
+import { Routes } from "./../../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -23,7 +22,7 @@ const styles = (theme: Theme) =>
       root:
       {
         display: "flex",
-        '& > *': {
+        "& > *": {
           flexGrow: 1,
           flexDirection: "column",
           alignItems: "center",
@@ -50,6 +49,17 @@ const styles = (theme: Theme) =>
         color: CustomColors.purple + "!important",
         margin: "auto"
       },
+      bottom:
+      {
+        minHeight: 100,
+        padding: 10,
+        fontSize: 50,
+        color: CustomColors.purple,
+        backgroundColor: CustomColors.gold,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      },
       typography:
       {
         color: CustomColors.purple + "!important",
@@ -64,7 +74,6 @@ const styles = (theme: Theme) =>
         borderColor: CustomColors.purple + "!important",
         fontFamily: "Roboto",
         width: "100%"
-
       },
       inputColor: {
         color: CustomColors.purple + "!important",
@@ -83,17 +92,17 @@ const styles = (theme: Theme) =>
         fontFamily: "Roboto",
       },
       link: {
-        color: CustomColors.purple+ "!important",
+        color: CustomColors.purple + "!important",
         fontSize: "16px",
       }
     });
 
-
 interface IState {
-  name : "login" | "register";
+  //name : "login" | "register";
+  name: string;
   email: string;
   password: string;
-  birthday:Date;
+  birthday: Date;
 }
 
 interface IProps { }
@@ -110,7 +119,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       name: "",
       email: "",
       password: "",
-      birthday:new Date()
+      birthday: new Date()
     }
   }
 
@@ -128,7 +137,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
   isFormFilled = (): boolean => {
     return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email) && this.state.name.length > 0
-
   }
 
   onTextChanged = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -145,7 +153,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       Email: this.state.email,
       Password: this.state.password,
       Name: this.state.name,
-      BirthDate:this.state.birthday
+      BirthDate: this.state.birthday
     };
 
     console.log(data);
@@ -156,12 +164,12 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
-
-    //TODO: navigate to  page
+  }
+  LoginNavigate = () => {
+    this.props.history.push(Routes.Login);
   }
   render() {
     const css = this.props.classes;
-
     const registerButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onClickHandler}>
         Regisztráció
@@ -176,7 +184,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         <div className={css.root}>
           <Paper>
             <div className={css.logoContainer}>
-              <img src={LocalImages.images('./stikker.png')} />
+              <img src={LocalImages.images("./stikker.png")} />
             </div>
             <form className={css.registerContainer}>
               <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
@@ -188,7 +196,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                   }
                 }
                 }
-                  
                   variant="outlined"
                   margin="normal"
                   id="name"
@@ -256,14 +263,16 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 {registerButton}
                 <Grid container className={css.grid}>
                   <Grid item xs>
-                    <Link  className={css.link} href="" variant="body2">
+                    <Link className={css.link} href=""/*{Routes.Login}*/ variant="body2" onClick={this.LoginNavigate}>
                       Van már fiókja?
                      </Link>
                   </Grid>
                 </Grid>
               </div>
             </form>
-            <FooterComponent />
+            <div className={css.bottom}>
+              <FooterComponent />
+            </div>
           </Paper>
         </div>
       </React.Fragment>

@@ -1,9 +1,11 @@
 export enum Routes
 {
-    Home = ""
+    Home = "",
+    Login="login"
 }
 
 export module Urls
 {
     export const home = `/${Routes.Home}`;
+    export const login = `/${Routes.Login}`;
 }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29de3914-36d3-4cc3-a540-8c69f825302e" name="Default Changelist" comment="">
+    <list default="true" id="da508a22-6e03-4d22-8555-592e886bb181" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +23,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1X4aDVjh1FB5tJEXpdQO6rG3EeC" />
+  <component name="ProjectId" id="1XL1LgCotPAyjuTxEPLAvDYYGPl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -39,11 +42,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="29de3914-36d3-4cc3-a540-8c69f825302e" name="Default Changelist" comment="" />
-      <created>1580307700875</created>
+      <changelist id="da508a22-6e03-4d22-8555-592e886bb181" name="Default Changelist" comment="" />
+      <created>1580810506969</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1580307700875</updated>
+      <updated>1580810506969</updated>
     </task>
     <servers />
   </component>

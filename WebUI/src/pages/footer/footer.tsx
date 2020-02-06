@@ -14,6 +14,7 @@ const styles = (theme: Theme) =>
         justifyContent: "center",
         alignItems:"center",
         color:CustomColors.purple,
+        minHeight:50,
         fontFamily:"Roboto",
         marginTop:"20px",
         fontSize:"20px"
