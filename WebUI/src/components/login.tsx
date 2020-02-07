@@ -177,9 +177,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       <CssBaseline/>
       <div className={css.root}>
         <Paper>
-          <div className={css.logoContainer}>
-            <img src={LocalImages.images('./stikker.png')} />
-          </div>
           <div className={css.loginContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
             <div>

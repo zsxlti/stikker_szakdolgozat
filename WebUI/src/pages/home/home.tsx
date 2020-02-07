@@ -13,9 +13,8 @@ import { WebAPI } from "./../../services/webAPI";
 import { Validation } from "./../../validators";
 import FooterComponent from "../footer/footer";
 import "typeface-roboto";
-import { Enumerable } from "linq-es5/lib/enumerable";
-import { Routes } from "./../../routing/urls";
-import LoginComponent from "src/components/login";
+import LoginComponent from "./../../components/login";
+import RegisterComponent from "src/components/register";
 
 const styles = (theme: Theme) =>
   createStyles
