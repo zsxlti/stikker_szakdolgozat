@@ -15,6 +15,7 @@ import FooterComponent from "../footer/footer";
 import "typeface-roboto";
 import { Enumerable } from "linq-es5/lib/enumerable";
 import { Routes } from "./../../routing/urls";
+import LoginComponent from "src/components/login";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -103,6 +104,8 @@ interface IState {
   email: string;
   password: string;
   birthday: Date;
+  statusText: string;
+  isRegistered: boolean;
 }
 
 interface IProps { }
@@ -119,7 +122,9 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       name: "",
       email: "",
       password: "",
-      birthday: new Date()
+      birthday: new Date(),
+      statusText: "Van már fiókja?",
+      isRegistered : true
     }
   }
 
@@ -166,7 +171,11 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     storage.write(StorageKeys.JWT, token);
   }
   LoginNavigate = () => {
-    this.props.history.push(Routes.Login);
+    this.setState({
+      ...this.state,
+      isRegistered : !this.state.isRegistered,
+      statusText :this.state.isRegistered ? "Van már fiókja?" : "Jelentkezzen be"
+    })
   }
   render() {
     const css = this.props.classes;
@@ -178,6 +187,10 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         Regisztráció
       </Button>
 
+      const form: JSX.Element = this.state.isRegistered ?
+                                <LoginComponent /> :
+                                <RegisterComponent />
+
     const Body = () =>
       <React.Fragment>
         <CssBaseline />
@@ -186,7 +199,8 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             <div className={css.logoContainer}>
               <img src={LocalImages.images("./stikker.png")} />
             </div>
-            <form className={css.registerContainer}>
+            {form}
+            <div className={css.registerContainer}>
               <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
               <div>
                 <TextField InputProps={{
@@ -263,13 +277,13 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 {registerButton}
                 <Grid container className={css.grid}>
                   <Grid item xs>
-                    <Link className={css.link} href=""/*{Routes.Login}*/ variant="body2" onClick={this.LoginNavigate}>
-                      Van már fiókja?
-                     </Link>
+                    <p onClick={this.LoginNavigate}>
+                      {this.state.statusText}
+                     </p>
                   </Grid>
                 </Grid>
               </div>
-            </form>
+            </div>
             <div className={css.bottom}>
               <FooterComponent />
             </div>

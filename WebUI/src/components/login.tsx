@@ -170,6 +170,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       <Button variant="contained" disabled className={css.submit}>
         Bejelentkezés
       </Button>
+    
 
     const Body = () =>
     <React.Fragment>
@@ -179,7 +180,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
           <div className={css.logoContainer}>
             <img src={LocalImages.images('./stikker.png')} />
           </div>
-          <form className={css.loginContainer}>
+          <div className={css.loginContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
             <div>
               <TextField InputProps={{
@@ -223,18 +224,18 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
               {loginButton}
               <Grid container className={css.grid}>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <p>
                     Elfelejtett jelszó
-              </Link>
+              </p>
                 </Grid>
                 <Grid item>
-                  <Link className={css.link} href=""/*{Routes.Home}*/ variant="body2">
-                    {"Még nem regisztrált?"}
-                  </Link>
+                  <p onClick={}>
+                    "Még nem regisztrált?
+                  </p>
                 </Grid>
               </Grid>
             </div>
-          </form>
+          </div>
           <div className={css.bottom}>
           <FooterComponent />
           </div>
