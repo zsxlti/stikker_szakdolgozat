@@ -13,6 +13,7 @@ import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
 import "typeface-roboto";
 import LoginComponent from "../components/login";
+import FooterComponent from "./../pages/footer/footer";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -113,7 +114,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       password: "",
       birthday: new Date(),
       statusText: "Van már fiókja?",
-      isRegistered : true
+      isRegistered: true
     }
   }
 
@@ -159,11 +160,12 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
   }
+
   LoginNavigate = () => {
     this.setState({
       ...this.state,
-      isRegistered : !this.state.isRegistered,
-      statusText :this.state.isRegistered ? "Van már fiókja?" : "Jelentkezzen be"
+      isRegistered: !this.state.isRegistered,
+      statusText: this.state.isRegistered ? "Van már fiókja?" : "Jelentkezzen be"
     })
   }
   render() {
@@ -180,95 +182,83 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       <React.Fragment>
         <CssBaseline />
         <div className={css.root}>
-          <Paper>
-            <div className={css.registerContainer}>
-              <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
-              <div>
-                <TextField InputProps={{
-                  classes: {
-                    notchedOutline: css.textField,
-                    input: css.inputColor
-                  }
+          <div className={css.registerContainer}>
+            <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
+            <div>
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
                 }
+              }
+              }
+                variant="outlined"
+                margin="normal"
+                id="name"
+                label="Név"
+                name="name"
+                autoComplete="name"
+                autoFocus
+                required
+                className={css.textField}
+                onChange={this.onTextChanged} />
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
                 }
-                  variant="outlined"
-                  margin="normal"
-                  id="name"
-                  label="Név"
-                  name="name"
-                  autoComplete="name"
-                  autoFocus
-                  required
-                  className={css.textField}
-                  onChange={this.onTextChanged} />
-                <TextField InputProps={{
-                  classes: {
-                    notchedOutline: css.textField,
-                    input: css.inputColor
-                  }
+              }
+              }
+                variant="outlined"
+                margin="normal"
+                id="email"
+                label="E-mail cím"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                required
+                className={css.textField}
+                onChange={this.onTextChanged} />
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
                 }
+              }
+              }
+                variant="outlined"
+                margin="normal"
+                id="password"
+                label="Jelszó"
+                name="password"
+                autoComplete="password"
+                autoFocus
+                type="password"
+                required
+                className={css.textField}
+                onChange={this.onTextChanged} />
+              <TextField InputProps={{
+                classes: {
+                  notchedOutline: css.textField,
+                  input: css.inputColor
                 }
-                  variant="outlined"
-                  margin="normal"
-                  id="email"
-                  label="E-mail cím"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                  required
-                  className={css.textField}
-                  onChange={this.onTextChanged} />
-                <TextField InputProps={{
-                  classes: {
-                    notchedOutline: css.textField,
-                    input: css.inputColor
-                  }
-                }
-                }
-                  variant="outlined"
-                  margin="normal"
-                  id="password"
-                  label="Jelszó"
-                  name="password"
-                  autoComplete="password"
-                  autoFocus
-                  type="password"
-                  required
-                  className={css.textField}
-                  onChange={this.onTextChanged} />
-                <TextField InputProps={{
-                  classes: {
-                    notchedOutline: css.textField,
-                    input: css.inputColor
-                  }
-                }
-                }
-                  id="date"
-                  label="Születési dátum"
-                  type="date"
-                  variant="outlined"
-                  margin="normal"
-                  autoFocus
-                  required
-                  className={css.textField}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                {registerButton}
-                <Grid container className={css.grid}>
-                  <Grid item xs>
-                    <p onClick={this.LoginNavigate}>
-                      {this.state.statusText}
-                     </p>
-                  </Grid>
-                </Grid>
-              </div>
+              }
+              }
+                id="date"
+                label="Születési dátum"
+                type="date"
+                variant="outlined"
+                margin="normal"
+                autoFocus
+                required
+                className={css.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              {registerButton}
             </div>
-            <div className={css.bottom}>
-              <FooterComponent />
-            </div>
-          </Paper>
+          </div>
         </div>
       </React.Fragment>
     return Body();

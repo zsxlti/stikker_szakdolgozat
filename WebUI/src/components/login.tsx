@@ -52,26 +52,26 @@ const styles = (theme: Theme) =>
       },
       bottom:
       {
-      minHeight: 215,
-      margin: 10,
-      fontSize: 50,
-      color: CustomColors.purple,
-      backgroundColor: CustomColors.gold,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
+        minHeight: 215,
+        margin: 10,
+        fontSize: 50,
+        color: CustomColors.purple,
+        backgroundColor: CustomColors.gold,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
       },
       typography:
       {
         color: CustomColors.purple + "!important",
         fontSize: "30px",
         fontFamily: "Roboto",
-        alignItems:"center",
-        justifyContent:"center",
+        alignItems: "center",
+        justifyContent: "center",
       },
       textField:
       {
-        borderWidth:2,
+        borderWidth: 2,
         borderColor: CustomColors.purple + "!important",
         fontFamily: "Roboto",
         width: "100%"
@@ -93,10 +93,10 @@ const styles = (theme: Theme) =>
         color: CustomColors.purple,
         fontFamily: "Roboto",
       },
-      link:{
-        color:CustomColors.purple,
-        fontSize:"16px"
-       }
+      link: {
+        color: CustomColors.purple,
+        fontSize: "16px"
+      }
     });
 interface IState {
   email: string;
@@ -115,7 +115,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     this.state =
     {
       email: "",
-      password: ""
+      password: "",
     }
   }
 
@@ -128,8 +128,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       //TODO: navigate to  page
     }
   }
-
-
 
   isFormFilled = (): boolean => {
     return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email)
@@ -158,7 +156,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
     this.props.history.push(Routes.Home);
-    //TODO: navigate to  page
+
   }
   render() {
     const css = this.props.classes;
@@ -170,13 +168,12 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       <Button variant="contained" disabled className={css.submit}>
         Bejelentkezés
       </Button>
-    
+
 
     const Body = () =>
-    <React.Fragment>
-      <CssBaseline/>
-      <div className={css.root}>
-        <Paper>
+      <React.Fragment>
+        <CssBaseline />
+        <div className={css.root}>
           <div className={css.loginContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
             <div>
@@ -218,26 +215,15 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 control={<Checkbox value="remember" />}
                 label="Emlékezz rám"
               />
-              {loginButton}
-              <Grid container className={css.grid}>
-                <Grid item xs>
-                  <p>
-                    Elfelejtett jelszó
+            </div>
+            {loginButton}
+            <div className={css.grid}>
+              <p>
+                Elfelejtett jelszó
               </p>
-                </Grid>
-                <Grid item>
-                  <p onClick={}>
-                    "Még nem regisztrált?
-                  </p>
-                </Grid>
-              </Grid>
             </div>
           </div>
-          <div className={css.bottom}>
-          <FooterComponent />
-          </div>
-        </Paper>
-      </div>
+        </div>
       </React.Fragment>
     return Body();
   }
