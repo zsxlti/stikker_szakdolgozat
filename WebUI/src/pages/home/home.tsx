@@ -15,6 +15,7 @@ import FooterComponent from "../footer/footer";
 import "typeface-roboto";
 import LoginComponent from "./../../components/login";
 import RegisterComponent from "./../../components/register";
+import HeaderComponent from "../header/header";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -87,18 +88,19 @@ const styles = (theme: Theme) =>
         marginTop: "10px",
         marginBottom: "10px"
       },
-      grid: {
+      statusText: {
+        display:"flex",
+        flexGrow:1,
+        flexDirection:"row",
         color: CustomColors.purple,
         fontFamily: "Roboto",
-      },
-      link: {
-        color: CustomColors.purple + "!important",
-        fontSize: "16px",
+        justifyContent: "center",
+        alignItems:"center",
+        alignContent:"center"
       }
     });
 
 interface IState {
-  //name : "login" | "register";
   name: string;
   email: string;
   password: string;
@@ -137,58 +139,24 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
   }
 
+  
 
-
-  isFormFilled = (): boolean => {
-    return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email) && this.state.name.length > 0
-  }
-
-  onTextChanged = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault();
-    this.setState
-      ({
-        [e.target.name]: e.target.value
-      });
-  }
-
-  onClickHandler = async (): Promise<void> => {
-    const data: RegisterRequest =
-    {
-      Email: this.state.email,
-      Password: this.state.password,
-      Name: this.state.name,
-      BirthDate: this.state.birthday
-    };
-
-    console.log(data);
-    const token = await WebAPI.Security.login(data).then(x => x.Token)
-      .catch();
-    if (!token) {
-      return;
-    }
-    const storage: StorageService = new StorageService();
-    storage.write(StorageKeys.JWT, token);
-  }
-  LoginNavigate = () => {
+  navigate = () => {
     this.setState({
       ...this.state,
       isRegistered: !this.state.isRegistered,
-      statusText: this.state.isRegistered ? "Van már fiókja?" : "Még nem regisztrált?"
+      statusText: this.state.isRegistered ? "Még nem regisztrált?" : "Van már fiókja?"
     })
   }
+
+
   render() {
     const css = this.props.classes;
-    const registerButton = this.isFormFilled() ?
-      <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onClickHandler}>
-        Regisztráció
-      </Button> :
-      <Button variant="contained" disabled className={css.submit}>
-        Regisztráció
-      </Button>
+   
 
     const form: JSX.Element = this.state.isRegistered ?
-      <LoginComponent /> :
-      <RegisterComponent />
+      <RegisterComponent{...this.props} /> :
+      <LoginComponent{...this.props} />
 
     const Body = () =>
       <React.Fragment>
@@ -199,18 +167,16 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
               <img src={LocalImages.images("./stikker.png")} />
             </div>
             {form}
-            <Grid container className={css.grid}>
-              <Grid item xs>
-                <p onClick={this.LoginNavigate}>
+
+            <div className={css.statusText} onClick={this.navigate}>
                   {this.state.statusText}
-                </p>
-              </Grid>
-            </Grid>
+                </div>
             <div className={css.bottom}>
               <FooterComponent />
             </div>
           </Paper>
         </div>
+        <HeaderComponent/>
       </React.Fragment>
     return Body();
   }

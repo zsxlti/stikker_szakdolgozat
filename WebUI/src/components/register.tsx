@@ -83,10 +83,7 @@ const styles = (theme: Theme) =>
         color: CustomColors.purple,
         fontFamily: "Roboto",
       },
-      link: {
-        color: CustomColors.purple + "!important",
-        fontSize: "16px",
-      }
+      
     });
 
 interface IState {
@@ -131,7 +128,8 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
 
   isFormFilled = (): boolean => {
-    return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email) && this.state.name.length > 0
+    return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email) && this.state.name.length > 0 
+    //TODO: ellenorizni hogy kitoltotte e && this.state.birthday.getDate != null
   }
 
   onTextChanged = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -142,7 +140,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       });
   }
 
-  onClickHandler = async (): Promise<void> => {
+  onRegisterClickHandler = async (): Promise<void> => {
     const data: RegisterRequest =
     {
       Email: this.state.email,
@@ -152,26 +150,21 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     };
 
     console.log(data);
-    const token = await WebAPI.Security.login(data).then(x => x.Token)
+    const token = await WebAPI.Security.register(data).then(x => x.Token)
       .catch();
     if (!token) {
       return;
     }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
+    
   }
 
-  LoginNavigate = () => {
-    this.setState({
-      ...this.state,
-      isRegistered: !this.state.isRegistered,
-      statusText: this.state.isRegistered ? "Van már fiókja?" : "Jelentkezzen be"
-    })
-  }
+  
   render() {
     const css = this.props.classes;
     const registerButton = this.isFormFilled() ?
-      <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onClickHandler}>
+      <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onRegisterClickHandler}>
         Regisztráció
       </Button> :
       <Button variant="contained" disabled className={css.submit}>
@@ -198,7 +191,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 label="Név"
                 name="name"
                 autoComplete="name"
-                autoFocus
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
@@ -215,7 +207,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 label="E-mail cím"
                 name="email"
                 autoComplete="email"
-                autoFocus
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
@@ -232,7 +223,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 label="Jelszó"
                 name="password"
                 autoComplete="password"
-                autoFocus
                 type="password"
                 required
                 className={css.textField}
@@ -249,7 +239,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 type="date"
                 variant="outlined"
                 margin="normal"
-                autoFocus
                 required
                 className={css.textField}
                 InputLabelProps={{

@@ -75,7 +75,6 @@ const styles = (theme: Theme) =>
         borderColor: CustomColors.purple + "!important",
         fontFamily: "Roboto",
         width: "100%"
-
       },
       inputColor: {
         color: CustomColors.purple + "!important",
@@ -90,13 +89,14 @@ const styles = (theme: Theme) =>
         marginBottom: "10px"
       },
       grid: {
+        display:"flex",
+        flexGrow:1,
+        flexDirection:"row",
         color: CustomColors.purple,
         fontFamily: "Roboto",
+        alignContent:"left"
       },
-      link: {
-        color: CustomColors.purple,
-        fontSize: "16px"
-      }
+      
     });
 interface IState {
   email: string;
@@ -155,7 +155,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
-    this.props.history.push(Routes.Home);
 
   }
   render() {
@@ -190,7 +189,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 label="E-mail cím"
                 name="email"
                 autoComplete="email"
-                autoFocus
+                
                 className={css.textField}
                 onChange={this.onTextChanged} />
               <TextField InputProps={{
@@ -206,11 +205,9 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 label="Jelszó"
                 name="password"
                 autoComplete="password"
-                autoFocus
                 type="password"
                 className={css.textField}
                 onChange={this.onTextChanged} />
-
               <FormControlLabel className={css.inputColor}
                 control={<Checkbox value="remember" />}
                 label="Emlékezz rám"
@@ -218,9 +215,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
             </div>
             {loginButton}
             <div className={css.grid}>
-              <p>
                 Elfelejtett jelszó
-              </p>
             </div>
           </div>
         </div>
