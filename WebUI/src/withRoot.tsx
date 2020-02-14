@@ -64,7 +64,7 @@ const defaultTheme = createMuiTheme
     // Use the system font instead of the default Roboto font.
     fontFamily:
     [
-      "Maven Pro"
+      "Roboto"
     ].join(",")
   },
   breakpoints: {

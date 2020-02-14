@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="179dc6c0-c8a3-4b23-9ea0-896c30c25646" name="Default Changelist" comment="">
+    <list default="true" id="c536d0f5-37ae-411a-a183-c981b952601e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +20,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1Xek5QfnYpu5i4PxkdGKPCML6jG" />
+  <component name="ProjectId" id="1XnQlWoiOsWW30i3QZ1my3iZbf5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -39,11 +39,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="179dc6c0-c8a3-4b23-9ea0-896c30c25646" name="Default Changelist" comment="" />
-      <created>1581413763847</created>
+      <changelist id="c536d0f5-37ae-411a-a183-c981b952601e" name="Default Changelist" comment="" />
+      <created>1581679529264</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581413763847</updated>
+      <updated>1581679529264</updated>
     </task>
     <servers />
   </component>
@@ -52,9 +52,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

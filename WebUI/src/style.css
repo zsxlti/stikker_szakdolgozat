@@ -1,4 +1,4 @@
-@font-face 
+{/*@font-face 
 {
   font-family: 'Maven Pro';
   src: url('./fonts/MavenPro-Bold.woff2') format('woff2'),
@@ -36,7 +36,7 @@
        url('./fonts/MavenPro-Medium.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
-}
+}*/}
 
 
 @supports not (-webkit-overflow-scrolling: touch) {

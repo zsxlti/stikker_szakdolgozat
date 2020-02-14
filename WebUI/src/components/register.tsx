@@ -6,14 +6,14 @@ import { StorageService } from "./../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
 import withRoot from "./../withRoot";
 import { CustomColors } from "./../style/colors";
-import { LocalImages } from "./../staticFiles/images";
 import { StorageKeys } from "./../settings/constans";
 import { RegisterRequest, TokenResponse } from "./../services/client/securityService";
 import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
 import "typeface-roboto";
-import LoginComponent from "../components/login";
-import FooterComponent from "./../pages/footer/footer";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const styles = (theme: Theme) =>
   createStyles
@@ -83,7 +83,14 @@ const styles = (theme: Theme) =>
         color: CustomColors.purple,
         fontFamily: "Roboto",
       },
-      
+      datePicker:
+      {
+        padding:"10px",
+        fontSize: "20px",
+        color: CustomColors.purple,
+        backgroundColor: CustomColors.gold,
+        border:"2px solid"
+      }
     });
 
 interface IState {
@@ -128,8 +135,11 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
 
   isFormFilled = (): boolean => {
-    return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email) && this.state.name.length > 0 
-    //TODO: ellenorizni hogy kitoltotte e && this.state.birthday.getDate != null
+    return this.state.email.length > 0 &&
+      this.state.password.length > 0 &&
+      Validation.IsEmail(this.state.email) &&
+      this.state.name.length > 0 &&
+      (this.state.birthday !== undefined || this.state.birthday !== null)
   }
 
   onTextChanged = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -157,10 +167,19 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
-    
   }
 
-  
+  changeHandler = async (date: Date, event: React.SyntheticEvent<any, Event>): Promise<void> => {
+    await this.setState
+      ({
+        ...this.state,
+        birthday: date
+      });
+
+  }
+
+
+
   render() {
     const css = this.props.classes;
     const registerButton = this.isFormFilled() ?
@@ -227,23 +246,14 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
-              <TextField InputProps={{
-                classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
-                }
-              }
-              }
-                id="date"
-                label="Születési dátum"
-                type="date"
-                variant="outlined"
-                margin="normal"
+              <DatePicker
+                className={css.datePicker}
+                todayButton={'Today'}
+                selected={this.state.birthday}
+                onChange={this.changeHandler}
+                name="birthdayComponent"
                 required
-                className={css.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
+                minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               />
               {registerButton}
             </div>
