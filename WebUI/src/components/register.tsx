@@ -5,7 +5,6 @@ import { AppStore } from "./../lib/appStore";
 import { StorageService } from "./../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
 import withRoot from "./../withRoot";
-import { CustomColors } from "./../style/colors";
 import { StorageKeys } from "./../settings/constans";
 import { RegisterRequest, TokenResponse } from "./../services/client/securityService";
 import { WebAPI } from "./../services/webAPI";
@@ -25,8 +24,8 @@ const styles = (theme: Theme) =>
           flexGrow: 1,
           flexDirection: "column",
           alignItems: "center",
-          backgroundColor: CustomColors.gold,
-          color: CustomColors.purple,
+          backgroundColor: theme.palette.secondary.main,
+          color: theme.palette.primary.main,
           justifyContent: "center",
         }
       },
@@ -38,7 +37,7 @@ const styles = (theme: Theme) =>
         flexDirection: "column",
         maxWidth: "40%",
         fontFamily: "Roboto",
-        color: CustomColors.purple + "!important",
+        color: theme.palette.primary.main + "!important",
         margin: "auto"
       },
       bottom:
@@ -46,15 +45,15 @@ const styles = (theme: Theme) =>
         minHeight: 100,
         padding: 10,
         fontSize: 50,
-        color: CustomColors.purple,
-        backgroundColor: CustomColors.gold,
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
       },
       typography:
       {
-        color: CustomColors.purple + "!important",
+        color: theme.palette.primary.main + "!important",
         fontSize: "30px",
         fontFamily: "Roboto",
         alignItems: "center",
@@ -63,32 +62,32 @@ const styles = (theme: Theme) =>
       textField:
       {
         borderWidth: 2,
-        borderColor: CustomColors.purple + "!important",
+        borderColor: theme.palette.primary.main + "!important",
         fontFamily: "Roboto",
         width: "100%"
       },
       inputColor: {
-        color: CustomColors.purple + "!important",
+        color: theme.palette.primary.main + "!important",
         fontFamily: "Roboto",
       },
       submit: {
-        backgroundColor: CustomColors.purple + "!important",
-        color: CustomColors.gold,
+        backgroundColor: theme.palette.primary.main + "!important",
+        color: theme.palette.secondary.main,
         fontFamily: "Roboto",
         width: "100%",
         marginTop: "10px",
         marginBottom: "10px"
       },
       grid: {
-        color: CustomColors.purple,
+        color: theme.palette.primary.main,
         fontFamily: "Roboto",
       },
       datePicker:
       {
         padding: "10px",
         fontSize: "20px",
-        color: CustomColors.purple,
-        backgroundColor: CustomColors.gold,
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
         border: "2px solid"
       }
     });

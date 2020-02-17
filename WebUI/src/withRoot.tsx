@@ -16,16 +16,12 @@ const defaultTheme = createMuiTheme
     },
     primary:
     {
-      light: "#7986cb",
-      main: "rgb(103, 170, 209)",
-      dark: "#303f9f",
+      main: "#552583",
       contrastText: "#fff"
     },
     secondary:
     {
-      light: "#ff4081",
-      main: "rgba(231, 10, 10, 1)",
-      dark: "#c51162",
+      main: "#FDB927",
       contrastText: "#fff"
     },
     error:

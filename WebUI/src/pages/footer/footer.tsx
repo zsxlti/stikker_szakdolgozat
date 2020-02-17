@@ -1,7 +1,6 @@
 import * as React from "react";
 import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import withRoot from "./../../withRoot";
-import { CustomColors } from "./../../style/colors";
 import 'typeface-roboto';
 
 const styles = (theme: Theme) =>
@@ -13,7 +12,7 @@ const styles = (theme: Theme) =>
         flexGrow: 1,
         justifyContent: "center",
         alignItems:"center",
-        color:CustomColors.purple,
+        color:theme.palette.primary.main,
         minHeight:50,
         fontFamily:"Roboto",
         marginTop:"20px",

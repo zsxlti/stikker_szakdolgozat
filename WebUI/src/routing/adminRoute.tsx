@@ -12,7 +12,7 @@ usege: <ProtectedRoute {...defaultProtectedRouteProps} exact={true} path="/" com
 use it in route.tsx
 */
 
-export function AdmindRoute(props: ProtectedRouteProps)
+export function AdminRoute(props: ProtectedRouteProps)
 {
     const location = useLocation();
     if (props.path !== location.pathname)

@@ -1,12 +1,15 @@
 import * as React from "react";
 import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import withRoot from "./../../withRoot";
-import { CustomColors } from "./../../style/colors";
 import 'typeface-roboto';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { StorageService } from "./../../services/client/storage.service";
+import { StorageKeys } from "./../../settings/constans";
+import { Routes } from "./../../routing/urls";
+import { RouteComponentProps } from "react-router";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -16,27 +19,45 @@ const styles = (theme: Theme) =>
                 display: "flex",
                 flexGrow: 1,
             },
-            appbar:{
-                backgroundColor:CustomColors.purple+ "!important",
+            appbar: {
+                backgroundColor: theme.palette.primary.main + "!important",
             },
             title: {
                 flexGrow: 1,
-                backgroundColor:CustomColors.purple,
-                color:CustomColors.gold,
-                fontStyle:"Roboto !important"
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.secondary.main,
+                fontStyle: "Roboto !important"
             },
-            button:{
-                color:CustomColors.gold,
+            button: {
+                color: theme.palette.secondary.main,
             }
         });
 
 interface IState {
+    isLoggedIn: boolean;
+    loginStateText: string;
 }
 
 interface IProps { }
 
-class Header extends React.Component<IProps & WithStyles<typeof styles>, IState>
+class Header extends React.Component<IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState>
 {
+    constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
+        super(props);
+
+        this.state = {
+            isLoggedIn: true,
+            loginStateText: "Kijelentkezés",
+        }
+    }
+
+    logoutClickHandler = (): void => {
+        const storage: StorageService = new StorageService();
+        storage.remove(StorageKeys.JWT);
+
+        this.props.history.push(Routes.Home);
+    }
+
     render() {
         const css = this.props.classes;
         const Body = () =>
@@ -46,7 +67,7 @@ class Header extends React.Component<IProps & WithStyles<typeof styles>, IState>
                         <Typography variant="h6" className={css.title}>
                             Matricák
                         </Typography>
-                        <Button className={css.button}>Logout</Button>
+                        <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
                     </Toolbar>
                 </AppBar>
             </div>
