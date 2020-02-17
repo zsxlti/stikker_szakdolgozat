@@ -89,14 +89,14 @@ const styles = (theme: Theme) =>
         marginBottom: "10px"
       },
       grid: {
-        display:"flex",
-        flexGrow:1,
-        flexDirection:"row",
+        display: "flex",
+        flexGrow: 1,
+        flexDirection: "row",
         color: CustomColors.purple,
         fontFamily: "Roboto",
-        alignContent:"left"
+        alignContent: "left"
       },
-      
+
     });
 interface IState {
   email: string;
@@ -125,7 +125,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
 
     if (token) {
-      //TODO: navigate to  page
+      //TODO: navigate to home page
     }
   }
 
@@ -148,13 +148,13 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       email: this.state.email,
       password: this.state.password
     };
-    const token = await WebAPI.Security.login(data).then(x => x.Token)
+    const token = await WebAPI.Security.login(data)
+      .then(x => x)
       .catch();
-    if (!token) {
-      return;
+    if (token) {
+      WebAPI.setToken(token.Token!)
+      //TODO: navigate to..
     }
-    const storage: StorageService = new StorageService();
-    storage.write(StorageKeys.JWT, token);
 
   }
   render() {
@@ -189,7 +189,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 label="E-mail cím"
                 name="email"
                 autoComplete="email"
-                
+
                 className={css.textField}
                 onChange={this.onTextChanged} />
               <TextField InputProps={{
@@ -215,7 +215,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
             </div>
             {loginButton}
             <div className={css.grid}>
-                Elfelejtett jelszó
+              Elfelejtett jelszó
             </div>
           </div>
         </div>

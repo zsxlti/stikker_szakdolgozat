@@ -1,52 +1,34 @@
 import * as React from "react";
-import { Redirect, Route, RouteProps } from "react-router";
-import { StorageService } from "./../services/client/storage.service";
-import { StorageKeys } from "../settings/constans";
+import { useLocation } from "react-router-dom";
+import { Redirect, Route } from "react-router";
 
-export interface ProtectedRouteProps extends RouteProps
-{
-    authenticationPath: string;
-}
+import { StorageService } from "./../services/client/storage.service";
+import { StorageKeys } from "./../settings/constans";
+import { ProtectedRouteProps } from "./protectedRouteProps";
 
 /*
-usege: <ProtectedRoute {...defaultProtectedRouteProps} exact={true} path="/" component = { ProtectedContainer } />
+usage: <ProtectedRoute {...defaultProtectedRouteProps} exact={true} path="/" component = { ProtectedContainer } />
 use it in route.tsx
 */
 
-export class ProtectedRoute extends Route<ProtectedRouteProps>
+export function ProtectedRoute(props: ProtectedRouteProps)
 {
-    public render()
+    const location = useLocation();
+    if (props.path !== location.pathname)
     {
-        let redirectPath: string = "";
-
-        const isAuthenticated = this.isAuthenticated()
-
-        if (isAuthenticated)
-        {
-            redirectPath = this.props.authenticationPath;
-        }
-
-        if (redirectPath)
-        {
-            const renderComponent = () => (<Redirect to={{ pathname: redirectPath }}/>);
-            return <Route {...this.props} component={ renderComponent } render={undefined}/>;
-        }
-        else
-        {
-            return <Route {...this.props}/>;
-        }
+        return null;
     }
 
-    private getToken() : string | undefined
+    const getToken = (): string | undefined =>
     {
         const storageService: StorageService = new StorageService();
 
-        return storageService.read(StorageKeys.JWT);
+        return storageService.read<string>(StorageKeys.JWT);
     }
 
-    private isAuthenticated = () : boolean =>
+    const isAuthenticated = (): boolean =>
     {
-        const token: string | undefined = this.getToken();
+        const token: string | undefined = getToken();
 
         if (token === undefined || token === null)
         {
@@ -54,5 +36,14 @@ export class ProtectedRoute extends Route<ProtectedRouteProps>
         }
 
         return true;
+    }
+
+    if (!isAuthenticated())
+    {
+        return <Redirect to={{ pathname: props.authenticationPath }}/>;
+    }
+    else
+    {
+        return <Route {...props}/>;
     }
 }

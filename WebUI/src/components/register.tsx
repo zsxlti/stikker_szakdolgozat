@@ -85,11 +85,11 @@ const styles = (theme: Theme) =>
       },
       datePicker:
       {
-        padding:"10px",
+        padding: "10px",
         fontSize: "20px",
         color: CustomColors.purple,
         backgroundColor: CustomColors.gold,
-        border:"2px solid"
+        border: "2px solid"
       }
     });
 
@@ -175,10 +175,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
         ...this.state,
         birthday: date
       });
-
   }
-
-
 
   render() {
     const css = this.props.classes;

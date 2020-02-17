@@ -37,4 +37,10 @@ export module WebAPI
         const token: string | undefined = storageService.read<string>(StorageKeys.JWT);
         return token;
     }
+
+    export function setToken(value: string)
+	{
+        storageService.write(StorageKeys.JWT, value);
+        proxy.bearerToken = value;
+    }
 }
