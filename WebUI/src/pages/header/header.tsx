@@ -10,6 +10,7 @@ import { StorageService } from "./../../services/client/storage.service";
 import { StorageKeys } from "./../../settings/constans";
 import { Routes } from "./../../routing/urls";
 import { RouteComponentProps } from "react-router";
+import { LocalImages } from "./../../staticFiles/images";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -18,6 +19,13 @@ const styles = (theme: Theme) =>
             {
                 display: "flex",
                 flexGrow: 1,
+            },
+            logoContainer:
+            {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "30px",
             },
             appbar: {
                 backgroundColor: theme.palette.primary.main + "!important",
@@ -62,8 +70,12 @@ class Header extends React.Component<IProps & WithStyles<typeof styles> & RouteC
         const css = this.props.classes;
         const Body = () =>
             <div className={css.container}>
+                
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
+                    
+              <img src={LocalImages.images("./stikker_menu.png")}  className={css.logoContainer} />
+            
                         <Typography variant="h6" className={css.title}>
                             Matricák
                         </Typography>

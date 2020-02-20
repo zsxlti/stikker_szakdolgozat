@@ -9,7 +9,8 @@ import { StorageKeys } from "./../settings/constans";
 import { LoginRequest } from "./../services/client/securityService";
 import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
-import 'typeface-roboto';
+import { Routes } from "./../routing/urls";
+
 
 
 
@@ -26,6 +27,7 @@ const styles = (theme: Theme) =>
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
+          
         }
       },
       logoContainer:
@@ -41,10 +43,10 @@ const styles = (theme: Theme) =>
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        maxWidth: "40%",
-        fontFamily: "Roboto",
+        width: "100%",
         color: theme.palette.primary.main + "!important",
-        margin: "auto"
+        margin: "auto",
+        minHeight:"59vh"
       },
       bottom:
       {
@@ -61,7 +63,6 @@ const styles = (theme: Theme) =>
       {
         color: theme.palette.primary.main + "!important",
         fontSize: "30px",
-        fontFamily: "Roboto",
         alignItems: "center",
         justifyContent: "center",
       },
@@ -69,18 +70,15 @@ const styles = (theme: Theme) =>
       {
         borderWidth: 2,
         borderColor: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
         width: "100%"
       },
       inputColor: {
         color: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
       },
       submit: {
         backgroundColor: theme.palette.primary.main + "!important",
         color: theme.palette.secondary.main,
-        fontFamily: "Roboto",
-        width: "100%",
+        minWidth: "60%",
         marginTop: "10px",
         marginBottom: "10px"
       },
@@ -89,7 +87,6 @@ const styles = (theme: Theme) =>
         flexGrow: 1,
         flexDirection: "row",
         color: theme.palette.primary.main,
-        fontFamily: "Roboto",
         alignContent: "left"
       },
 
@@ -121,7 +118,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
 
     if (token) {
-      //TODO: navigate to home page
+      this.props.history.push(Routes.Stickers);
     }
   }
 
@@ -149,7 +146,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       .catch();
     if (token) {
       WebAPI.setToken(token.Token!)
-      //TODO: navigate to..
+      this.props.history.push(Routes.Stickers);
     }
 
   }
@@ -204,12 +201,9 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 type="password"
                 className={css.textField}
                 onChange={this.onTextChanged} />
-              <FormControlLabel className={css.inputColor}
-                control={<Checkbox value="remember" />}
-                label="Emlékezz rám"
-              />
+                {loginButton}
             </div>
-            {loginButton}
+            
             <div className={css.grid}>
               Elfelejtett jelszó
             </div>

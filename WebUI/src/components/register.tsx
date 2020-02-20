@@ -9,10 +9,10 @@ import { StorageKeys } from "./../settings/constans";
 import { RegisterRequest, TokenResponse } from "./../services/client/securityService";
 import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
-import "typeface-roboto";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import DatePicker, { registerLocale } from "react-datepicker";
+import hu from "date-fns/locale/hu"; 
+registerLocale("hu", hu);
 
 const styles = (theme: Theme) =>
   createStyles
@@ -36,9 +36,9 @@ const styles = (theme: Theme) =>
         justifyContent: "center",
         flexDirection: "column",
         maxWidth: "40%",
-        fontFamily: "Roboto",
         color: theme.palette.primary.main + "!important",
-        margin: "auto"
+        margin: "auto",
+        minHeight:"59vh"
       },
       bottom:
       {
@@ -55,7 +55,6 @@ const styles = (theme: Theme) =>
       {
         color: theme.palette.primary.main + "!important",
         fontSize: "30px",
-        fontFamily: "Roboto",
         alignItems: "center",
         justifyContent: "center",
       },
@@ -63,24 +62,20 @@ const styles = (theme: Theme) =>
       {
         borderWidth: 2,
         borderColor: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
         width: "100%"
       },
       inputColor: {
         color: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
       },
       submit: {
         backgroundColor: theme.palette.primary.main + "!important",
         color: theme.palette.secondary.main,
-        fontFamily: "Roboto",
         width: "100%",
         marginTop: "10px",
         marginBottom: "10px"
       },
       grid: {
         color: theme.palette.primary.main,
-        fontFamily: "Roboto",
       },
       datePicker:
       {
@@ -88,7 +83,10 @@ const styles = (theme: Theme) =>
         fontSize: "20px",
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
-        border: "2px solid"
+        border: "2px solid",
+        borderRadius:"5px",
+        marginTop:"10px",
+        marginBottom:"10px"        
       }
     });
 
@@ -177,6 +175,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
   }
 
   render() {
+    
     const css = this.props.classes;
     const registerButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onRegisterClickHandler}>
@@ -244,12 +243,16 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 onChange={this.onTextChanged} />
               <DatePicker
                 className={css.datePicker}
-                todayButton={'Today'}
+                //todayButton={'Today'}
+                dateFormat="yyyy/MM/dd"
                 selected={this.state.birthday}
                 onChange={this.changeHandler}
+                locale="hu"
+                placeholderText="Születési dátum megadása"
                 name="birthdayComponent"
-                required
-                minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
+                
+                
+               // minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               />
               {registerButton}
             </div>

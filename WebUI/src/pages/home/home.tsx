@@ -8,10 +8,9 @@ import withRoot from "../../withRoot";
 import { LocalImages } from "./../../staticFiles/images";
 import { StorageKeys } from "./../../settings/constans";
 import FooterComponent from "../footer/footer";
-import "typeface-roboto";
 import LoginComponent from "./../../components/login";
 import RegisterComponent from "./../../components/register";
-import HeaderComponent from "../header/header";
+
 
 const styles = (theme: Theme) =>
   createStyles
@@ -42,7 +41,6 @@ const styles = (theme: Theme) =>
         justifyContent: "center",
         flexDirection: "column",
         maxWidth: "40%",
-        fontFamily: "Roboto",
         color: theme.palette.primary.main + "!important",
         margin: "auto"
       },
@@ -61,7 +59,6 @@ const styles = (theme: Theme) =>
       {
         color: theme.palette.primary.main + "!important",
         fontSize: "30px",
-        fontFamily: "Roboto",
         alignItems: "center",
         justifyContent: "center",
       },
@@ -69,17 +66,14 @@ const styles = (theme: Theme) =>
       {
         borderWidth: 2,
         borderColor: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
         width: "100%"
       },
       inputColor: {
         color: theme.palette.primary.main + "!important",
-        fontFamily: "Roboto",
       },
       submit: {
         backgroundColor: theme.palette.primary.main + "!important",
         color: theme.palette.secondary.main,
-        fontFamily: "Roboto",
         width: "100%",
         marginTop: "10px",
         marginBottom: "10px"
@@ -89,7 +83,6 @@ const styles = (theme: Theme) =>
         flexGrow:1,
         flexDirection:"row",
         color: theme.palette.primary.main,
-        fontFamily: "Roboto",
         justifyContent: "center",
         alignItems:"center",
         alignContent:"center"
@@ -168,7 +161,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
               <img src={LocalImages.images("./stikker.png")} />
             </div>
             {form}
-
             <div className={css.statusText} onClick={this.navigate}>
                   {this.state.statusText}
                 </div>
@@ -177,7 +169,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             </div>
           </Paper>
         </div>
-        <HeaderComponent/>
       </React.Fragment>
     return Body();
   }

@@ -2,6 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c536d0f5-37ae-411a-a183-c981b952601e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
