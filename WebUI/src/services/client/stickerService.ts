@@ -22,7 +22,7 @@ export class StickerService {
      * @param sticker sticker
      * @return OK
      */
-    create(sticker: StickerEntity): Promise<StickerEntity> {
+    stickerPost(sticker: StickerEntity): Promise<StickerEntity> {
         let url_ = this.baseUrl + "/api/sticker";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -38,11 +38,11 @@ export class StickerService {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.processCreate(_response);
+            return this.processStickerPost(_response);
         });
     }
 
-    protected processCreate(response: Response): Promise<StickerEntity> {
+    protected processStickerPost(response: Response): Promise<StickerEntity> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
@@ -74,24 +74,13 @@ export class StickerService {
         }
         return Promise.resolve<StickerEntity>(<any>null);
     }
-}
-
-export class StickerService {
-    private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> }) {
-        this.http = http ? http : <any>window;
-        this.baseUrl = baseUrl ? baseUrl : "localhost:8080/";
-    }
 
     /**
      * update
      * @param sticker sticker
      * @return OK
      */
-    1(sticker: StickerEntity): Promise<StickerEntity> {
+    stickerPut(sticker: StickerEntity): Promise<StickerEntity> {
         let url_ = this.baseUrl + "/api/sticker";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -107,11 +96,11 @@ export class StickerService {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.process1(_response);
+            return this.processStickerPut(_response);
         });
     }
 
-    protected process1(response: Response): Promise<StickerEntity> {
+    protected processStickerPut(response: Response): Promise<StickerEntity> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
@@ -143,23 +132,12 @@ export class StickerService {
         }
         return Promise.resolve<StickerEntity>(<any>null);
     }
-}
-
-export class StickerService {
-    private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> }) {
-        this.http = http ? http : <any>window;
-        this.baseUrl = baseUrl ? baseUrl : "localhost:8080/";
-    }
 
     /**
      * all
      * @return OK
      */
-    1(): Promise<StickerEntity[]> {
+    all(): Promise<StickerEntity[]> {
         let url_ = this.baseUrl + "/api/sticker/all";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -171,11 +149,11 @@ export class StickerService {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.process1(_response);
+            return this.processAll(_response);
         });
     }
 
-    protected process1(response: Response): Promise<StickerEntity[]> {
+    protected processAll(response: Response): Promise<StickerEntity[]> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
@@ -203,24 +181,13 @@ export class StickerService {
         }
         return Promise.resolve<StickerEntity[]>(<any>null);
     }
-}
-
-export class StickerService {
-    private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> }) {
-        this.http = http ? http : <any>window;
-        this.baseUrl = baseUrl ? baseUrl : "localhost:8080/";
-    }
 
     /**
      * getById
      * @param id id
      * @return OK
      */
-    1(id: number): Promise<StickerEntity> {
+    stickerGet(id: number): Promise<StickerEntity> {
         let url_ = this.baseUrl + "/api/sticker/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -235,11 +202,11 @@ export class StickerService {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.process1(_response);
+            return this.processStickerGet(_response);
         });
     }
 
-    protected process1(response: Response): Promise<StickerEntity> {
+    protected processStickerGet(response: Response): Promise<StickerEntity> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
@@ -267,24 +234,13 @@ export class StickerService {
         }
         return Promise.resolve<StickerEntity>(<any>null);
     }
-}
-
-export class StickerService {
-    private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
-
-    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> }) {
-        this.http = http ? http : <any>window;
-        this.baseUrl = baseUrl ? baseUrl : "localhost:8080/";
-    }
 
     /**
      * delete
      * @param id id
      * @return OK
      */
-    1(id: number): Promise<boolean> {
+    stickerDelete(id: number): Promise<boolean> {
         let url_ = this.baseUrl + "/api/sticker/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -299,11 +255,11 @@ export class StickerService {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.process1(_response);
+            return this.processStickerDelete(_response);
         });
     }
 
-    protected process1(response: Response): Promise<boolean> {
+    protected processStickerDelete(response: Response): Promise<boolean> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
