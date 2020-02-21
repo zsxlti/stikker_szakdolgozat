@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c536d0f5-37ae-411a-a183-c981b952601e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/settings/wrappers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/settings/wrappers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../swagger.nswag" beforeDir="false" afterPath="$PROJECT_DIR$/../swagger.nswag" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

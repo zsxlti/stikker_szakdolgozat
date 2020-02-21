@@ -1,4 +1,4 @@
-import { SecurityAPI, UserAPI } from "./settings/wrappers";
+import { SecurityAPI, UserAPI, StickerAPI } from "./settings/wrappers";
 import { baseURL } from "./settings/base.url";
 import { FetchProxy } from "./settings/fetch.proxy";
 import { StorageKeys } from "../settings/constans";
@@ -15,6 +15,7 @@ export module WebAPI
 
     export const Security: SecurityAPI = new SecurityAPI(baseURL, proxy);
     export const User: UserAPI = new UserAPI(baseURL, proxy);
+    export const Sticker: StickerAPI = new StickerAPI(baseURL, proxy);
 
     export function attachToConnectionCallback(callback: (res: Response) => void)
     {

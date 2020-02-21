@@ -21,6 +21,11 @@ const styles = (theme: Theme) =>
                     justifyContent: "center",
                 }
             },
+            content:{
+                display:"flex",
+                flexGrow:1,
+                flexDirection:"row"
+            }
         })
 interface IState {
 
@@ -46,13 +51,11 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
                 <div className={css.root}>
-                <Paper>
-                    
-                </Paper>
+                <div >
+
+                </div>
                 </div>
             </React.Fragment>
-
-
         return Body();
     }
 }

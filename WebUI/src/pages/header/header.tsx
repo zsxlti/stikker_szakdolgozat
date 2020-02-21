@@ -31,13 +31,15 @@ const styles = (theme: Theme) =>
                 backgroundColor: theme.palette.primary.main + "!important",
             },
             title: {
-                flexGrow: 1,
+                flexGrow:1,
+                marginRight:"10px",
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.secondary.main,
                 fontStyle: "Roboto !important"
             },
             button: {
                 color: theme.palette.secondary.main,
+                alignContent:"flex-end"
             }
         });
 
@@ -78,7 +80,7 @@ class Header extends React.Component<IProps & WithStyles<typeof styles> & RouteC
             
                         <Typography variant="h6" className={css.title}>
                             Matricák
-                        </Typography>
+                        </Typography>                        
                         <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
                     </Toolbar>
                 </AppBar>
