@@ -77,13 +77,13 @@ public class SwaggerConfiguration
                 .apiInfo(metaInfo());
     }
     @Bean
-    public Docket tradeAPI()
+    public Docket purchaseAPI()
     {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("tradeService")
+                .groupName("purchaseService")
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/api/trade/**"))
+                .paths(PathSelectors.ant("/api/purchase/**"))
                 .build().produces(Collections.singleton("application/json"))
                 .securitySchemes(new ArrayList<>(Arrays.asList(new ApiKey("Bearer %token", "Authorization", "Header"))))
                 .apiInfo(metaInfo());

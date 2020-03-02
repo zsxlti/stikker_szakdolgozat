@@ -2,20 +2,18 @@ package entity;
 
 import java.util.Date;
 
-public class TradeEntity {
+public class PurchaseEntity {
 
     public int Id;
-    public String sellerID;
     public String customerID;
     public int stickerID;
     public Date date;
 
-    public TradeEntity() {
+    public PurchaseEntity() {
     }
 
-    public TradeEntity(int id, String sellerID, String customerID, int stickerID, Date date) {
+    public PurchaseEntity(int id, String sellerID, String customerID, int stickerID, Date date) {
         Id = id;
-        this.sellerID = sellerID;
         this.customerID = customerID;
         this.stickerID = stickerID;
         this.date = date;
@@ -27,14 +25,6 @@ public class TradeEntity {
 
     public void setId(int id) {
         Id = id;
-    }
-
-    public String getSellerID() {
-        return sellerID;
-    }
-
-    public void setSellerID(String sellerID) {
-        this.sellerID = sellerID;
     }
 
     public String getCustomerID() {

@@ -1,4 +1,5 @@
-repository\TradeRepository.class
+repository\ItemRepository.class
+repository\PurchaseRepository.class
 repository\UserRepository.class
 common\DBConnection.class
 repository\StickerRepository.class

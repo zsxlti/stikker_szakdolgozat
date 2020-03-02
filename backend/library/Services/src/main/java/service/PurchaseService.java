@@ -1,28 +1,28 @@
 package service;
 
 import common.ServiceObjectResponse;
-import entity.TradeEntity;
+import entity.PurchaseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.ITradeRepository;
-import services.ITradeService;
+import repositories.IPurchaseRepository;
+import services.IPurchaseService;
 
 import java.util.List;
 
 @Service
-public class TradeService implements ITradeService {
+public class PurchaseService implements IPurchaseService {
 
     @Autowired
-    ITradeRepository _tradeRepository;
+    IPurchaseRepository _purchaseRepository;
 
     @Override
-    public ServiceObjectResponse<TradeEntity> create(TradeEntity trade)
+    public ServiceObjectResponse<PurchaseEntity> create(PurchaseEntity purchase)
     {
-        ServiceObjectResponse<TradeEntity> response = new ServiceObjectResponse<>();
+        ServiceObjectResponse<PurchaseEntity> response = new ServiceObjectResponse<>();
 
         try
         {
-            TradeEntity data = _tradeRepository.create(trade);
+            PurchaseEntity data = _purchaseRepository.create(purchase);
 
             response.setObject(data);
             response.setIsSuccess(true);
@@ -36,13 +36,13 @@ public class TradeService implements ITradeService {
         return response;
     }
     @Override
-    public ServiceObjectResponse<TradeEntity> update(TradeEntity trade)
+    public ServiceObjectResponse<PurchaseEntity> update(PurchaseEntity purchase)
     {
-        ServiceObjectResponse<TradeEntity> response = new ServiceObjectResponse<>();
+        ServiceObjectResponse<PurchaseEntity> response = new ServiceObjectResponse<>();
 
         try
         {
-            TradeEntity data = _tradeRepository.update(trade);
+            PurchaseEntity data = _purchaseRepository.update(purchase);
 
             response.setObject(data);
             response.setIsSuccess(true);
@@ -63,7 +63,7 @@ public class TradeService implements ITradeService {
 
         try
         {
-            boolean success = _tradeRepository.delete(id);
+            boolean success = _purchaseRepository.delete(id);
 
             if(!success)
             {
@@ -83,15 +83,15 @@ public class TradeService implements ITradeService {
     }
 
     @Override
-    public ServiceObjectResponse<List<TradeEntity>> getAll()
+    public ServiceObjectResponse<List<PurchaseEntity>> getAll()
     {
-        ServiceObjectResponse<List<TradeEntity>> response = new ServiceObjectResponse<>();
+        ServiceObjectResponse<List<PurchaseEntity>> response = new ServiceObjectResponse<>();
 
         try
         {
-            List<TradeEntity> trades = _tradeRepository.getAll();
+            List<PurchaseEntity> purchases = _purchaseRepository.getAll();
 
-            response.setObject(trades);
+            response.setObject(purchases);
             response.setIsSuccess(true);
             response.setMessage("No errors.");
         }
@@ -104,15 +104,15 @@ public class TradeService implements ITradeService {
         return response;
     }
     @Override
-    public ServiceObjectResponse<TradeEntity> getById(int id)
+    public ServiceObjectResponse<PurchaseEntity> getById(int id)
     {
-        ServiceObjectResponse<TradeEntity> response = new ServiceObjectResponse<>();
+        ServiceObjectResponse<PurchaseEntity> response = new ServiceObjectResponse<>();
 
         try
         {
-            TradeEntity trade = _tradeRepository.getById(id);
+            PurchaseEntity purchase = _purchaseRepository.getById(id);
 
-            response.setObject(trade);
+            response.setObject(purchase);
             response.setIsSuccess(true);
             response.setMessage("No errors.");
         }

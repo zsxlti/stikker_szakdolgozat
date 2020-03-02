@@ -1,4 +1,6 @@
 controllers\StickerController.class
+controllers\ItemController.class
+controllers\PurchaseController.class
 security\AppUserDetailsService.class
 security\WebSecurityConfig.class
 controllers\SecurityController.class
@@ -10,5 +12,4 @@ security\CORS.class
 exception\CustomException.class
 security\JwtTokenFilter.class
 security\JwtTokenFilterConfigurer.class
-controllers\TradeController.class
 WebApiApplication.class

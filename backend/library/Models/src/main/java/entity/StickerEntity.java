@@ -4,20 +4,16 @@ public class StickerEntity {
     public int Id;
     public String Description;
     public String URL;
-    public String Wanted;
-    public String Offered;
-    public String ProfileID;
+    public int Price;
 
     public StickerEntity() {
     }
 
-    public StickerEntity(int id, String description, String URL, String wanted, String offered, String profileID) {
+    public StickerEntity(int id, String description, String URL, int price) {
         Id = id;
         Description = description;
         this.URL = URL;
-        Wanted = wanted;
-        Offered = offered;
-        ProfileID = profileID;
+        Price = price;
     }
 
     public int getId() {
@@ -44,27 +40,11 @@ public class StickerEntity {
         this.URL = URL;
     }
 
-    public String getWanted() {
-        return Wanted;
+    public int getPrice() {
+        return Price;
     }
 
-    public void setWanted(String wanted) {
-        Wanted = wanted;
-    }
-
-    public String getOffered() {
-        return Offered;
-    }
-
-    public void setOffered(String offered) {
-        Offered = offered;
-    }
-
-    public String getProfileID() {
-        return ProfileID;
-    }
-
-    public void setProfileID(String profileID) {
-        ProfileID = profileID;
+    public void setPrice(int price) {
+        Price = price;
     }
 }

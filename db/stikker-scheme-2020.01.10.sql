@@ -25,20 +25,23 @@ CREATE TABLE IF NOT EXISTS Sticker
 	Id INT AUTO_INCREMENT PRIMARY KEY,
 	Description TEXT NOT NULL,
 	URL TEXT NOT NULL,
-  Wanted VARCHAR(255) NOT NULL,
-  Offered VARCHAR(255) NOT NULL,
-  ProfileID VARCHAR(255) NOT NULL
+  Price INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Trade
+CREATE TABLE IF NOT EXISTS Purchase
 (
 	Id INT AUTO_INCREMENT PRIMARY KEY,
-	sellerID VARCHAR(255) NOT NULL,
 	customerID VARCHAR(255) NOT NULL,
   stickerID INT NOT NULL,
   date DATE NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS Item
+(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	StickerId INT NOT NULL,
+  PurchaseId INT NOT NULL
+);
 
 
 
@@ -195,7 +198,7 @@ DELIMITER $$
 CREATE OR REPLACE PROCEDURE ProfileFindByName(IN paramName VARCHAR(128))
 BEGIN
      SELECT
-  Profile.Id,
+      Profile.Id,
       Profile.Name,
       Profile.BirthDate
       From Profile
@@ -205,28 +208,26 @@ DELIMITER ;
 
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE StickerCreate(OUT paramId INT,IN paramDescription TEXT, IN paramURL TEXT,in paramWanted VARCHAR(255),IN paramOffered VARCHAR(255),in paramProfileID VARCHAR(255))
+CREATE OR REPLACE PROCEDURE StickerCreate(OUT paramId INT,IN paramDescription TEXT, IN paramURL TEXT,in paramPrice INT)
 BEGIN
 INSERT INTO 
 		  Sticker
-	    (`Description`, `URL`, `Wanted`, `Offered`, `ProfileID`)
+	    (`Description`, `URL`,`Price`)
     VALUES
-		(paramDescription, paramURL, paramWanted,paramOffered,paramProfileID);
+		(paramDescription, paramURL, paramPrice);
   SELECT LAST_INSERT_ID() AS paramId;
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE StickerUpdate(IN paramId INT,IN paramDescription TEXT, IN paramURL TEXT,in paramWanted VARCHAR(255),IN paramOffered VARCHAR(255),in paramProfileID VARCHAR(255))
+CREATE OR REPLACE PROCEDURE StickerUpdate(IN paramId INT,IN paramDescription TEXT, IN paramURL TEXT,in paramPrice INT)
 BEGIN
 Update
 		  Sticker
 	   SET
-    Sticker.Description=paramDescription,
+  Sticker.Description=paramDescription,
   Sticker.URL=paramURL,
-  Sticker.Wanted=paramWanted,
-  Sticker.Offered=paramOffered,
-  Sticker.ProfileID=paramProfileID
+  Sticker.Price=paramPrice
   WHERE 
   paramId=Sticker.Id;
 END$$
@@ -250,9 +251,7 @@ BEGIN
       Sticker.Id,
       Sticker.Description,
       Sticker.URL,
-      Sticker.Wanted,
-      Sticker.Offered,
-      Sticker.ProfileID
+      Sticker.Price
       From Sticker;
 END$$
 DELIMITER ;
@@ -264,9 +263,7 @@ BEGIN
       Sticker.Id,
       Sticker.Description,
       Sticker.URL,
-      Sticker.Wanted,
-      Sticker.Offered,
-      Sticker.ProfileID
+      Sticker.Price
       From Sticker
   WHERE Sticker.Id=paramId;
 END$$
@@ -275,66 +272,137 @@ DELIMITER ;
 
 
   DELIMITER $$
-CREATE OR REPLACE PROCEDURE TradeCreate(OUT paramId INT,IN paramSellerID VARCHAR(255), IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
+CREATE OR REPLACE PROCEDURE PurchaseCreate(OUT paramId INT, IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
 BEGIN
 INSERT INTO 
-		  Trades
-	    (sellerID, `customerID`, `stickerID`, `date`)
+		  Purchase
+	    (`customerID`, `stickerID`, `date`)
     VALUES
-		(paramSellerID, paramCustomerID, paramStickerID,paramDate);
-  SELECT LAST_INSERT_ID() AS paramId;
+		(paramCustomerID, paramStickerID,paramDate);
+SELECT LAST_INSERT_ID() AS paramId;
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE TradeUpdate(IN paramId INT,IN paramSellerID VARCHAR(255), IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
+CREATE OR REPLACE PROCEDURE PurchaseUpdate(IN paramId INT, IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
 BEGIN
 Update
-		  Trade
+		  Purchase
 	   SET
-    Trade.sellerID=paramSellerID,
-  Trade.customerID=paramCustomerID,
-  Trade.stickerID=paramStickerID,
-  Trade.date=paramDate
+  Purchase.customerID=paramCustomerID,
+  Purchase.stickerID=paramStickerID,
+  Purchase.date=paramDate
   WHERE 
-  paramId=Trade.Id;
+  paramId=Purchase.Id;
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE TradeDelete(IN paramId INT)
+CREATE OR REPLACE PROCEDURE PurchaseDelete(IN paramId INT)
 BEGIN
     Delete
       FROM
-      Trade
+      Purchase
        WHERE 
-		  Trade.Id = paramId;
+		  Purchase.Id = paramId;
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE TradeGetAll()
+CREATE OR REPLACE PROCEDURE PurchaseGetAll()
 BEGIN
     SELECT
-      Trade.Id,
-      Trade.sellerID,
-      Trade.customerID,
-      Trade.stickerID,
-      Trade.date
-      From Trade;
+      Purchase.Id,
+      Purchase.customerID,
+      Purchase.stickerID,
+      Purchase.date
+      From Purchase;
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE TradeGetByID(IN paramId INT)
+CREATE OR REPLACE PROCEDURE PurchaseGetByID(IN paramId INT)
 BEGIN
      SELECT
-      Trade.Id,
-      Trade.sellerID,
-      Trade.customerID,
-      Trade.stickerID,
-      Trade.date
-      From Trade
-  WHERE Trade.Id=paramId;
+      Purchase.Id,
+      Purchase.customerID,
+      Purchase.stickerID,
+      Purchase.date
+      From Purchase
+  WHERE Purchase.Id=paramId;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ItemCreate(IN paramId INT,IN paramStickerId INT, IN paramPurchaseId INT)
+BEGIN
+INSERT INTO 
+		  Item
+	    (`Id`, `StickerId`, `PurchaseId`)
+    VALUES
+		(paramId, paramStickerId, paramPurchaseId);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ItemUpdate(IN paramId INT,IN paramStickerId INT, IN paramPurchaseId INT)
+BEGIN
+Update
+		  Item
+	   SET
+    Item.Id=paramId,
+  Item.StickerId=paramStickerId,
+  Item.PurchaseId=paramPurchaseId
+  WHERE 
+  paramId=Item.Id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ItemDelete(IN paramId INT)
+BEGIN
+    Delete
+      FROM
+      Item
+       WHERE 
+		  Item.Id = paramId;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ItemGetAll()
+BEGIN
+    SELECT
+      Item.Id,
+      Item.StickerId,
+      Item.PurchaseId,
+      Sticker.URL,
+      Sticker.Description,
+      Sticker.Price,
+      Purchase.customerID,
+      Purchase.date
+      From Item
+  INNER JOIN Sticker on item.StickerId=Sticker.Id
+  INNER JOIN Purchase on item.PurchaseId=Purchase.Id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE ItemGetByID(IN paramId INT)
+BEGIN
+     SELECT
+      Item.Id,
+      Item.StickerId,
+      Item.PurchaseId,
+      Sticker.URL,
+      Sticker.Description,
+      Sticker.Price,
+      Purchase.customerID,
+      Purchase.date
+      From Item
+  INNER JOIN Sticker on item.StickerId=Sticker.Id
+  INNER JOIN Purchase on item.PurchaseId=Purchase.Id
+  WHERE Item.Id=paramId;
 END$$
 DELIMITER ;

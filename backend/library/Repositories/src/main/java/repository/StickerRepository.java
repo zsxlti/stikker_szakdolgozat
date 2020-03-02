@@ -15,15 +15,13 @@ public class StickerRepository implements IStickerRepository {
     public StickerEntity create(StickerEntity sticker) throws Exception {
         Connection connection = DBConnection.getConnection();
 
-        String SQL = "{ CALL StickerCreate(?, ?, ?, ? ,?, ?) }";
+        String SQL = "{ CALL StickerCreate(?, ?, ?, ?) }";
 
         CallableStatement stmt = connection.prepareCall(SQL);
         stmt.setInt(1, sticker.Id);
         stmt.setString(2, sticker.Description);
         stmt.setString(3, sticker.URL);
-        stmt.setString(4, sticker.Wanted);
-        stmt.setString(5, sticker.Offered);
-        stmt.setString(6, sticker.ProfileID);
+        stmt.setInt(4, sticker.Price);
 
 
 
@@ -45,9 +43,7 @@ public class StickerRepository implements IStickerRepository {
         stmt.setInt("paramId", sticker.Id);
         stmt.setString("paramDescription", sticker.Description);
         stmt.setString("paramURL", sticker.URL);
-        stmt.setString("paramWanted", sticker.Wanted);
-        stmt.setString("paramOffered", sticker.Offered);
-        stmt.setString("paramProfileID", sticker.ProfileID);
+        stmt.setInt("paramPrice", sticker.Price);
 
 
         int affectedRows  = stmt.executeUpdate();
@@ -123,9 +119,7 @@ public class StickerRepository implements IStickerRepository {
         sticker.Id = Integer.parseInt(dataSet.getString("Id"));
         sticker.Description= dataSet.getString("Description");
         sticker.URL = dataSet.getString("URL");
-        sticker.Wanted = dataSet.getString("Wanted");
-        sticker.Offered = dataSet.getString("Offered");
-        sticker.ProfileID = dataSet.getString("ProfileID");
+        sticker.Price = Integer.parseInt(dataSet.getString("Price"));
         return sticker;
     }
 

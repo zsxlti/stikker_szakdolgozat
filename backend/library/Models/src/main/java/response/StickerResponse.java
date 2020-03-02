@@ -7,19 +7,15 @@ import io.swagger.annotations.ApiModel;
 public class StickerResponse {
     public String Description;
     public String URL;
-    public String Wanted;
-    public String Offered;
-    public String ProfileID;
+    public int Price;
 
     public StickerResponse() {
     }
 
-    public StickerResponse(String description, String URL, String wanted, String offered, String profileID) {
+    public StickerResponse(String description, String URL, int price) {
         Description = description;
         this.URL = URL;
-        Wanted = wanted;
-        Offered = offered;
-        ProfileID = profileID;
+        Price = price;
     }
 
     public StickerResponse(StickerEntity sticker)
@@ -31,8 +27,6 @@ public class StickerResponse {
 
         Description=sticker.Description;
         URL=sticker.URL;
-        Wanted=sticker.Wanted;
-        Offered=sticker.Offered;
-        ProfileID=sticker.ProfileID;
+        Price =sticker.Price;
     }
 }
