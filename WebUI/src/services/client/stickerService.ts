@@ -292,16 +292,12 @@ export class StickerService {
 export interface StickerEntity {
     Description?: string | undefined;
     Id?: number | undefined;
-    Offered?: string | undefined;
-    ProfileID?: string | undefined;
+    Price?: number | undefined;
     URL?: string | undefined;
-    Wanted?: string | undefined;
     description?: string | undefined;
     id?: number | undefined;
-    offered?: string | undefined;
-    profileID?: string | undefined;
+    price?: number | undefined;
     url?: string | undefined;
-    wanted?: string | undefined;
 }
 
 export class ApiException extends Error {

@@ -1,62 +1,37 @@
 import * as React from "react";
-import { Theme, createStyles, withStyles, WithStyles } from "@material-ui/core"
+import { Theme, createStyles, withStyles, WithStyles, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from "@material-ui/core"
 import withRoot from "./../withRoot";
 import { StickerEntity } from "../services/client/stickerService";
 import { Connected } from "./../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "./../lib/appStore";
 import { Routes } from "./../routing/urls";
+import { cs } from "date-fns/locale";
 
 const styles = (theme: Theme) =>
   createStyles
   ({
-    container:
-    {
-      display: "flex",
-      flexGrow: 1
+    
+    root: {
+      display:"flex",
+      flexGrow:1,
+      flexDirection:"row",
+      maxWidth:"300px",
+      margin:20,
+      backgroundColor:theme.palette.secondary.main,
+     
     },
-    card:
-    {
-        width: 300,
-        height: 450,
-        backgroundColor: "#121212",
-        display: "block",
-        marginTop: 15,
-        marginLeft: 30,
-        marginRight: 30,
-        marginBottom: 30,
-        borderRadius: 20,
-        boxShadow: "5px 5px 20px #33ff00"
+    media: {
+      width:300,
+      height:300,
+      
     },
-    kep:
-    {
-        width: 300,
-        height: 230,
-        borderRadius: 20,
-        border: "10px solid #121212"
+    typography:{
+      color:theme.palette.primary.main
     },
-    cardContainer:
-    {
-        width: 300,
-        maxHeight: 800,
-        backgroundColor: "#121212"
-    },
-    cim:
-    {
-        marginLeft: 10,
-        color: "#33ff00"
-    },
-    cardText:
-    {
-        display: "block",
-        width: "100%",
-        height: "100%",
-        marginTop: 25,
-        marginBottom: 5,
-        paddingLeft: 15,
-        paddingRight: 15,
-        color: "#5cff33",
-        wordBreak: "break-all"
+    price:{
+      float:"right",
+      color:theme.palette.primary.main
     }
   });
 
@@ -79,11 +54,11 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
   {
     const data: StickerEntity = this.props.sticker;
 
-    /*this.store.update ({
-      selectedBicycle: data
+    this.store.update ({
+      selectedSticker: data
     });
 
-    this.props.history.push(Routes.Details);*/
+    //this.props.history.push(Routes.Details);
   }
 
   render()
@@ -91,13 +66,31 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
       const css = this.props.classes;
 
       const Body = () =>
-          <div className={css.card} onClick={this.onClickHandler}>
-              <img src={this.props.sticker.URL} className={css.kep} />
-              <div className={css.cardContainer}>
-                  <h2 className={css.cim}>{this.props.sticker.Offered}</h2>
-                  <h3 className={css.cim}>{this.props.sticker.Description}</h3>
-              </div>
-          </div>
+    
+          <Card className={css.root}>
+          <CardActionArea>
+            <CardMedia
+              className={css.media}
+              image={this.props.sticker.URL}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2"  className={css.typography}>
+                {this.props.sticker.Description}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="h2" className={css.price}>
+                {this.props.sticker.Price} Ft
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+           <CardActions>
+         
+            <Button>
+              Kosárba
+            </Button>
+          
+        </CardActions>
+        </Card>
+   
 
       return Body();
   }

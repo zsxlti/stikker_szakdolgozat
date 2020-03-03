@@ -15,8 +15,9 @@ const styles = (theme: Theme) =>
         color:theme.palette.primary.main,
         minHeight:50,
         fontFamily:"Roboto",
-        marginTop:"20px",
-        fontSize:"20px"
+      
+        fontSize:"20px",
+        backgroundColor:theme.palette.secondary.main
       },
     });
 

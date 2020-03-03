@@ -1,15 +1,23 @@
+import { StickerEntity } from "./../services/client/stickerService";
+import { Cart } from "./../models/cart";
 
-export interface IAppState
-{
+export interface IAppState {
     //readonly variableName: objectType;
-    readonly message: string;
+    readonly cart: Cart;
+    readonly selectedSticker: StickerEntity;
+
 }
 
-export const setIntitialAppState = (): IAppState =>
-{
+export const setIntitialAppState = (): IAppState => {
     const appState: IAppState =
     {
-        message: "Hello from Store!"
+        cart: new Cart(),
+        selectedSticker:
+        {
+            Description: "",
+            URL: "",
+            Price: 0
+        }
     };
 
     return appState;

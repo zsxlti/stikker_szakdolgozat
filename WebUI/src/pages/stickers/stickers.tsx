@@ -5,6 +5,10 @@ import { AppStore } from "./../../lib/appStore";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, Button, Paper } from "@material-ui/core"
 import withRoot from "./../../withRoot";
 import HeaderComponent from "../header/header";
+import { StickerEntity } from "./../../services/client/stickerService";
+import { WebAPI } from "./../../services/webAPI";
+import StickerComponent from "./../../components/sticker";
+import FooterComponent from "../footer/footer";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -19,16 +23,21 @@ const styles = (theme: Theme) =>
                     backgroundColor: theme.palette.secondary.main,
                     color: theme.palette.primary.main,
                     justifyContent: "center",
+                    minHeight: "100vh"
                 }
             },
-            content:{
-                display:"flex",
-                flexGrow:1,
-                flexDirection:"row"
+            content: {
+                display: "flex",
+                flexGrow: 1,
+                flexDirection: "row",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center"
             }
         })
-interface IState {
 
+interface IState {
+    stickerArray: StickerEntity[];
 }
 
 interface IProps {
@@ -36,25 +45,39 @@ interface IProps {
 }
 class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
-    constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
+    constructor(props: IProps & WithStyles<typeof styles>) {
         super(props);
 
         this.state =
         {
-
+            stickerArray: this.store.state.cart.content()
         }
+    }
+    componentWillMount = async (): Promise<void> => {
+        const stickersDB: StickerEntity[] = await WebAPI.Sticker.all().then(x => x);
+
+        this.setState
+            ({
+                ...this.state,
+                stickerArray: stickersDB
+            });
     }
     render() {
         const css = this.props.classes;
+        const stickerArray: JSX.Element[] = this.state.stickerArray.map
+            (
+                x => <Route key={x.Id} render={props => <StickerComponent sticker={x} {...props} />} />
+            );
 
         const Body = () =>
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
                 <div className={css.root}>
-                <div >
-
+                    <div className={css.content}>
+                        {stickerArray}
+                    </div>
                 </div>
-                </div>
+                <FooterComponent />
             </React.Fragment>
         return Body();
     }

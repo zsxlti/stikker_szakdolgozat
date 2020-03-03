@@ -1,5 +1,5 @@
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\common\ServiceObjectResponse.java
-C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\TradeResponse.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\PurchaseEntity.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\request\RegisterRequest.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\common\ServiceResponse.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\ProfileEntity.java
@@ -7,9 +7,11 @@ C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\resp
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\request\LoginRequest.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\UserEntity.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\TokenResponse.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\ItemEntity.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\StickerResponse.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\enums\Role.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\request\RequestProfileByName.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\StickerEntity.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\ProfileResponse.java
-C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\entity\TradeEntity.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\ItemResponse.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\Models\src\main\java\response\PurchaseResponse.java
