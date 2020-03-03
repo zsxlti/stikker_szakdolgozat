@@ -1,3 +1,5 @@
+const baseUrl = "localhost:7777";
+
 export enum Routes
 {
     //public
@@ -5,6 +7,7 @@ export enum Routes
 
     //protected
     Stickers = "stickers",
+    Cart = "cart",
 
     //admin
     AddSticker="admin/sticker/add"
@@ -17,6 +20,7 @@ export module Urls
 
     //protected
     export const stickers = `/${Routes.Stickers}`;
+    export const cart = `/${Routes.Cart}`;
 
     //admin
     export const addSticker= `/${Routes.AddSticker}`;

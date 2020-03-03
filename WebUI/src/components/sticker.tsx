@@ -5,94 +5,102 @@ import { StickerEntity } from "../services/client/stickerService";
 import { Connected } from "./../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "./../lib/appStore";
-import { Routes } from "./../routing/urls";
-import { cs } from "date-fns/locale";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const styles = (theme: Theme) =>
   createStyles
-  ({
-    
-    root: {
-      display:"flex",
-      flexGrow:1,
-      flexDirection:"row",
-      maxWidth:"300px",
-      margin:20,
-      backgroundColor:theme.palette.secondary.main,
-     
-    },
-    media: {
-      width:300,
-      height:300,
-      
-    },
-    typography:{
-      color:theme.palette.primary.main
-    },
-    price:{
-      float:"right",
-      color:theme.palette.primary.main
-    }
-  });
+    ({
 
-interface IState
-{}
+      root: {
+        display: "flex",
+        flexGrow: 1,
+        flexDirection: "row",
+        maxWidth: "256px",
+        marginRight: 10,
+        backgroundColor: theme.palette.primary.main,
+        marginTop: 20
 
-interface IProps
-{
-    sticker: StickerEntity;
+      },
+      media: {
+        width: 256,
+        height: 256,
+
+      },
+      typography: {
+        color: theme.palette.secondary.main
+      },
+      price: {
+        float: "right",
+        color: theme.palette.secondary.main
+      },
+      icon:
+      {
+        color: theme.palette.secondary.main,
+        margin: 2,
+        borderColor: theme.palette.secondary.main,
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: '50%',
+        width: '2rem',
+        height: '2rem',
+        padding: 3
+      }
+    });
+
+interface IState { }
+
+interface IProps {
+  sticker: StickerEntity;
 }
 
 class Sticker extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
-  constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>)
-  {
+  constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
     super(props);
   }
 
-  onClickHandler = async (): Promise<void> =>
-  {
+  onClickHandler = async (): Promise<void> => {
     const data: StickerEntity = this.props.sticker;
 
-    this.store.update ({
+    this.store.update({
       selectedSticker: data
     });
-
-    //this.props.history.push(Routes.Details);
+    this.store.state.cart.add(data);
+    alert("A tétel a kosárba került.");
   }
 
-  render()
-  {
-      const css = this.props.classes;
+  render() {
+    const css = this.props.classes;
 
-      const Body = () =>
-    
-          <Card className={css.root}>
-          <CardActionArea>
-            <CardMedia
-              className={css.media}
-              image={this.props.sticker.URL}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2"  className={css.typography}>
-                {this.props.sticker.Description}
+    const Body = () =>
+
+      <Card className={css.root}>
+        <CardActionArea>
+          <CardMedia
+            className={css.media}
+            image={this.props.sticker.URL}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2" className={css.typography}>
+              {this.props.sticker.Description}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2" className={css.price}>
+              {this.props.sticker.Price} Ft
               </Typography>
-              <Typography gutterBottom variant="h5" component="h2" className={css.price}>
-                {this.props.sticker.Price} Ft
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-           <CardActions>
-         
-            <Button>
-              Kosárba
+              <AddShoppingCartIcon fontSize="large" className={css.icon} onClick={this.onClickHandler}/>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+
+          <Button>
+            Kosárba
             </Button>
-          
-        </CardActions>
-        </Card>
-   
 
-      return Body();
+        </CardActions>
+      </Card>
+
+
+    return Body();
   }
 }
 

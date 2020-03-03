@@ -1,5 +1,4 @@
 controllers\StickerController.class
-controllers\ItemController.class
 controllers\PurchaseController.class
 security\AppUserDetailsService.class
 security\WebSecurityConfig.class

@@ -19,10 +19,10 @@ const styles = (theme: Theme) =>
                 "& > *": {
                     flexGrow: 1,
                     flexDirection: "column",
-                    alignItems: "center",
+                    //alignItems: "center",
                     backgroundColor: theme.palette.secondary.main,
                     color: theme.palette.primary.main,
-                    justifyContent: "center",
+                    //justifyContent: "center",
                     minHeight: "100vh"
                 }
             },
@@ -33,7 +33,11 @@ const styles = (theme: Theme) =>
                 flexWrap: "wrap",
                 justifyContent: "center",
                 alignItems: "center"
-            }
+            },
+            cards: {
+                alignSelf: "flex-start"
+            },
+            
         })
 
 interface IState {
@@ -73,8 +77,10 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
                 <div className={css.root}>
-                    <div className={css.content}>
-                        {stickerArray}
+                    <div className={css.cards}>
+                        <div className={css.content}>
+                            {stickerArray}
+                        </div>
                     </div>
                 </div>
                 <FooterComponent />

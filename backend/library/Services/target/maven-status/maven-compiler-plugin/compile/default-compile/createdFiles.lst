@@ -1,5 +1,4 @@
 service\StickerService.class
 service\UserService.class
-service\ItemService.class
 service\PurchaseService.class
 service\ProfileService.class

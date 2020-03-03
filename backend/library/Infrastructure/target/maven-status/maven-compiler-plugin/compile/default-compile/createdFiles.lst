@@ -3,7 +3,6 @@ services\IProfileService.class
 repositories\IPurchaseRepository.class
 services\IPurchaseService.class
 repositories\IUserRepository.class
-services\IItemService.class
 repositories\IItemRepository.class
 repositories\IProfileRepository.class
 services\IUserService.class
