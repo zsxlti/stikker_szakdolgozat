@@ -12,88 +12,103 @@ import CartEntryComponent from "./../../components/cartItem";
 import { number } from "prop-types";
 
 const styles = (theme: Theme) =>
-  createStyles
-  ({
-    container:
-    {
-        display: "flex",
-        flexDirection: "column",
-        flexGrow: 1,
-        minHeight: "100vh",
-        backgroundColor: theme.palette.primary.main
-    },
-    cartText:
-    {
-        color: "#33ff00",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    cost:
-    {
-        display: "flex",
-        border: "3px solid #33ff00",
-        justifyContent: "center",
-        borderRadius: 15,
-        color: "#33ff00",
-        padding: 10
-    }
-  })
+    createStyles
+        ({
+            container:
+            {
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: theme.palette.secondary.main,
+                height: "100vh",
+                alignSelf:"flex-start"
+            },
+            cartText:
+            {
+                color: "#33ff00",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            },
+            cost:
+            {
+                display: "flex",
+                border: "3px solid #33ff00",
+                justifyContent: "center",
+                borderRadius: 15,
+                color: "#33ff00",
+                padding: 10
+            },
+            title: {
+                display: "flex",
+                flexGrow: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+            },
+            p: {
+                color: theme.palette.primary.main,
+                fontSize: "36px",
+                fontFamily: "Roboto"
+            },
+            div: {
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                
+            }
+        })
 
-interface IState
-{
+interface IState {
     stickers: StickerEntity[]
 }
 
-interface IProps
-{}
+interface IProps { }
 
 
 class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
-    constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>)
-    {
+    constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
         super(props);
 
         this.state =
         {
-            stickers : this.store.state.cart.content(),
+            stickers: this.store.state.cart.content(),
         }
     }
 
-    sumCost = () : number | undefined =>
-    {
-        const sum:number | undefined = this.state.stickers.toEnum().Sum
-        (
-          x => x.Price!
-        );
+    sumCost = (): number | undefined => {
+        const sum: number | undefined = this.state.stickers.toEnum().Sum
+            (
+                x => x.Price!
+            );
         return sum;
     }
 
-    calcAfa= () : number | undefined =>
-    {
-        const afa:number | undefined = (this.sumCost()! * 0.27);
+    calcAfa = (): number | undefined => {
+        const afa: number | undefined = (this.sumCost()! * 0.27);
         return Math.round(afa);
     }
 
-    render()
-    {
+    render() {
         const css = this.props.classes;
-        const stickers:JSX.Element[] = this.state.stickers.map
-        (
-          x => <Route key={x.Id} render={ props => <CartEntryComponent sticker={x} {...props}/> }/>
-        );
+        const stickers: JSX.Element[] = this.state.stickers.map
+            (
+                x => <Route key={x.Id} render={props => <CartEntryComponent sticker={x} {...props} />} />
+            );
 
         const Body = () =>
-            <div className={css.container}>
-                <Route render={ props => <HeaderComponent {...props}/> }/>
-                {stickers}
-                <div className={css.cost}>
-                    Végösszeg: {this.sumCost()}<br/>
-                    Áfa(27%): {this.calcAfa()}
+            <React.Fragment>
+                <Route render={props => <HeaderComponent {...props} />} />
+
+                <div className={css.container}>
+                    <div className={css.title}><p className={css.p}>A kosár tartalma:</p></div>
+
+                    <div className={css.div}>{stickers}<br/></div>
+                   {/* <div className={css.cost}>
+                        Végösszeg: {this.sumCost()}<br />
+                        Áfa(27%): {this.calcAfa()}
+            </div>*/}
                 </div>
-            </div>
-        
+            </React.Fragment>
         return Body();
     }
 }

@@ -24,7 +24,6 @@ const styles = (theme: Theme) =>
       media: {
         width: 256,
         height: 256,
-
       },
       typography: {
         color: theme.palette.secondary.main

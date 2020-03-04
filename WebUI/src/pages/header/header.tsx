@@ -43,7 +43,6 @@ const styles = (theme: Theme) =>
             button: {
                 color: theme.palette.secondary.main,
                 alignContent: "flex-end",
-
             },
             span: {
                 color: theme.palette.secondary.main,
@@ -60,7 +59,7 @@ const StyledBadge = withStyles((theme: Theme) =>
             top: 13,
             border: `2px solid ${theme.palette.secondary.main}`,
             padding: '0 4px',
-            backgroundColor:theme.palette.secondary.main
+            backgroundColor: theme.palette.secondary.main
         },
     }),
 )(Badge);
@@ -116,15 +115,10 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
 
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
-
                         <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
-
                         <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
                             Matricák
                         </Typography>
-                        {/*<span className={css.span} onClick={this.cartClickHandler}>
-                            Kosár tartalma: {cartCount} db matrica
-    </span>*/}
                         <IconButton aria-label="cart">
                             <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
                                 <ShoppingCartIcon />

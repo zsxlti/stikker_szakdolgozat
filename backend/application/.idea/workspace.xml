@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dec80f8-efcb-4f2b-af9e-4a9e9c85da60" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/assets/images/stikker_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/assets/images/stikker_menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/sticker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/sticker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IItemService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IPurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IPurchaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/ItemService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/ItemController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../swagger.nswag" beforeDir="false" afterPath="$PROJECT_DIR$/../swagger.nswag" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
