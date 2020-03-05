@@ -108,16 +108,12 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE UserUpdate(IN paramId INT8,IN paramUniqID VARCHAR(128), IN paramEmail VARCHAR(255),IN paramPassword VARCHAR(255),IN paramRole VARCHAR(32))
+CREATE OR REPLACE PROCEDURE UserUpdate(IN paramId INT,IN paramPassword VARCHAR(255))
 BEGIN
 Update
 		User
 	SET
-  User.Id=paramId,
-  User.UniqID=paramUniqID,
-  User.Email=paramEmail,
-  User.Password=paramPassword,
-  User.Role=paramRole
+  User.Password=paramPassword
   WHERE 
   User.Id=paramId;
 END$$

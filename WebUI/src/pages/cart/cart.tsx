@@ -10,6 +10,7 @@ import { StickerEntity } from "./../../services/client/stickerService";
 import CartEntryComponent from "./../../components/cartItem";
 
 import { number } from "prop-types";
+import FooterComponent from "../footer/footer";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -20,41 +21,32 @@ const styles = (theme: Theme) =>
                 flexDirection: "column",
                 backgroundColor: theme.palette.secondary.main,
                 height: "100vh",
-                alignSelf:"flex-start"
-            },
-            cartText:
-            {
-                color: "#33ff00",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
+                alignSelf: "flex-start"
             },
             cost:
             {
                 display: "flex",
-                border: "3px solid #33ff00",
-                justifyContent: "center",
-                borderRadius: 15,
-                color: "#33ff00",
-                padding: 10
-            },
-            title: {
-                display: "flex",
-                flexGrow: 1,
-                flexDirection: "row",
-                justifyContent: "center",
+                justifyContent: "flex-end",
+                color: theme.palette.primary.main,
+                padding: 10,
+                fontFamily:"Roboto",
+                fontSize:20,
+                marginRight:50
             },
             p: {
                 color: theme.palette.primary.main,
-                fontSize: "36px",
-                fontFamily: "Roboto"
+                fontSize: "32px",
+                fontFamily: "Roboto",
+                height: 36,
+                marginLeft:100
             },
             div: {
                 display: "flex",
-                flexDirection: "row",
+                flexDirection:"column",
                 justifyContent: "center",
-                
-            }
+                alignItems: "center"
+            },
+
         })
 
 interface IState {
@@ -88,6 +80,10 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         return Math.round(afa);
     }
 
+    isCartFilled = (): boolean => {
+        return this.store.state.cart.content().length !=0 ? true : false;
+    }
+
     render() {
         const css = this.props.classes;
         const stickers: JSX.Element[] = this.state.stickers.map
@@ -95,19 +91,22 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 x => <Route key={x.Id} render={props => <CartEntryComponent sticker={x} {...props} />} />
             );
 
+        const priceTag = this.isCartFilled() ?
+        <div className={css.cost}>
+        Végösszeg: {this.sumCost()} Ft<br/>
+        Áfa(27%): {this.calcAfa()} Ft
+         </div> :
+        <div></div>
+
         const Body = () =>
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
-
                 <div className={css.container}>
-                    <div className={css.title}><p className={css.p}>A kosár tartalma:</p></div>
-
-                    <div className={css.div}>{stickers}<br/></div>
-                   {/* <div className={css.cost}>
-                        Végösszeg: {this.sumCost()}<br />
-                        Áfa(27%): {this.calcAfa()}
-            </div>*/}
+                    <p className={css.p}>A kosár tartalma:</p>
+                    <div className={css.div}>{stickers}</div>
+                   {priceTag}
                 </div>
+                <FooterComponent />
             </React.Fragment>
         return Body();
     }

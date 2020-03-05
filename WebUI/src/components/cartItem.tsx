@@ -14,8 +14,7 @@ const styles = (theme: Theme) =>
         flexGrow: 1,
         flexDirection:"column",
         flexWrap:"wrap",
-        maxWidth: "50%",
-        
+        width: "50%",
       },
       item:
       {
@@ -37,6 +36,7 @@ const styles = (theme: Theme) =>
       price: {
         color: theme.palette.secondary.main,
         fontSize: 24,
+        marginLeft: 50
       }
     });
 interface IState { }
@@ -61,19 +61,14 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
             className={css.media}
             image={this.props.sticker.URL}
           />
-
           <Typography variant="body2" component="p" className={css.description}>
             {this.props.sticker.Description}
-          </Typography>
+          </Typography><br/>
           <Typography variant="body2" component="p" className={css.price}>
             {this.props.sticker.Price} Ft
           </Typography>
         </CardContent>
-        {/*<CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>*/}
       </Card>
-
     return Body();
   }
 }

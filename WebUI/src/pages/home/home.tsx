@@ -147,10 +147,10 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       <RegisterComponent{...this.props} /> :
       <LoginComponent{...this.props} />
 
-    const bottomButtons: JSX.Element = this.state.isRegistered ?
-    <div></div>
+    /*const bottomButtons: JSX.Element = this.state.isRegistered ?
+    /*<div></div>
     :
-    <div></div>
+    <div></div>*/
 
     const Body = () =>
       <React.Fragment>

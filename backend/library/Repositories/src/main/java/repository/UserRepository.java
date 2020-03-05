@@ -107,15 +107,9 @@ public class UserRepository implements IUserRepository
     {
         Connection connection = DBConnection.getConnection();
 
-        String SQL = "{ CALL UserUpdate(?, ?, ?, ?, ?) }";
+        String SQL = "{ CALL UserUpdate(?, ?) }";
         CallableStatement stmt = connection.prepareCall(SQL);
-        stmt.setInt("paramId", user.Id);
-        stmt.setString("paramUniqID", user.UniqID);
-        stmt.setString("paramEmail", user.Email);
         stmt.setString("paramPassword", user.Password);
-        stmt.setString("paramRole", user.Role);
-
-
 
         int affectedRows  = stmt.executeUpdate();
 

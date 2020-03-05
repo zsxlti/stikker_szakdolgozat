@@ -54,7 +54,7 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
 
         this.state =
         {
-            stickerArray: this.store.state.cart.content()
+            stickerArray: []
         }
     }
     componentWillMount = async (): Promise<void> => {
@@ -68,7 +68,7 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
     }
     render() {
         const css = this.props.classes;
-        const stickerArray: JSX.Element[] = this.state.stickerArray.map
+        const stickerArrayElement: JSX.Element[] = this.state.stickerArray.map
             (
                 x => <Route key={x.Id} render={props => <StickerComponent sticker={x} {...props} />} />
             );
@@ -79,7 +79,7 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
                 <div className={css.root}>
                     <div className={css.cards}>
                         <div className={css.content}>
-                            {stickerArray}
+                            {stickerArrayElement}
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ export enum Routes
     Cart = "cart",
 
     //admin
-    AddSticker="admin/sticker/add"
+    AddSticker="admin/product/add"
 }
 
 export module Urls

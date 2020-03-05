@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dec80f8-efcb-4f2b-af9e-4a9e9c85da60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../library/WebAPI/src/main/java/security/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/urls.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/client/profileService.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../swagger.nswag" beforeDir="false" afterPath="$PROJECT_DIR$/../swagger.nswag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Repositories/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../db/stikker-scheme-2020.01.10.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../db/stikker-scheme-2020.01.10.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

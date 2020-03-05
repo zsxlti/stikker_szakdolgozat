@@ -9,10 +9,7 @@ import { StorageKeys } from "./../settings/constans";
 import { LoginRequest } from "./../services/client/securityService";
 import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
-import { Routes } from "./../routing/urls";
-
-
-
+import { Routes, Urls } from "./../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -27,7 +24,7 @@ const styles = (theme: Theme) =>
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
-          
+
         }
       },
       logoContainer:
@@ -46,7 +43,7 @@ const styles = (theme: Theme) =>
         width: "100%",
         color: theme.palette.primary.main + "!important",
         margin: "auto",
-        minHeight:"59vh"
+        minHeight: "59vh"
       },
       bottom:
       {
@@ -118,13 +115,12 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
 
     if (token) {
-      this.props.history.push(Routes.Stickers);
+      this.props.history.push(Urls.stickers);
     }
   }
 
   isFormFilled = (): boolean => {
     return this.state.email.length > 0 && this.state.password.length > 0 && Validation.IsEmail(this.state.email)
-
   }
 
   onTextChanged = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -142,11 +138,11 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       password: this.state.password
     };
     const token = await WebAPI.Security.login(data)
-      .then(x => x)
-      .catch();
+                                       .then(x => x)
+                                       .catch();
     if (token) {
       WebAPI.setToken(token.Token!)
-      this.props.history.push(Routes.Stickers);
+      this.props.history.push(Urls.stickers);
     }
 
   }
@@ -201,9 +197,9 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
                 type="password"
                 className={css.textField}
                 onChange={this.onTextChanged} />
-                {loginButton}
+              {loginButton}
             </div>
-            
+
             <div className={css.grid}>
               Elfelejtett jelszó
             </div>

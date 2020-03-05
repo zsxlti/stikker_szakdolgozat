@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { StorageService } from "./../../services/client/storage.service";
 import { StorageKeys } from "./../../settings/constans";
-import { Routes } from "./../../routing/urls";
+import { Routes, Urls } from "./../../routing/urls";
 import { RouteComponentProps } from "react-router";
 import { LocalImages } from "./../../staticFiles/images";
 import { Connected } from "./../../lib/store/connected.mixin";
@@ -16,6 +16,7 @@ import { AppStore } from "./../../lib/appStore";
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { isAdmin } from "./../../services/client/roleService";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -35,23 +36,19 @@ const styles = (theme: Theme) =>
             },
             title: {
                 display: "flex",
-                flexGrow: 1,
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.secondary.main,
-
+                marginLeft:10
             },
             button: {
                 color: theme.palette.secondary.main,
-                alignContent: "flex-end",
             },
-            span: {
-                color: theme.palette.secondary.main,
-                alignContent: "flex-end",
-                fontFamily: "Roboto",
-                marginRight: 15,
-                fontWeight: "bold"
+            right:{
+                display:"flex",
+                justifyContent:"flex-end",
             }
         });
+
 const StyledBadge = withStyles((theme: Theme) =>
     createStyles({
         badge: {
@@ -63,6 +60,7 @@ const StyledBadge = withStyles((theme: Theme) =>
         },
     }),
 )(Badge);
+
 interface IState {
     isLoggedIn: boolean;
     loginStateText: string;
@@ -96,15 +94,23 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
         const storage: StorageService = new StorageService();
         storage.remove(StorageKeys.JWT);
 
-        this.props.history.push(Routes.Home);
+        this.props.history.push(Urls.home);
     }
 
     cartClickHandler = (): void => {
-        this.props.history.push(Routes.Cart);
+        this.props.history.push(Urls.cart);
     }
 
     stickerClickHandler = (): void => {
-        this.props.history.push(Routes.Stickers);
+        this.props.history.push(Urls.stickers);
+    }
+
+    adminClickHandler = (): void => {
+        console.log(isAdmin());
+        if (isAdmin()) {
+            this.props.history.push(Urls.addSticker);
+        }
+
     }
     render() {
         const css = this.props.classes;
@@ -112,14 +118,17 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
 
         const Body = () =>
             <div className={css.container}>
-
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
                         <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
                         <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
                             Matricák
                         </Typography>
-                        <IconButton aria-label="cart">
+                        <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
+                            Admin
+                        </Typography>
+                        
+                        <IconButton aria-label="cart" className={css.right}>
                             <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
                                 <ShoppingCartIcon />
                             </StyledBadge>

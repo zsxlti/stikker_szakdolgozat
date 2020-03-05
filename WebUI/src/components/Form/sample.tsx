@@ -1,4 +1,4 @@
-/*import * as React from "react";
+{/*import * as React from "react";
 import { Connected } from "./../../../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "./../../../../lib/appStore";
@@ -142,4 +142,4 @@ class AddProduct extends Connected<typeof React.Component, IProps & WithStyles<t
 }
 
 const AddProductPage = withRoot(withStyles(styles)(AddProduct));
-export default AddProductPage;*/
+export default AddProductPage;*/}

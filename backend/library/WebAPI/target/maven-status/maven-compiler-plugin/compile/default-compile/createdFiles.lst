@@ -2,6 +2,7 @@ controllers\StickerController.class
 controllers\PurchaseController.class
 security\AppUserDetailsService.class
 security\WebSecurityConfig.class
+security\CustomAuthenticationEntryPoint.class
 controllers\SecurityController.class
 controllers\UserController.class
 controllers\ProfileController.class
