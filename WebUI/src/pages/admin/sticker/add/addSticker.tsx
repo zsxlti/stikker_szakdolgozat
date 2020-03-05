@@ -15,7 +15,20 @@ import { StickerEntity } from "./../../../../services/client/stickerService";
 
 const styles = (theme: Theme) =>
     createStyles
-        ({})
+        ({
+            container:{
+                backgroundColor:theme.palette.secondary.main,
+                height:"100vh",
+                color:theme.palette.primary.main
+            },
+            alert:{
+                fontFamily:"Roboto",
+                fontSize:"20px",
+                marginTop:20,
+                marginBottom:20
+            },
+            
+        })
 
 interface IState {
     /* url:string,
@@ -48,19 +61,17 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
             url:
             {
                 id: FieldTypes.url.toLowerCase(),
-                label: "URL",
-                validation: { rule: required }
+                label: "URL"
             },
             price:
             {
                 id: FieldTypes.price.toLowerCase(),
-                label: "Price",
-
+                label: "Ár"
             },
             description:
             {
                 id: FieldTypes.description.toLowerCase(),
-                label: FieldTypes.description,
+                label: "Matrica leírása",
                 editor: "multilinetextbox",
                 validation: { rule: maxLength, args: 1000 }
             },
@@ -71,16 +82,15 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         //TODO: delete console.log
         const data = { ...this.form.current!.state!.values };
         const dataContent = JSON.parse(JSON.stringify(data));
-        console.log(dataContent);
-        /*const roles: any[] = data
-
-        if (roles.toEnum().Any(x => x.authority === "ROLE_ADMIN")) {
-            return true;
-        }*/
-        const stickerEntity: StickerEntity = {
+       
+        const stickerEntity: any[] = dataContent;
+        console.log(stickerEntity);
+        /*const stickerArrayElement: StickerEntity = stickerEntity.map
+        (
             
-        }
-        console.log(data);
+        );*/
+        
+       
     }
 
 
@@ -89,17 +99,17 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         const css = this.props.classes;
 
         const Body = () =>
-            <div>
+            <div className={css.container}>
                 <Route render={props => <HeaderComponent {...props} />} />
-                <Form
+                <Form 
                     ref={this.form}
                     submit={() => this.submit()}
                     fields={this.fields}
                     render={() =>
                         (
                             <React.Fragment>
-                                <div className="alert alert-info" role="alert">
-                                    Enter the information below and we'll get back to you as soon as we can.
+                                <div className={css.alert} role="alert">
+                                    Matrica feltöltéséhez töltse ki az adatokat!
                                 </div>
                                 <Field {...this.fields.url} />
                                 <Field {...this.fields.price} />

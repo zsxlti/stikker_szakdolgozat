@@ -78,6 +78,7 @@ export const Field: React.SFC<IFieldProps> = ({
               id={id}
               type="text"
               variant="filled"
+              margin="normal"
               fullWidth={true}
               value={value}
               onChange={ (e:React.ChangeEvent<HTMLInputElement>) => context!.setValues({ [id]: e.currentTarget.value }) }
@@ -91,6 +92,7 @@ export const Field: React.SFC<IFieldProps> = ({
               id={id}
               type="text"
               variant="filled"
+              margin="normal"
               fullWidth={true}
               multiline={true}
               rows={5}
@@ -143,7 +145,7 @@ export const Field: React.SFC<IFieldProps> = ({
               onChange={(e:React.ChangeEvent<HTMLInputElement>) => context!.setValues({ [id]: e.currentTarget.checked })}
               onBlur={() => context!.validate(id)}
               value={value}
-              color="primary"
+              color="secondary"
             />
           )}
 
