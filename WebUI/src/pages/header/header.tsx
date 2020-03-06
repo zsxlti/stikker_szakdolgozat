@@ -94,7 +94,7 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
     logoutClickHandler = (): void => {
         const storage: StorageService = new StorageService();
         storage.remove(StorageKeys.JWT);
-
+        this.store.state.cart.clear();
         this.props.history.push(Urls.home);
     }
 

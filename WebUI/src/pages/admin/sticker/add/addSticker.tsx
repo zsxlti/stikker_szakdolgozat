@@ -79,12 +79,8 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
     submit = async (): Promise<void> => {
         //TODO: delete console.log
         const data = { ...this.form.current!.state!.values };
-        const dataContent = JSON.parse(JSON.stringify(data));
-        const stickerEntity: any[] = dataContent;
-        console.log(stickerEntity);
-        /*const stickerArrayElement: StickerEntity = stickerEntity.map
-        (
-        );*/
+        const x = data["description"];
+        console.log(JSON.stringify(data));
     }
 
     render() {

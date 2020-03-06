@@ -1,6 +1,8 @@
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\configuration\SwaggerConfiguration.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\controllers\PurchaseController.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\WebApiApplication.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\CORS.java
+C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\CustomAuthenticationEntryPoint.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\controllers\StickerController.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\JwtTokenFilterConfigurer.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\WebSecurityConfig.java
@@ -8,7 +10,6 @@ C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\secu
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\AppUserDetailsService.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\controllers\UserController.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\exception\CustomException.java
-C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\controllers\TradeController.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\JwtTokenFilter.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\security\PasswordHasher.java
 C:\Users\Cső-TV\Desktop\szakdoga_java\backend\library\WebAPI\src\main\java\controllers\ProfileController.java

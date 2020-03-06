@@ -120,8 +120,6 @@ export class Form extends React.Component<IFormProps, IFormState>
           ...values
         }
       });
-
-    console.log("state: " + JSON.stringify(this.state));
   };
 
   public render() {

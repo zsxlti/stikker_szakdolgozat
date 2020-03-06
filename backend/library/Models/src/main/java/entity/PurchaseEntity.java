@@ -6,16 +6,14 @@ public class PurchaseEntity {
 
     public int Id;
     public String customerID;
-    public int stickerID;
     public Date date;
 
     public PurchaseEntity() {
     }
 
-    public PurchaseEntity(int id, String sellerID, String customerID, int stickerID, Date date) {
+    public PurchaseEntity(int id, String sellerID, String customerID, Date date) {
         Id = id;
         this.customerID = customerID;
-        this.stickerID = stickerID;
         this.date = date;
     }
 
@@ -33,14 +31,6 @@ public class PurchaseEntity {
 
     public void setCustomerID(String customerID) {
         this.customerID = customerID;
-    }
-
-    public int getStickerID() {
-        return stickerID;
-    }
-
-    public void setStickerID(int stickerID) {
-        this.stickerID = stickerID;
     }
 
     public Date getDate() {

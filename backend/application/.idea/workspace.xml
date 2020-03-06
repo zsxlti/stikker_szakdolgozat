@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dec80f8-efcb-4f2b-af9e-4a9e9c85da60" name="Default Changelist" comment="">
+    <list default="true" id="979ebe4e-9e4e-4c3c-ab05-c5b90a9e6124" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -28,13 +25,8 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1YZHgAuN2KsDW7KLTkRiYZp7VqA" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-  </component>
+  <component name="ProjectId" id="1YkTLVFpGo4Kskcqq6l3P4rSQiD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -52,11 +44,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0dec80f8-efcb-4f2b-af9e-4a9e9c85da60" name="Default Changelist" comment="" />
-      <created>1583143304591</created>
+      <changelist id="979ebe4e-9e4e-4c3c-ab05-c5b90a9e6124" name="Default Changelist" comment="" />
+      <created>1583485536785</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583143304591</updated>
+      <updated>1583485536785</updated>
     </task>
     <servers />
   </component>
@@ -65,23 +57,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

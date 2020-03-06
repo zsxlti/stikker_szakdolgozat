@@ -16,6 +16,10 @@ export function ProtectedRoute(props: ProtectedRouteProps)
     const location = useLocation();
     if (props.path !== location.pathname)
     {
+        return props.path;
+    }
+    else if (props.path !== location.pathname)
+    {
         return null;
     }
 

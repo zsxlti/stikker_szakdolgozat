@@ -4,12 +4,9 @@ import { RouteComponentProps, Route } from "react-router";
 import { AppStore } from "./../../lib/appStore";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, Button } from "@material-ui/core"
 import withRoot from "./../../withRoot";
-import { Routes } from "./../../routing/urls";
 import HeaderComponent from "../header/header";
 import { StickerEntity } from "./../../services/client/stickerService";
 import CartEntryComponent from "./../../components/cartItem";
-
-import { number } from "prop-types";
 import FooterComponent from "../footer/footer";
 
 const styles = (theme: Theme) =>
