@@ -11,7 +11,6 @@ import FooterComponent from "../footer/footer";
 import LoginComponent from "./../../components/login";
 import RegisterComponent from "./../../components/register";
 
-
 const styles = (theme: Theme) =>
   createStyles
     ({
@@ -128,8 +127,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
   }
 
-  
-
   navigate = () => {
     this.setState({
       ...this.state,
@@ -138,11 +135,8 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     })
   }
 
-
   render() {
     const css = this.props.classes;
-   
-
     const form: JSX.Element = this.state.isRegistered ?
       <RegisterComponent{...this.props} /> :
       <LoginComponent{...this.props} />

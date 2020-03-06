@@ -37,7 +37,6 @@ const styles = (theme: Theme) =>
             cards: {
                 alignSelf: "flex-start"
             },
-            
         })
 
 interface IState {

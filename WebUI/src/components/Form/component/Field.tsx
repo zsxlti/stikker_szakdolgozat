@@ -24,7 +24,7 @@ function storeDate(date: string, key: string): void
 function retreiveDate(key: string): string
 {
   return _dates[key];
-} 
+}
 
 export const Field: React.SFC<IFieldProps> = ({
   id,
@@ -121,14 +121,14 @@ export const Field: React.SFC<IFieldProps> = ({
           {editor!.toLowerCase() === "radio" && (
             <RadioGroup
               id={id}
-              defaultValue={options![0]} 
-              aria-label={name} 
+              defaultValue={options![0]}
+              aria-label={name}
               name={id}
               value={value}
               onBlur={() => context!.validate(id)}
               onChange={(e: React.ChangeEvent<{}>) => context!.setValues({ [id]: (e.currentTarget as HTMLInputElement).value })} >
               {options && options.map((option, i) => (
-                  <FormControlLabel 
+                  <FormControlLabel
                     key={`${option}-${i}`}
                     value={option}
                     control={<RadioComponent id={`${i}-${option}`}/>}
@@ -136,7 +136,6 @@ export const Field: React.SFC<IFieldProps> = ({
                 ))}
             </RadioGroup>
           )}
-          
           {editor!.toLowerCase() === "checkbox" && (
             <Checkbox
               id={id}
@@ -149,7 +148,7 @@ export const Field: React.SFC<IFieldProps> = ({
             />
           )}
 
-          {editor!.toLowerCase() === "date" && (value instanceof Date) && (           
+          {editor!.toLowerCase() === "date" && (value instanceof Date) && (
             <DatePicker
               id={id}
               name={id}
@@ -168,7 +167,6 @@ export const Field: React.SFC<IFieldProps> = ({
               minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               disabledKeyboardNavigation />
           )}
-          
           {getError(context!.errors) && (
             <div style={{ color: "red", fontSize: "80%" }}>
               <p>{getError(context!.errors)}</p>

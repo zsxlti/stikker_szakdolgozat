@@ -1,11 +1,11 @@
 import * as React from "react";
 import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import withRoot from "./../../withRoot";
-import 'typeface-roboto';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import "typeface-roboto";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import { StorageService } from "./../../services/client/storage.service";
 import { StorageKeys } from "./../../settings/constans";
 import { Routes, Urls } from "./../../routing/urls";
@@ -13,9 +13,9 @@ import { RouteComponentProps } from "react-router";
 import { LocalImages } from "./../../staticFiles/images";
 import { Connected } from "./../../lib/store/connected.mixin";
 import { AppStore } from "./../../lib/appStore";
-import Badge from '@material-ui/core/Badge';
-import IconButton from '@material-ui/core/IconButton';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from "@material-ui/core/Badge";
+import IconButton from "@material-ui/core/IconButton";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { isAdmin } from "./../../services/client/roleService";
 
 const styles = (theme: Theme) =>
@@ -36,6 +36,7 @@ const styles = (theme: Theme) =>
             },
             title: {
                 display: "flex",
+                flexGrow:1,
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.secondary.main,
                 marginLeft:10
@@ -55,7 +56,7 @@ const StyledBadge = withStyles((theme: Theme) =>
             right: -3,
             top: 13,
             border: `2px solid ${theme.palette.secondary.main}`,
-            padding: '0 4px',
+            padding: "0 4px",
             backgroundColor: theme.palette.secondary.main
         },
     }),
@@ -110,14 +111,14 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
         if (isAdmin()) {
             this.props.history.push(Urls.addSticker);
         }
-
     }
+
     render() {
         const css = this.props.classes;
         const cartCount = this.state.cartCount;
 
-        const Body = () =>
-            <div className={css.container}>
+        const showHeader = isAdmin() ?
+        <div className={css.container}>
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
                         <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
@@ -127,7 +128,6 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                         <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
                             Admin
                         </Typography>
-                        
                         <IconButton aria-label="cart" className={css.right}>
                             <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
                                 <ShoppingCartIcon />
@@ -136,6 +136,28 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                         <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
                     </Toolbar>
                 </AppBar>
+            </div>
+            :
+            <div className={css.container}>
+                <AppBar position="static" className={css.appbar}>
+                    <Toolbar>
+                        <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
+                        <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
+                            Matricák
+                        </Typography>
+                        <IconButton aria-label="cart" className={css.right}>
+                            <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
+                                <ShoppingCartIcon />
+                            </StyledBadge>
+                        </IconButton>
+                        <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
+                    </Toolbar>
+                </AppBar>
+            </div>
+
+        const Body = () =>
+        <div>
+            {showHeader}
             </div>
         return Body();
     }

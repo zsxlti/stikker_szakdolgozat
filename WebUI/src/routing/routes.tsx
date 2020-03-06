@@ -21,5 +21,5 @@ export const AppRoutes = () =>
         <ProtectedRoute {...defaultProtectedRouteProps} exact path={Urls.stickers} component={StickersPage} />
         <ProtectedRoute {...defaultProtectedRouteProps} exact path={Urls.cart} component={CartPage} />
 
-        <AdminRoute {...defaultProtectedRouteProps} exact path={Urls.addSticker} component={AddStickerPage} />
+        <AdminRoute {...defaultProtectedRouteProps} exact={true} path={Urls.addSticker} component={AddStickerPage} />
     </React.Fragment>

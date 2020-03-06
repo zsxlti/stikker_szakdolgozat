@@ -12,9 +12,8 @@ export interface IFormContext extends IFormState
   validate: (fieldName: string) => void;
 }
 
-/* 
+/*
 * The context which allows state and functions to be shared with Field.
 * Note that we need to pass createContext a default value which is why undefined is unioned in the type
 */
 export const FormContext = React.createContext<IFormContext | undefined>(undefined);
-

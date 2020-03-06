@@ -55,7 +55,6 @@ interface IState {
 
 interface IProps { }
 
-
 class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
     constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
@@ -81,7 +80,7 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
 
     isCartFilled = (): boolean => {
-        return this.store.state.cart.content().length !=0 ? true : false;
+        return this.store.state.cart.content().length !== 0 ? true : false;
     }
 
     render() {

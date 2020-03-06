@@ -11,7 +11,7 @@ import { WebAPI } from "./../services/webAPI";
 import { Validation } from "./../validators";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, { registerLocale } from "react-datepicker";
-import hu from "date-fns/locale/hu"; 
+import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
 
 const styles = (theme: Theme) =>
@@ -86,7 +86,7 @@ const styles = (theme: Theme) =>
         border: "2px solid",
         borderRadius:"5px",
         marginTop:"10px",
-        marginBottom:"10px"        
+        marginBottom:"10px"
       }
     });
 
@@ -125,11 +125,9 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
 
     if (token) {
-      //TODO: navigate to  page
+      //todo navigate
     }
   }
-
-
 
   isFormFilled = (): boolean => {
     return this.state.email.length > 0 &&
@@ -157,8 +155,9 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     };
 
     console.log(data);
-    const token = await WebAPI.Security.register(data).then(x => x.Token)
-      .catch();
+    const token = await WebAPI.Security.register(data)
+                                       .then(x => x.Token)
+                                       .catch();
     if (!token) {
       return;
     }
@@ -175,7 +174,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
   }
 
   render() {
-    
     const css = this.props.classes;
     const registerButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onRegisterClickHandler}>
@@ -250,8 +248,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 locale="hu"
                 placeholderText="Születési dátum megadása"
                 name="birthdayComponent"
-                
-                
                // minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               />
               {registerButton}

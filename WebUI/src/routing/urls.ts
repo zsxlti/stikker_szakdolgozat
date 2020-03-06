@@ -10,7 +10,7 @@ export enum Routes
     Cart = "cart",
 
     //admin
-    AddSticker="admin/product/add"
+    AddSticker = "admin/product/add"
 }
 
 export module Urls
@@ -23,5 +23,5 @@ export module Urls
     export const cart = `/${Routes.Cart}`;
 
     //admin
-    export const addSticker= `/${Routes.AddSticker}`;
+    export const addSticker = `/${Routes.AddSticker}`;
 }

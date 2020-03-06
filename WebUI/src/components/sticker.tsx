@@ -5,7 +5,7 @@ import { StickerEntity } from "../services/client/stickerService";
 import { Connected } from "./../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "./../lib/appStore";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -38,10 +38,10 @@ const styles = (theme: Theme) =>
         margin: 2,
         borderColor: theme.palette.secondary.main,
         borderWidth: 2,
-        borderStyle: 'solid',
-        borderRadius: '50%',
-        width: '2rem',
-        height: '2rem',
+        borderStyle: "solid",
+        borderRadius: "50%",
+        width: "2rem",
+        height: "2rem",
         padding: 3
       }
     });
@@ -97,7 +97,6 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
 
         </CardActions>
       </Card>
-
 
     return Body();
   }

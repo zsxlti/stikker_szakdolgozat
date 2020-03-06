@@ -27,7 +27,6 @@ const styles = (theme: Theme) =>
                 marginTop:20,
                 marginBottom:20
             },
-            
         })
 
 interface IState {
@@ -55,7 +54,6 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         }
     }
 
-
     private fields: IFields =
         {
             url:
@@ -82,26 +80,19 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         //TODO: delete console.log
         const data = { ...this.form.current!.state!.values };
         const dataContent = JSON.parse(JSON.stringify(data));
-       
         const stickerEntity: any[] = dataContent;
         console.log(stickerEntity);
         /*const stickerArrayElement: StickerEntity = stickerEntity.map
         (
-            
         );*/
-        
-       
     }
-
-
 
     render() {
         const css = this.props.classes;
-
         const Body = () =>
             <div className={css.container}>
                 <Route render={props => <HeaderComponent {...props} />} />
-                <Form 
+                <Form
                     ref={this.form}
                     submit={() => this.submit()}
                     fields={this.fields}

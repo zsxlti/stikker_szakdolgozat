@@ -73,6 +73,5 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
   }
 }
 
-
 const CartItemComponent = withRoot(withStyles(styles)(CartItem));
 export default CartItemComponent;

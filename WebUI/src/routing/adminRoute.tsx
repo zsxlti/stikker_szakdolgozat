@@ -43,7 +43,7 @@ export function AdminRoute(props: ProtectedRouteProps)
         {
             return true;
         }
-        
+
         const storageService: StorageService = new StorageService();
         storageService.remove(StorageKeys.JWT)
         return false;

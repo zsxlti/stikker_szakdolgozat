@@ -38,7 +38,6 @@ export const isAdmin = () : boolean =>
     {
         return true;
     }
-    
     const storageService: StorageService = new StorageService();
     storageService.remove(StorageKeys.JWT)
     return false;

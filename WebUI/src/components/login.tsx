@@ -17,7 +17,7 @@ const styles = (theme: Theme) =>
       root:
       {
         display: "flex",
-        '& > *': {
+        "& > *": {
           flexGrow: 1,
           flexDirection: "column",
           alignItems: "center",
@@ -156,7 +156,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       <Button variant="contained" disabled className={css.submit}>
         Bejelentkezés
       </Button>
-
 
     const Body = () =>
       <React.Fragment>

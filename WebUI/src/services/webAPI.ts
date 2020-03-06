@@ -40,7 +40,7 @@ export module WebAPI
     }
 
     export function setToken(value: string)
-	{
+    {
         storageService.write(StorageKeys.JWT, value);
         proxy.bearerToken = value;
     }
