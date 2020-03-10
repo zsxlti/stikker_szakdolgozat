@@ -8,15 +8,13 @@ import java.util.Date;
 @ApiModel
 public class PurchaseResponse {
     public String customerID;
-    public int stickerID;
     public Date date;
 
     public PurchaseResponse() {
     }
 
-    public PurchaseResponse(String sellerID, String customerID, int stickerID, Date date) {
+    public PurchaseResponse(String sellerID, String customerID, Date date) {
         this.customerID = customerID;
-        this.stickerID = stickerID;
         this.date = date;
     }
 
@@ -27,7 +25,6 @@ public class PurchaseResponse {
             return;
         }
         customerID=purchase.customerID;
-        stickerID=purchase.stickerID;
         date=purchase.date;
 
     }

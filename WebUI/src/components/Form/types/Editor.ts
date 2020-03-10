@@ -4,4 +4,5 @@ export type Editor = "textbox" |
                      "dropdown" |
                      "radio" |
                      "checkbox" |
-                     "date";
+                     "date" |
+                     "image";

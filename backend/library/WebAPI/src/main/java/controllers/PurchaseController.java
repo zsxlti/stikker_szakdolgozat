@@ -35,36 +35,6 @@ public class PurchaseController {
         return request.getObject();
     }
 
-    @ApiOperation(value = "update", nickname = "update")
-    @PutMapping("/api/purchase")
-    @ResponseBody
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
-    public PurchaseEntity UpdatePurchase(@RequestBody PurchaseEntity purchase) throws Exception
-    {
-        ServiceObjectResponse<PurchaseEntity> request = _purchaseService.update(purchase);
-
-        if(!request.getIsSuccess())
-        {
-            throw new Exception(request.getMessage());
-        }
-        return request.getObject();
-    }
-
-    @ApiOperation(value = "delete", nickname = "delete")
-    @DeleteMapping("/api/purchase/{id}")
-    @ResponseBody
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
-    public boolean DeletePurchase(@PathVariable int id) throws Exception
-    {
-        ServiceObjectResponse request = _purchaseService.delete(id);
-
-        if(!request.getIsSuccess())
-        {
-            throw new Exception(request.getMessage());
-        }
-        return request.getIsSuccess();
-    }
-
     @ApiOperation(value = "all", nickname = "all")
     @GetMapping("/api/purchase/all")
     @ResponseBody
@@ -94,7 +64,7 @@ public class PurchaseController {
         return request.getObject();
     }
 
-    @ApiOperation(value = "all", nickname = "all")
+    /*@ApiOperation(value = "all", nickname = "all")
     @GetMapping("/api/item/all")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
@@ -153,7 +123,6 @@ public class PurchaseController {
         }
         return request.getObject();
     }
-
-
+*/
 
 }

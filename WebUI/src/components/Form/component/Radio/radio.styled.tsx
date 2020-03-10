@@ -76,6 +76,7 @@ class StyledRadio extends React.Component<IProps & WithStyles<typeof styles>, IS
                 icon={<span className={classes.icon} />}
                 {...this.props}
             />
+        
         return Body();
     }
 }

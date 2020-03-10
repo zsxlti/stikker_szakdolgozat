@@ -24,6 +24,7 @@ const styles = (theme: Theme) =>
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
+          
         }
       },
       logoContainer:
@@ -46,7 +47,6 @@ const styles = (theme: Theme) =>
       bottom:
       {
         minHeight: 100,
-        padding: 10,
         fontSize: 50,
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
@@ -157,10 +157,11 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             {form}
             <div className={css.statusText} onClick={this.navigate}>
                   {this.state.statusText}
-                </div>
-            <div className={css.bottom}>
-              <FooterComponent />
             </div>
+            <div className={css.bottom}>
+            <FooterComponent />      
+  </div>
+     
           </Paper>
         </div>
       </React.Fragment>

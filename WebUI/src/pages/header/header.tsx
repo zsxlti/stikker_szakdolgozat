@@ -17,7 +17,7 @@ import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { isAdmin } from "./../../services/client/roleService";
-
+import { BrowserView, MobileView } from "react-device-detect";
 const styles = (theme: Theme) =>
     createStyles
         ({
@@ -118,10 +118,11 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
         const cartCount = this.state.cartCount;
 
         const showHeader = isAdmin() ?
+        <BrowserView>
         <div className={css.container}>
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
-                        <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
+                        <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
                         <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
                             Matricák
                         </Typography>
@@ -137,7 +138,9 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                     </Toolbar>
                 </AppBar>
             </div>
+            </BrowserView>
             :
+            <BrowserView>
             <div className={css.container}>
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
@@ -154,11 +157,12 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                     </Toolbar>
                 </AppBar>
             </div>
+            </BrowserView>
 
         const Body = () =>
         <div>
             {showHeader}
-            </div>
+        </div>
         return Body();
     }
 }

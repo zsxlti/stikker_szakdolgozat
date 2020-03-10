@@ -12,11 +12,11 @@ const styles = (theme: Theme) =>
         flexGrow: 1,
         justifyContent: "center",
         alignItems:"center",
-        color:theme.palette.primary.main,
+        color:theme.palette.secondary.main,
         minHeight:50,
         fontFamily:"Roboto",
         fontSize:"20px",
-        backgroundColor:theme.palette.secondary.main
+        backgroundColor:theme.palette.primary.main
       },
     });
 

@@ -7,7 +7,7 @@ import { IValues } from "../interfaces/IValues";
  * @param {number} length - The maximum number of characters
  * @returns {string} - The error message
  */
-export const maxLength = (values: IValues, fieldName: string, length: number): string =>
-    values[fieldName] && values[fieldName].length > length
+export const minLength = (values: IValues, fieldName: string, length: number): string =>
+    values[fieldName] && values[fieldName].length < length
       ? `This can not exceed ${length} value.`
       : "";

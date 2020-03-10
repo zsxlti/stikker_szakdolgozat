@@ -11,21 +11,21 @@ import { required } from "./../../../../components/Form/validators/required";
 import { maxLength } from "./../../../../components/Form/validators/maxLength";
 import HeaderComponent from "./../../../../pages/header/header";
 import FooterComponent from "./../../../../pages/footer/footer";
-import { StickerEntity } from "./../../../../services/client/stickerService";
+import { minLength } from "./../../../../components/Form/validators/minLength";
 
 const styles = (theme: Theme) =>
     createStyles
         ({
-            container:{
-                backgroundColor:theme.palette.secondary.main,
-                height:"100vh",
-                color:theme.palette.primary.main
+            container: {
+                backgroundColor: theme.palette.secondary.main,
+                height: "100vh",
+                color: theme.palette.primary.main
             },
-            alert:{
-                fontFamily:"Roboto",
-                fontSize:"20px",
-                marginTop:20,
-                marginBottom:20
+            alert: {
+                fontFamily: "Roboto",
+                fontSize: "20px",
+                marginTop: 20,
+                marginBottom: 20
             },
         })
 
@@ -64,14 +64,14 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
             price:
             {
                 id: FieldTypes.price.toLowerCase(),
-                label: "Ár"
+                label: "Ár",
+                validation: [{ rule: minLength, args: 0 }, { rule: required }]
             },
             description:
             {
                 id: FieldTypes.description.toLowerCase(),
                 label: "Matrica leírása",
                 editor: "multilinetextbox",
-                validation: { rule: maxLength, args: 1000 }
             },
 
         };
@@ -86,26 +86,28 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
     render() {
         const css = this.props.classes;
         const Body = () =>
-            <div className={css.container}>
-                <Route render={props => <HeaderComponent {...props} />} />
-                <Form
-                    ref={this.form}
-                    submit={() => this.submit()}
-                    fields={this.fields}
-                    render={() =>
-                        (
-                            <React.Fragment>
-                                <div className={css.alert} role="alert">
-                                    Matrica feltöltéséhez töltse ki az adatokat!
-                                </div>
-                                <Field {...this.fields.url} />
-                                <Field {...this.fields.price} />
-                                <Field {...this.fields.description} />
-                            </React.Fragment>
-                        )}
-                />
+            <React.Fragment>
+                <div className={css.container}>
+                    <Route render={props => <HeaderComponent {...props} />} />
+                    <Form
+                        ref={this.form}
+                        submit={() => this.submit()}
+                        fields={this.fields}
+                        render={() =>
+                            (
+                                <React.Fragment>
+                                    <div className={css.alert} role="alert">
+                                        Matrica feltöltéséhez töltse ki az adatokat!
+                                    </div>
+                                    <Field {...this.fields.url} />
+                                    <Field {...this.fields.price} />
+                                    <Field {...this.fields.description} />
+                                </React.Fragment>
+                            )}
+                    />
+                </div>
                 <FooterComponent />
-            </div>
+            </React.Fragment>
         return Body();
     }
 }

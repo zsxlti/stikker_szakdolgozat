@@ -42,52 +42,6 @@ public class PurchaseService implements IPurchaseService {
         }
         return response;
     }
-    @Override
-    public ServiceObjectResponse<PurchaseEntity> update(PurchaseEntity purchase)
-    {
-        ServiceObjectResponse<PurchaseEntity> response = new ServiceObjectResponse<>();
-
-        try
-        {
-            PurchaseEntity data = _purchaseRepository.update(purchase);
-
-            response.setObject(data);
-            response.setIsSuccess(true);
-            response.setMessage("No errors.");
-        }
-        catch (Exception ex)
-        {
-            response.setIsSuccess(false);
-            response.setMessage(ex.getMessage());
-        }
-
-        return response;
-    }
-    @Override
-    public ServiceObjectResponse delete(int id)
-    {
-        ServiceObjectResponse response = new ServiceObjectResponse();
-
-        try
-        {
-            boolean success = _purchaseRepository.delete(id);
-
-            if(!success)
-            {
-                throw new Exception("Record is not deleted (id: " + id + ").");
-            }
-
-            response.setIsSuccess(true);
-            response.setMessage("No errors.");
-        }
-        catch (Exception ex)
-        {
-            response.setIsSuccess(false);
-            response.setMessage(ex.getMessage());
-        }
-
-        return response;
-    }
 
     @Override
     public ServiceObjectResponse<List<PurchaseEntity>> getAll()
@@ -131,7 +85,7 @@ public class PurchaseService implements IPurchaseService {
 
         return response;
     }
-    @Override
+    /*@Override
     public ServiceObjectResponse<List<ItemEntity>> getAllItems()
     {
         ServiceObjectResponse<List<ItemEntity>> response = new ServiceObjectResponse<>();
@@ -221,5 +175,5 @@ public class PurchaseService implements IPurchaseService {
         }
 
         return response;
-    }
+    }*/
 }
