@@ -38,7 +38,7 @@ const styles = (theme: Theme) =>
         maxWidth: "40%",
         color: theme.palette.primary.main + "!important",
         margin: "auto",
-        minHeight:"59vh"
+        minHeight: "59vh"
       },
       bottom:
       {
@@ -84,9 +84,25 @@ const styles = (theme: Theme) =>
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
         border: "2px solid",
-        borderRadius:"5px",
-        marginTop:"10px",
-        marginBottom:"10px"
+        borderRadius: "5px",
+        marginTop: "10px",
+        marginBottom: "10px"
+      },
+      underline: {
+        "&::before": {
+          borderBottom: theme.palette.primary.main
+        },
+        "&:hover:not(.Mui-disabled):before": {
+          borderBottom: theme.palette.primary.main
+        },
+        "&::after": {
+          borderBottom: theme.palette.primary.main
+        }
+      },
+      input: {
+        "&:-webkit-autofill": {
+          WebkitBoxShadow: theme.palette.secondary.main
+        }
       }
     });
 
@@ -156,8 +172,8 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
     console.log(data);
     const token = await WebAPI.Security.register(data)
-                                       .then(x => x.Token)
-                                       .catch();
+      .then(x => x.Token)
+      .catch();
     if (!token) {
       return;
     }
@@ -248,7 +264,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                 locale="hu"
                 placeholderText="Születési dátum megadása"
                 name="birthdayComponent"
-               // minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
+              // minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               />
               {registerButton}
             </div>

@@ -13,6 +13,10 @@ public class ItemEntity {
         StickerId = stickerId;
         PurchaseId = purchaseId;
     }
+    public ItemEntity(int stickerId, int purchaseId) {
+        StickerId = stickerId;
+        PurchaseId = purchaseId;
+    }
 
     public int getId() {
         return Id;

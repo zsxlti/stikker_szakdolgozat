@@ -3,17 +3,18 @@ package response;
 import entity.PurchaseEntity;
 import io.swagger.annotations.ApiModel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @ApiModel
 public class PurchaseResponse {
     public String customerID;
-    public Date date;
+    public LocalDate date;
 
     public PurchaseResponse() {
     }
 
-    public PurchaseResponse(String sellerID, String customerID, Date date) {
+    public PurchaseResponse(String sellerID, String customerID, LocalDate date) {
         this.customerID = customerID;
         this.date = date;
     }
@@ -26,6 +27,5 @@ public class PurchaseResponse {
         }
         customerID=purchase.customerID;
         date=purchase.date;
-
     }
 }

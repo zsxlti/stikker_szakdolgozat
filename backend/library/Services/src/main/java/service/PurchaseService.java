@@ -3,10 +3,12 @@ package service;
 import common.ServiceObjectResponse;
 import entity.ItemEntity;
 import entity.PurchaseEntity;
+import entity.StickerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repositories.IItemRepository;
 import repositories.IPurchaseRepository;
+import request.PurchaseRequest;
 import services.IPurchaseService;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class PurchaseService implements IPurchaseService {
     IItemRepository _itemRepository;
 
     @Override
-    public ServiceObjectResponse<PurchaseEntity> create(PurchaseEntity purchase)
+    public ServiceObjectResponse<PurchaseEntity> create(PurchaseRequest purchase)
     {
         //TODO: parameterben matricak ID-jei tombben megkapja a felhasznalo uniqID-jat, be kell irni a vasarlast, visszajon az ID, tudok irni teteleket,
         //TODO: foreachel vegiglepkedni a tombon, minden ciklusban beirok egy tetelt a DB-be
@@ -29,8 +31,12 @@ public class PurchaseService implements IPurchaseService {
 
         try
         {
-            PurchaseEntity data = _purchaseRepository.create(purchase);
-
+            PurchaseEntity data = _purchaseRepository.create(purchase.purchase);
+            for (StickerEntity var: purchase.stickers) {
+                ItemEntity item=new ItemEntity(var.Id,data.Id);
+                item=_itemRepository.create(item);
+            }
+            
             response.setObject(data);
             response.setIsSuccess(true);
             response.setMessage("No errors.");

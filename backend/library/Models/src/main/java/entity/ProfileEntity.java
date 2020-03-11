@@ -2,9 +2,7 @@ package entity;
 
 import request.RegisterRequest;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ProfileEntity {
     public String Id;

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repositories.IPurchaseRepository;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,10 +22,7 @@ public class PurchaseRepository implements IPurchaseRepository {
         CallableStatement stmt = connection.prepareCall(SQL);
         stmt.setInt(1, purchase.Id);
         stmt.setString(2, purchase.customerID);
-        stmt.setDate(3, (Date) purchase.date);
-
-
-
+        stmt.setDate(3, Date.valueOf(purchase.date));
 
         ResultSet resultSets  = stmt.executeQuery();
         if (resultSets.next())
@@ -84,8 +82,7 @@ public class PurchaseRepository implements IPurchaseRepository {
         PurchaseEntity purchase = new PurchaseEntity();
         purchase.Id = Integer.parseInt(dataSet.getString("Id"));
         purchase.customerID = dataSet.getString("customerID");
-        purchase.date = Date.valueOf(dataSet.getString("date"));
-
+        purchase.date = LocalDate.parse(dataSet.getString("date"));
         return purchase;
     }
 }

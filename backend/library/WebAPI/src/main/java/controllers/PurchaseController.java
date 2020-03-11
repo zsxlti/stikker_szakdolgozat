@@ -3,11 +3,13 @@ package controllers;
 import common.ServiceObjectResponse;
 import entity.ItemEntity;
 import entity.PurchaseEntity;
+import entity.StickerEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import request.PurchaseRequest;
 import services.IPurchaseService;
 
 import java.util.List;
@@ -20,11 +22,12 @@ public class PurchaseController {
     IPurchaseService _purchaseService;
 
 
+
     @ApiOperation(value = "create", nickname = "create")
     @PostMapping("/api/purchase")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
-    public PurchaseEntity CreatePurchase(@RequestBody PurchaseEntity purchase) throws Exception
+    public PurchaseEntity CreatePurchase(@RequestBody PurchaseRequest purchase) throws Exception
     {
         ServiceObjectResponse<PurchaseEntity> request = _purchaseService.create(purchase);
 

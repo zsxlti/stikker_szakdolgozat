@@ -7,6 +7,7 @@ request\LoginRequest.class
 response\ItemResponse.class
 response\StickerResponse.class
 enums\Role.class
+request\PurchaseRequest.class
 response\ProfileResponse.class
 entity\ProfileEntity.class
 request\RegisterRequest.class

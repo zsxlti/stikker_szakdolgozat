@@ -2,15 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6833a8fa-6bd9-4dd8-9dda-1d454a613e26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../library/Models/src/main/java/request/PurchaseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/drawerTest.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IPurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Infrastructure/src/main/java/services/IPurchaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ItemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ItemEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ProfileEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/ProfileEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/response/PurchaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/response/PurchaseResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/PurchaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/PurchaseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Services/src/main/java/service/PurchaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -35,6 +56,20 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="WebApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebApiApplication" />
+      <module name="WebAPI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WebApiApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />

@@ -14,6 +14,9 @@ import { Extensions } from "./extensions";
 import { AppStore } from "./lib/appStore";
 import { StoreManager } from "./lib/store/store.manager";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 const ext = Extensions;
 
 iassign.setOption
