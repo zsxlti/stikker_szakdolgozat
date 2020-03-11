@@ -24,7 +24,7 @@ public class PurchaseService implements IPurchaseService {
     public ServiceObjectResponse<PurchaseEntity> create(PurchaseEntity purchase)
     {
         //TODO: parameterben matricak ID-jei tombben megkapja a felhasznalo uniqID-jat, be kell irni a vasarlast, visszajon az ID, tudok irni teteleket,
-        //foreachel vegiglepkedni a tombon, minden ciklusban beirok egy tetelt a DB-be
+        //TODO: foreachel vegiglepkedni a tombon, minden ciklusban beirok egy tetelt a DB-be
         ServiceObjectResponse<PurchaseEntity> response = new ServiceObjectResponse<>();
 
         try

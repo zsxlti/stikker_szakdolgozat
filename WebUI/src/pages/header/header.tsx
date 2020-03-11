@@ -6,6 +6,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
 import { StorageService } from "./../../services/client/storage.service";
 import { StorageKeys } from "./../../settings/constans";
 import { Routes, Urls } from "./../../routing/urls";
@@ -14,16 +16,15 @@ import { LocalImages } from "./../../staticFiles/images";
 import { Connected } from "./../../lib/store/connected.mixin";
 import { AppStore } from "./../../lib/appStore";
 import Badge from "@material-ui/core/Badge";
-import IconButton from "@material-ui/core/IconButton";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { isAdmin } from "./../../services/client/roleService";
-import { BrowserView, MobileView } from "react-device-detect";
+import { BrowserView, MobileView, isMobile } from "react-device-detect";
 const styles = (theme: Theme) =>
     createStyles
         ({
             container:
             {
-                display: "flex",
+
                 flexGrow: 1,
             },
             logoContainer:
@@ -35,19 +36,21 @@ const styles = (theme: Theme) =>
                 backgroundColor: theme.palette.primary.main + "!important",
             },
             title: {
-                display: "flex",
-                flexGrow:1,
+                flexGrow: 1,
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.secondary.main,
-                marginLeft:10
+                marginLeft: 10
             },
             button: {
                 color: theme.palette.secondary.main,
             },
-            right:{
-                display:"flex",
-                justifyContent:"flex-end",
-            }
+            right: {
+                display: "flex",
+                justifyContent: "flex-end",
+            },
+            menuButton: {
+                marginRight: 10,
+            },
         });
 
 const StyledBadge = withStyles((theme: Theme) =>
@@ -59,6 +62,8 @@ const StyledBadge = withStyles((theme: Theme) =>
             padding: "0 4px",
             backgroundColor: theme.palette.secondary.main
         },
+
+
     }),
 )(Badge);
 
@@ -116,13 +121,12 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
     render() {
         const css = this.props.classes;
         const cartCount = this.state.cartCount;
-
         const showHeader = isAdmin() ?
-        <BrowserView>
+
         <div className={css.container}>
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
-                        <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
+                    <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
                         <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
                             Matricák
                         </Typography>
@@ -138,9 +142,9 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                     </Toolbar>
                 </AppBar>
             </div>
-            </BrowserView>
+
             :
-            <BrowserView>
+
             <div className={css.container}>
                 <AppBar position="static" className={css.appbar}>
                     <Toolbar>
@@ -157,12 +161,11 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                     </Toolbar>
                 </AppBar>
             </div>
-            </BrowserView>
-
+    
         const Body = () =>
-        <div>
-            {showHeader}
-        </div>
+            <div>
+                {showHeader}
+            </div>
         return Body();
     }
 }
