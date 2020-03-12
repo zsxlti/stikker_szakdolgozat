@@ -24,7 +24,7 @@ const styles = (theme: Theme) =>
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
-          
+
         }
       },
       logoContainer:
@@ -78,13 +78,11 @@ const styles = (theme: Theme) =>
         marginBottom: "10px"
       },
       statusText: {
-        display:"flex",
-        flexGrow:1,
-        flexDirection:"row",
+        display: "flex",
+        flexGrow: 1,
+        flexDirection: "row",
         color: theme.palette.primary.main,
-        justifyContent: "center",
-        alignItems:"center",
-        alignContent:"center"
+        justifyContent: "flex-end",
       }
     });
 
@@ -156,12 +154,12 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             </div>
             {form}
             <div className={css.statusText} onClick={this.navigate}>
-                  {this.state.statusText}
+              {this.state.statusText}
             </div>
+
             <div className={css.bottom}>
-            <FooterComponent />      
-  </div>
-     
+              <FooterComponent />
+            </div>
           </Paper>
         </div>
       </React.Fragment>

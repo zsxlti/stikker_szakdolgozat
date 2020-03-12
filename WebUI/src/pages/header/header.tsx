@@ -19,9 +19,6 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { isAdmin } from "./../../services/client/roleService";
 import { BrowserView, MobileView, isMobile } from "react-device-detect";
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 const styles = (theme: Theme) =>

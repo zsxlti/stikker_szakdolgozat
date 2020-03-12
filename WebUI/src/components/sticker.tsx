@@ -6,6 +6,7 @@ import { Connected } from "./../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
 import { AppStore } from "./../lib/appStore";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { toast } from 'react-toastify';
 
 const styles = (theme: Theme) =>
   createStyles
@@ -58,6 +59,17 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
     super(props);
   }
 
+  componentDidMount(): void {
+    toast.configure({
+      position: 'top-center',
+      autoClose: 15000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    });
+  }
+
   onClickHandler = async (): Promise<void> => {
     const data: StickerEntity = this.props.sticker;
 
@@ -65,14 +77,12 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
       selectedSticker: data
     });
     this.store.state.cart.add(data);
-    alert("A tétel a kosárba került.");
   }
 
   render() {
     const css = this.props.classes;
 
     const Body = () =>
-
       <Card className={css.root}>
         <CardActionArea>
           <CardMedia
@@ -86,18 +96,15 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
             <Typography gutterBottom variant="h5" component="h2" className={css.price}>
               {this.props.sticker.Price} Ft
               </Typography>
-              <AddShoppingCartIcon fontSize="large" className={css.icon} onClick={this.onClickHandler}/>
+            <AddShoppingCartIcon fontSize="large" className={css.icon} onClick={this.onClickHandler} />
           </CardContent>
         </CardActionArea>
         <CardActions>
-
           <Button>
             Kosárba
             </Button>
-
         </CardActions>
       </Card>
-
     return Body();
   }
 }

@@ -69,6 +69,26 @@ const styles = (theme: Theme) =>
         borderColor: theme.palette.primary.main + "!important",
         width: "100%"
       },
+      textFieldOutlinedInput:
+      {
+        "&$cssFocused $notchedOutline":
+        {
+          borderColor: `${theme.palette.primary.main} !important`,
+        }
+      },
+      textFieldFocused:
+      {
+        color: theme.palette.primary.main
+      },
+      textFieldNotchedOutline:
+      {
+        borderWidth: "2px",
+        borderColor: theme.palette.primary.main + "!important"
+      },
+      textFieldLabel:
+      {
+        color: `${theme.palette.primary.main} !important`,
+      },
       inputColor: {
         color: theme.palette.primary.main + "!important",
       },
@@ -138,8 +158,8 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       password: this.state.password
     };
     const token = await WebAPI.Security.login(data)
-                                       .then(x => x)
-                                       .catch();
+      .then(x => x)
+      .catch();
     if (token) {
       WebAPI.setToken(token.Token!)
       this.props.history.push(Urls.stickers);
@@ -164,43 +184,52 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
           <div className={css.loginContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
             <div>
-              <TextField InputProps={{
+              <TextField InputLabelProps={{
                 classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
+                  root: css.textFieldLabel,
+                  focused: css.textFieldFocused
                 }
-              }
-              }
+              }}
+                InputProps={{
+                  classes: {
+                    root: css.textFieldOutlinedInput,
+                    focused: css.textFieldFocused,
+                    notchedOutline: css.textFieldNotchedOutline,
+                    input: css.textFieldFocused
+                  },
+                }}
                 variant="outlined"
                 margin="normal"
                 id="email"
                 label="E-mail cím"
                 name="email"
-                autoComplete="email"
-
+                autoComplete="off"
                 className={css.textField}
                 onChange={this.onTextChanged} />
-              <TextField InputProps={{
+              <TextField InputLabelProps={{
                 classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
+                  root: css.textFieldLabel,
+                  focused: css.textFieldFocused
                 }
-              }
-              }
+              }}
+                InputProps={{
+                  classes: {
+                    root: css.textFieldOutlinedInput,
+                    focused: css.textFieldFocused,
+                    notchedOutline: css.textFieldNotchedOutline,
+                    input: css.textFieldFocused
+                  },
+                }}
                 variant="outlined"
                 margin="normal"
                 id="password"
                 label="Jelszó"
                 name="password"
-                autoComplete="password"
+                autoComplete="off"
                 type="password"
                 className={css.textField}
                 onChange={this.onTextChanged} />
               {loginButton}
-            </div>
-
-            <div className={css.grid}>
-              Elfelejtett jelszó
             </div>
           </div>
         </div>

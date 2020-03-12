@@ -13,6 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
+import Input from '@material-ui/core/Input';
 
 const styles = (theme: Theme) =>
   createStyles
@@ -64,6 +65,26 @@ const styles = (theme: Theme) =>
         borderColor: theme.palette.primary.main + "!important",
         width: "100%"
       },
+      textFieldOutlinedInput:
+      {
+        "&$cssFocused $notchedOutline":
+        {
+          borderColor: `${theme.palette.primary.main} !important`,
+        }
+      },
+      textFieldFocused:
+      {
+        color: theme.palette.primary.main
+      },
+      textFieldNotchedOutline:
+      {
+        borderWidth: "2px",
+        borderColor: theme.palette.primary.main + "!important"
+      },
+      textFieldLabel:
+      {
+        color: `${theme.palette.primary.main} !important`,
+      },
       inputColor: {
         color: theme.palette.primary.main + "!important",
       },
@@ -87,22 +108,6 @@ const styles = (theme: Theme) =>
         borderRadius: "5px",
         marginTop: "10px",
         marginBottom: "10px"
-      },
-      underline: {
-        "&::before": {
-          borderBottom: theme.palette.primary.main
-        },
-        "&:hover:not(.Mui-disabled):before": {
-          borderBottom: theme.palette.primary.main
-        },
-        "&::after": {
-          borderBottom: theme.palette.primary.main
-        }
-      },
-      input: {
-        "&:-webkit-autofill": {
-          WebkitBoxShadow: theme.palette.secondary.main
-        }
       }
     });
 
@@ -111,7 +116,6 @@ interface IState {
   email: string;
   password: string;
   birthday: Date;
-  statusText: string;
   isRegistered: boolean;
 }
 
@@ -130,7 +134,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       email: "",
       password: "",
       birthday: new Date(),
-      statusText: "Van már fiókja?",
       isRegistered: true
     }
   }
@@ -206,65 +209,84 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
           <div className={css.registerContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
             <div>
-              <TextField InputProps={{
+              <TextField InputLabelProps={{
                 classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
+                  root: css.textFieldLabel,
+                  focused: css.textFieldFocused
                 }
-              }
-              }
+              }}
+                InputProps={{
+                  classes: {
+                    root: css.textFieldOutlinedInput,
+                    focused: css.textFieldFocused,
+                    notchedOutline: css.textFieldNotchedOutline,
+                    input: css.textFieldFocused
+                  },
+                }}
+                autoComplete="off"
                 variant="outlined"
                 margin="normal"
                 id="name"
                 label="Név"
                 name="name"
-                autoComplete="name"
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
-              <TextField InputProps={{
+              <TextField InputLabelProps={{
                 classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
+                  root: css.textFieldLabel,
+                  focused: css.textFieldFocused
                 }
-              }
-              }
+              }}
+                InputProps={{
+                  classes: {
+                    root: css.textFieldOutlinedInput,
+                    focused: css.textFieldFocused,
+                    notchedOutline: css.textFieldNotchedOutline,
+                    input: css.textFieldFocused
+                  },
+                }}
+                autoComplete="off"
                 variant="outlined"
                 margin="normal"
                 id="email"
                 label="E-mail cím"
                 name="email"
-                autoComplete="email"
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
-              <TextField InputProps={{
+              <TextField InputLabelProps={{
                 classes: {
-                  notchedOutline: css.textField,
-                  input: css.inputColor
+                  root: css.textFieldLabel,
+                  focused: css.textFieldFocused
                 }
-              }
-              }
+              }}
+                InputProps={{
+                  classes: {
+                    root: css.textFieldOutlinedInput,
+                    focused: css.textFieldFocused,
+                    notchedOutline: css.textFieldNotchedOutline,
+                    input: css.textFieldFocused
+                  },
+                }}
+                autoComplete="off"
                 variant="outlined"
                 margin="normal"
                 id="password"
                 label="Jelszó"
                 name="password"
-                autoComplete="password"
                 type="password"
                 required
                 className={css.textField}
                 onChange={this.onTextChanged} />
               <DatePicker
                 className={css.datePicker}
-                //todayButton={'Today'}
                 dateFormat="yyyy/MM/dd"
                 selected={this.state.birthday}
                 onChange={this.changeHandler}
                 locale="hu"
                 placeholderText="Születési dátum megadása"
                 name="birthdayComponent"
-              // minDate={new Date(0, 0, 0, 0, 0, 0, 0)}
               />
               {registerButton}
             </div>
