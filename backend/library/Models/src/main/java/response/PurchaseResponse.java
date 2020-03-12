@@ -4,7 +4,6 @@ import entity.PurchaseEntity;
 import io.swagger.annotations.ApiModel;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @ApiModel
 public class PurchaseResponse {
@@ -25,7 +24,7 @@ public class PurchaseResponse {
         {
             return;
         }
-        customerID=purchase.customerID;
-        date=purchase.date;
+        customerID=purchase.CustomerID;
+        date=purchase.PurchaseDate;
     }
 }

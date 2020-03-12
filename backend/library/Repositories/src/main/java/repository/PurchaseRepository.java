@@ -9,7 +9,6 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PurchaseRepository implements IPurchaseRepository {
@@ -21,8 +20,8 @@ public class PurchaseRepository implements IPurchaseRepository {
 
         CallableStatement stmt = connection.prepareCall(SQL);
         stmt.setInt(1, purchase.Id);
-        stmt.setString(2, purchase.customerID);
-        stmt.setDate(3, Date.valueOf(purchase.date));
+        stmt.setString(2, purchase.CustomerID);
+        stmt.setDate(3, Date.valueOf(purchase.PurchaseDate));
 
         ResultSet resultSets  = stmt.executeQuery();
         if (resultSets.next())
@@ -81,8 +80,8 @@ public class PurchaseRepository implements IPurchaseRepository {
     {
         PurchaseEntity purchase = new PurchaseEntity();
         purchase.Id = Integer.parseInt(dataSet.getString("Id"));
-        purchase.customerID = dataSet.getString("customerID");
-        purchase.date = LocalDate.parse(dataSet.getString("date"));
+        purchase.CustomerID = dataSet.getString("CustomerID");
+        purchase.PurchaseDate = LocalDate.parse(dataSet.getString("PurchaseDate"));
         return purchase;
     }
 }

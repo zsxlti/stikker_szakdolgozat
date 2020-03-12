@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS Purchase
 (
 	Id INT AUTO_INCREMENT PRIMARY KEY,
 	customerID VARCHAR(255) NOT NULL,
-  stickerID INT NOT NULL,
   date DATE NOT NULL
 );
 
@@ -268,39 +267,14 @@ DELIMITER ;
 
 
   DELIMITER $$
-CREATE OR REPLACE PROCEDURE PurchaseCreate(OUT paramId INT, IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
+CREATE OR REPLACE PROCEDURE PurchaseCreate(OUT paramId INT, IN paramCustomerID VARCHAR(255),IN paramDate Date)
 BEGIN
 INSERT INTO 
 		  Purchase
-	    (`customerID`, `stickerID`, `date`)
+	    (`customerID`, `date`)
     VALUES
-		(paramCustomerID, paramStickerID,paramDate);
+		(paramCustomerID, paramDate);
 SELECT LAST_INSERT_ID() AS paramId;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE OR REPLACE PROCEDURE PurchaseUpdate(IN paramId INT, IN paramCustomerID VARCHAR(255),in paramStickerID int,IN paramDate Date)
-BEGIN
-Update
-		  Purchase
-	   SET
-  Purchase.customerID=paramCustomerID,
-  Purchase.stickerID=paramStickerID,
-  Purchase.date=paramDate
-  WHERE 
-  paramId=Purchase.Id;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE OR REPLACE PROCEDURE PurchaseDelete(IN paramId INT)
-BEGIN
-    Delete
-      FROM
-      Purchase
-       WHERE 
-		  Purchase.Id = paramId;
 END$$
 DELIMITER ;
 
@@ -310,7 +284,6 @@ BEGIN
     SELECT
       Purchase.Id,
       Purchase.customerID,
-      Purchase.stickerID,
       Purchase.date
       From Purchase;
 END$$
@@ -322,7 +295,6 @@ BEGIN
      SELECT
       Purchase.Id,
       Purchase.customerID,
-      Purchase.stickerID,
       Purchase.date
       From Purchase
   WHERE Purchase.Id=paramId;

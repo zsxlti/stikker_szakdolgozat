@@ -8,10 +8,11 @@ import { Form } from "../../../../components/Form/Form";
 import { Field } from "../../../../components/Form/component/Field";
 import { IFields } from "./../../../../components/Form/interfaces/IFields";
 import { required } from "./../../../../components/Form/validators/required";
-import { maxLength } from "./../../../../components/Form/validators/maxLength";
 import HeaderComponent from "./../../../../pages/header/header";
 import FooterComponent from "./../../../../pages/footer/footer";
 import { minLength } from "./../../../../components/Form/validators/minLength";
+import { StickerEntity } from "./../../../../services/client/stickerService";
+import { WebAPI } from "./../../../../services/webAPI";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -77,9 +78,23 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         };
 
     submit = async (): Promise<void> => {
-        //TODO: delete console.log
         const data = { ...this.form.current!.state!.values };
-        const x = data["description"];
+        const sticker: StickerEntity = {
+            url: data["url"],
+            price: data["price"],
+            description: data["description"]
+        };
+        const stickerItem = await WebAPI.Sticker.stickerPost(sticker)
+                                         .then(x => x)
+                                         .catch();
+
+                                         console.log(sticker);
+        
+                                         if (sticker)
+                                         {
+                                             alert("A matrica felvitele sikeres!");
+                                         }
+                                         else alert("A matrica felvitele az adatbázisba nem sikerült!");
         console.log(JSON.stringify(data));
     }
 

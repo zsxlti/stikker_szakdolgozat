@@ -14,6 +14,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
 import Input from '@material-ui/core/Input';
+import { Urls } from "./../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -140,12 +141,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
   componentWillMount() {
     const storage: StorageService = new StorageService();
-
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
-
-    if (token) {
-      //todo navigate
-    }
   }
 
   isFormFilled = (): boolean => {
@@ -177,9 +173,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
     const token = await WebAPI.Security.register(data)
       .then(x => x.Token)
       .catch();
-    if (!token) {
-      return;
-    }
+    
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
   }

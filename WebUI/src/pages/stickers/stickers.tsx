@@ -9,6 +9,7 @@ import { StickerEntity } from "./../../services/client/stickerService";
 import { WebAPI } from "./../../services/webAPI";
 import StickerComponent from "./../../components/sticker";
 import FooterComponent from "../footer/footer";
+import { toast } from "react-toastify";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -65,6 +66,7 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
                 stickerArray: stickersDB
             });
     }
+
     render() {
         const css = this.props.classes;
         const stickerArrayElement: JSX.Element[] = this.state.stickerArray.map

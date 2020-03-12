@@ -1,6 +1,7 @@
 import { SecurityService } from "./../client/securityService";
 import { UserService } from "../client/userService";
 import { StickerService } from "../client/stickerService";
+import { PurchaseService } from "../client/purchaseService";
 
 export class SecurityAPI extends SecurityService
 {
@@ -28,6 +29,16 @@ export class StickerAPI extends StickerService
         this.jsonParseReviver = ReviveDateTime;
     }
 }
+
+export class PurchaseAPI extends PurchaseService
+{
+    constructor(baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> })
+    {
+        super(baseUrl, http);
+        this.jsonParseReviver = ReviveDateTime;
+    }
+}
+
 
 function ReviveDateTime(key: any, value: any): any
 {

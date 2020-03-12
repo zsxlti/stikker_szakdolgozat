@@ -2,21 +2,20 @@ package entity;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class PurchaseEntity {
 
     public int Id;
-    public String customerID;
-    public LocalDate date;
+    public String CustomerID;
+    public LocalDate PurchaseDate;
 
     public PurchaseEntity() {
     }
 
-    public PurchaseEntity(int id, String sellerID, String customerID, LocalDate date) {
+    public PurchaseEntity(int id,  String customerID, LocalDate purchaseDate) {
         Id = id;
-        this.customerID = customerID;
-        this.date = date;
+        this.CustomerID = customerID;
+        this.PurchaseDate = purchaseDate;
     }
 
     /*public int getId() {

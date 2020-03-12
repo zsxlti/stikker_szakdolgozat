@@ -163,7 +163,14 @@ export class Form extends React.Component<IFormProps, IFormState>
                       this.props.render()
                     }
                     <div className="form-group">
-                    <Button color="primary">Rögzítés</Button>
+                   
+                    <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={this.haveErrors(errors)}
+                    >
+                        Submit
+                    </button>
 
                     </div>
                     {

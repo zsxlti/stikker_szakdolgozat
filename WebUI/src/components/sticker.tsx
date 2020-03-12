@@ -58,18 +58,7 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
   constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
     super(props);
   }
-
-  componentDidMount(): void {
-    toast.configure({
-      position: 'top-center',
-      autoClose: 15000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true
-    });
-  }
-
+  
   onClickHandler = async (): Promise<void> => {
     const data: StickerEntity = this.props.sticker;
 
@@ -99,11 +88,6 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
             <AddShoppingCartIcon fontSize="large" className={css.icon} onClick={this.onClickHandler} />
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button>
-            Kosárba
-            </Button>
-        </CardActions>
       </Card>
     return Body();
   }

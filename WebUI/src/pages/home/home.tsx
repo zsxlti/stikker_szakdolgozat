@@ -10,6 +10,7 @@ import { StorageKeys } from "./../../settings/constans";
 import FooterComponent from "../footer/footer";
 import LoginComponent from "./../../components/login";
 import RegisterComponent from "./../../components/register";
+import { Urls } from "./../../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -121,11 +122,11 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
 
     if (token) {
-      //TODO: navigate to  page
+      this.props.history.push(Urls.stickers)
     }
   }
 
-  navigate = () => {
+  onClickHandler = () => {
     this.setState({
       ...this.state,
       isRegistered: !this.state.isRegistered,
@@ -139,11 +140,6 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       <RegisterComponent{...this.props} /> :
       <LoginComponent{...this.props} />
 
-    /*const bottomButtons: JSX.Element = this.state.isRegistered ?
-    /*<div></div>
-    :
-    <div></div>*/
-
     const Body = () =>
       <React.Fragment>
         <CssBaseline />
@@ -153,7 +149,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
               <img src={LocalImages.images("./stikker.png")} />
             </div>
             {form}
-            <div className={css.statusText} onClick={this.navigate}>
+            <div className={css.statusText} onClick={this.onClickHandler}>
               {this.state.statusText}
             </div>
 

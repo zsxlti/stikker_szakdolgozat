@@ -123,51 +123,27 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
     render() {
         const css = this.props.classes;
         const cartCount = this.state.cartCount;
-        const showHeader = isAdmin() ?
-
-        <div className={css.container}>
-                <AppBar position="static" className={css.appbar}>
-                    <Toolbar>
-                    <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
-                        <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
-                            Matricák
-                        </Typography>
-                        <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
-                            Admin
-                        </Typography>
-                        <IconButton aria-label="cart" className={css.right}>
-                            <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
-                                <ShoppingCartIcon />
-                            </StyledBadge>
-                        </IconButton>
-                        <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
-                    </Toolbar>
-                </AppBar>
-            </div>
-
-            :
-
-            <div className={css.container}>
-                <AppBar position="static" className={css.appbar}>
-                    <Toolbar>
-                        <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} />
-                        <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
-                            Matricák
-                        </Typography>
-                        <IconButton aria-label="cart" className={css.right}>
-                            <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
-                                <ShoppingCartIcon />
-                            </StyledBadge>
-                        </IconButton>
-                        <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
-                    </Toolbar>
-                </AppBar>
-    </div>
     
         const Body = () =>
-            <div>
-                {showHeader}
-            </div>
+        <div className={css.container}>
+        <AppBar position="static" className={css.appbar}>
+            <Toolbar>
+            <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
+                <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
+                    Matricák
+                </Typography>
+                <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
+                    Admin
+                </Typography>
+                <IconButton aria-label="cart" className={css.right}>
+                    <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
+                        <ShoppingCartIcon />
+                    </StyledBadge>
+                </IconButton>
+                <Button className={css.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
+            </Toolbar>
+        </AppBar>
+    </div>
         return Body();
     }
 }

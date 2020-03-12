@@ -168,7 +168,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
   }
   render() {
     const css = this.props.classes;
-
     const loginButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onLoginClickHandler}>
         Bejelentkezés
