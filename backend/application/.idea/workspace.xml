@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6833a8fa-6bd9-4dd8-9dda-1d454a613e26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/sticker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/sticker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/response/PurchaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/response/PurchaseResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/PurchaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Repositories/src/main/java/repository/PurchaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../db/stikker-scheme-2020.01.10.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../db/stikker-scheme-2020.01.10.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

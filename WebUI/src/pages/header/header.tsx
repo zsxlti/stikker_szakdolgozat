@@ -132,9 +132,9 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
                 <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>
                     Matricák
                 </Typography>
-                <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
+               {isAdmin() && <Typography variant="h6" onClick={this.adminClickHandler} className={css.title}>
                     Admin
-                </Typography>
+                </Typography>}
                 <IconButton aria-label="cart" className={css.right}>
                     <StyledBadge badgeContent={cartCount} onClick={this.cartClickHandler} color="secondary">
                         <ShoppingCartIcon />

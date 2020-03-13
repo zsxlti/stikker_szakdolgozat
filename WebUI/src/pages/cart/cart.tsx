@@ -96,6 +96,7 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
 
     purchaseClickHandler = async (): Promise<void> => {
+        console.log(localStorage.getItem("JWT"));
         const purchaseEntity: PurchaseEntity = {
             CustomerID: "",
             PurchaseDate: new Date((new Date()).getTime()),

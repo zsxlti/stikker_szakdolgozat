@@ -24,11 +24,13 @@ export function ProtectedRoute(props: ProtectedRouteProps)
     {
         const storageService: StorageService = new StorageService();
 
-        return storageService.read<string>(StorageKeys.JWT);
+        const token : string | undefined = storageService.read<string>(StorageKeys.JWT);
+        return token ? token : undefined;
     }
 
     const isAuthenticated = (): boolean =>
     {
+        //TODO:debug
         const token: string | undefined = getToken();
 
         if (token === undefined || token === null)

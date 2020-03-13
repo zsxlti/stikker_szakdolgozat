@@ -83,7 +83,7 @@ const styles = (theme: Theme) =>
         flexGrow: 1,
         flexDirection: "row",
         color: theme.palette.primary.main,
-        justifyContent: "flex-end",
+        justifyContent: "center",
       }
     });
 
