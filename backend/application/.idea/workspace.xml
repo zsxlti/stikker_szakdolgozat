@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6833a8fa-6bd9-4dd8-9dda-1d454a613e26" name="Default Changelist" comment="">
+    <list default="true" id="fa3f5de8-6beb-4630-a58e-f09873aba459" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -9,13 +9,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -27,7 +20,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1YvsvKszfHugLIls5Xg9DhrI60v" />
+  <component name="ProjectId" id="1Z7wLAdENTcEoBKR3fNPXtHrhJk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -60,11 +53,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6833a8fa-6bd9-4dd8-9dda-1d454a613e26" name="Default Changelist" comment="" />
-      <created>1583834631751</created>
+      <changelist id="fa3f5de8-6beb-4630-a58e-f09873aba459" name="Default Changelist" comment="" />
+      <created>1584203381487</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583834631751</updated>
+      <updated>1584203381487</updated>
     </task>
     <servers />
   </component>
@@ -73,9 +66,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -85,9 +76,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../library/Repositories/src/main/java/repository/PurchaseRepository.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/../library/Services/src/main/java/service/UserService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

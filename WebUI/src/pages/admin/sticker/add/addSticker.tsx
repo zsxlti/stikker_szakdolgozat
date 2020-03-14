@@ -86,16 +86,7 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
         };
         const stickerItem = await WebAPI.Sticker.stickerPost(sticker)
                                          .then(x => x)
-                                         .catch();
-
-                                         console.log(sticker);
-        
-                                         if (sticker)
-                                         {
-                                             alert("A matrica felvitele sikeres!");
-                                         }
-                                         else alert("A matrica felvitele az adatbázisba nem sikerült!");
-        console.log(JSON.stringify(data));
+                                         .catch();  
     }
 
     render() {

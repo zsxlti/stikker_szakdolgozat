@@ -59,7 +59,6 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
     }
     componentWillMount = async (): Promise<void> => {
         const stickersDB: StickerEntity[] = await WebAPI.Sticker.all().then(x => x);
-
         this.setState
             ({
                 ...this.state,

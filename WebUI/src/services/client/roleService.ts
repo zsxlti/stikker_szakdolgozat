@@ -38,7 +38,20 @@ export const isAdmin = () : boolean =>
     {
         return true;
     }
-    const storageService: StorageService = new StorageService();
-    storageService.remove(StorageKeys.JWT)
     return false;
+}
+
+export const getUniqueID = (): string =>
+{
+
+    const token: string | undefined = getToken();
+
+    if (token === undefined || token === null)
+    {
+        return "A token nem érkezett meg!";
+    }
+
+    const userInfoJSON = JSON.parse(JSON.stringify(getDecodedAccessToken(token)));
+    const unique: string = userInfoJSON.sub;
+    return unique;
 }

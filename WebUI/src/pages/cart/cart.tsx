@@ -10,6 +10,7 @@ import CartEntryComponent from "./../../components/cartItem";
 import FooterComponent from "../footer/footer";
 import { PurchaseRequest, PurchaseEntity } from "./../../services/client/purchaseService";
 import { WebAPI } from "./../../services/webAPI";
+import { getUniqueID } from "./../../services/client/roleService";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -20,7 +21,6 @@ const styles = (theme: Theme) =>
                 flexDirection: "column",
                 backgroundColor: theme.palette.secondary.main,
                 height: "100%",
-                position:"inherit",
                 alignSelf: "flex-start"
             },
             cost:
@@ -96,9 +96,8 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     }
 
     purchaseClickHandler = async (): Promise<void> => {
-        console.log(localStorage.getItem("JWT"));
         const purchaseEntity: PurchaseEntity = {
-            CustomerID: "",
+            CustomerID: getUniqueID(),
             PurchaseDate: new Date((new Date()).getTime()),
         }
         const purchaseRequest: PurchaseRequest = {
@@ -107,16 +106,22 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         }
         const purchase = await WebAPI.Purchase.purchasePost(purchaseRequest)
                                               .then(x => x)
-                                              .catch();
-
-        console.log(purchase);
+                                              .catch((error) => {console.log(error)});
 
         if (purchase) {
-            alert("A vásárlás sikeres!");
+            alert("A vásárlás sikeres!");            
         }
         else alert("A vásárlás során hiba lépett fel!");
     }
 
+    removeCartContent = async (): Promise<void> =>{
+        this.store.state.cart.clear();
+        this.setState({
+            ...this.state,
+            stickers:[]
+        });
+        this.render();
+    }
     
 
     render() {
@@ -131,7 +136,10 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 <div className={css.cost}>
                 <Button variant="contained" color="primary" className={css.button} onClick={this.purchaseClickHandler}>
                         Vásárlás elküldése
-                    </Button>
+                </Button>
+                <Button variant="contained" color="primary" className={css.button} onClick={this.removeCartContent}>
+                        A kosár ürítése
+                </Button>
                     Végösszeg: {this.sumCost()} Ft<br />
                     Áfa(27%): {this.calcAfa()} Ft
                 </div>

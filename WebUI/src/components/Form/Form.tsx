@@ -169,7 +169,7 @@ export class Form extends React.Component<IFormProps, IFormState>
                         className="btn btn-primary"
                         disabled={this.haveErrors(errors)}
                     >
-                        Submit
+                        Rögzítés
                     </button>
 
                     </div>

@@ -13,7 +13,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
-import Input from '@material-ui/core/Input';
 import { Urls } from "./../routing/urls";
 
 const styles = (theme: Theme) =>
@@ -171,18 +170,22 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
     console.log(data);
     const token = await WebAPI.Security.register(data)
-      .then(x => x.Token)
-      .catch();
+                                       .then(x => x.Token)
+                                       .catch();
     
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
+    this.props.history.push(Urls.stickers);
   }
 
   changeHandler = async (date: Date, event: React.SyntheticEvent<any, Event>): Promise<void> => {
+    var dob: Date =date;
+    dob.setHours(2); 
+    
     await this.setState
       ({
         ...this.state,
-        birthday: date
+        birthday: dob
       });
   }
 
