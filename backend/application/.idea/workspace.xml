@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa3f5de8-6beb-4630-a58e-f09873aba459" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +68,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

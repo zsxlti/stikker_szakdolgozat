@@ -25,7 +25,6 @@ const styles = (theme: Theme) =>
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
-
         }
       },
       logoContainer:

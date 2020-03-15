@@ -16,11 +16,13 @@ export class Cart
     public remove = (sticker: StickerEntity): void =>
     {
         this._stickers.remove(sticker);
+        this._count.next(this._stickers.length);
     }
 
     public clear = (): void =>
     {
         this._stickers = [];
+        this._count.next(this._stickers.length);
     }
 
     public count = (): number =>

@@ -58,7 +58,7 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
   constructor(props: IProps & WithStyles<typeof styles> & RouteComponentProps<{}>) {
     super(props);
   }
-  
+
   onClickHandler = async (): Promise<void> => {
     const data: StickerEntity = this.props.sticker;
 

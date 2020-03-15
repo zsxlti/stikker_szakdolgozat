@@ -14,6 +14,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
 import { Urls } from "./../routing/urls";
+import { ToastContainer, toast } from 'react-toastify';
 
 const styles = (theme: Theme) =>
   createStyles
@@ -173,6 +174,10 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
                                        .then(x => x.Token)
                                        .catch();
     
+    if(token)
+    {
+      alert("Sikeres regisztráció!");
+    }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
     this.props.history.push(Urls.stickers);

@@ -15,6 +15,7 @@ import { getUniqueID } from "./../../services/client/roleService";
 const styles = (theme: Theme) =>
     createStyles
         ({
+
             container:
             {
                 display: "flex",
@@ -48,16 +49,28 @@ const styles = (theme: Theme) =>
             },
             emptyCart:
             {
-                display:"flex",
-                color:theme.palette.primary.main,
-                justifyContent:"center",
-                alignItems:"center",
-                fontSize:36
+                display: "flex",
+                color: theme.palette.primary.main,
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: 36
             },
             button:
             {
-                color:theme.palette.secondary.main,
-                marginRight:"10px"
+                color: theme.palette.secondary.main,
+                marginRight: "10px"
+            },
+            emptyDiv:
+            {
+                minHeight: "80vh"
+            },
+            containerMinimum:
+            {
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: theme.palette.secondary.main,
+                minHeight: "80vh",
+                alignSelf: "flex-start"
             }
         })
 
@@ -95,6 +108,10 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         return this.store.state.cart.content().length !== 0 ? true : false;
     }
 
+    isCartCount = (): boolean => {
+        return this.store.state.cart.content().length >= 4 ? true : false;
+    }
+
     purchaseClickHandler = async (): Promise<void> => {
         const purchaseEntity: PurchaseEntity = {
             CustomerID: getUniqueID(),
@@ -105,24 +122,22 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             stickers: this.store.state.cart.content()
         }
         const purchase = await WebAPI.Purchase.purchasePost(purchaseRequest)
-                                              .then(x => x)
-                                              .catch((error) => {console.log(error)});
+            .then(x => x)
+            .catch((error) => { console.log(error) });
 
         if (purchase) {
-            alert("A vásárlás sikeres!");            
+            alert("A vásárlás sikeres!");
         }
         else alert("A vásárlás során hiba lépett fel!");
     }
-
-    removeCartContent = async (): Promise<void> =>{
+    clearCartContent = async (): Promise<void> => {
         this.store.state.cart.clear();
+        console.log(this.store.state.cart.content());
         this.setState({
             ...this.state,
-            stickers:[]
+            stickers: []
         });
-        this.render();
     }
-    
 
     render() {
         const css = this.props.classes;
@@ -134,10 +149,10 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         const priceTag = this.isCartFilled() ?
             <div>
                 <div className={css.cost}>
-                <Button variant="contained" color="primary" className={css.button} onClick={this.purchaseClickHandler}>
+                    <Button variant="contained" color="primary" className={css.button} onClick={this.purchaseClickHandler}>
                         Vásárlás elküldése
                 </Button>
-                <Button variant="contained" color="primary" className={css.button} onClick={this.removeCartContent}>
+                    <Button variant="contained" color="primary" className={css.button} onClick={this.clearCartContent}>
                         A kosár ürítése
                 </Button>
                     Végösszeg: {this.sumCost()} Ft<br />
@@ -145,20 +160,31 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 </div>
             </div>
             :
-            <p className={css.emptyCart}>
-                Az Ön kosara jelenleg üres!
+            <div className={css.emptyDiv}>
+                <p className={css.emptyCart}>
+                    Az Ön kosara jelenleg üres!
             </p>
+            </div>
 
+        const cartContent = this.isCartCount() ?
+            <div className={css.container}>
+                <p className={css.p}>A kosár tartalma:</p>
+                <div className={css.div}>{stickers}</div>
+                {priceTag}
+            </div>
+            :
+            <div className={css.containerMinimum}>
+                <p className={css.p}>A kosár tartalma:</p>
+                <div className={css.div}>{stickers}</div>
+                {priceTag}
+            </div>
         const Body = () =>
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
-                <div className={css.container}>
-                    <p className={css.p}>A kosár tartalma:</p>
-                    <div className={css.div}>{stickers}</div>
-                    {priceTag}
-                </div>
+                {cartContent}
                 <FooterComponent />
             </React.Fragment>
+
         return Body();
     }
 }

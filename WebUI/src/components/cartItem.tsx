@@ -1,10 +1,12 @@
 import * as React from "react";
-import { Theme, createStyles, withStyles, WithStyles, withWidth, Card, CardContent, Typography, CardActions, Button, CardMedia } from "@material-ui/core"
+import { Theme, createStyles, withStyles, WithStyles, withWidth, Card, CardContent, Typography, CardActions, Button, CardMedia, Grid } from "@material-ui/core"
 import withRoot from "../withRoot";
 import { StickerEntity } from "../services/client/stickerService";
 import { Connected } from "../lib/store/connected.mixin";
 import { RouteComponentProps, Route } from "react-router";
 import { AppStore } from "../lib/appStore";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = (theme: Theme) =>
   createStyles
@@ -12,8 +14,8 @@ const styles = (theme: Theme) =>
       root: {
         display: "flex",
         flexGrow: 1,
-        flexDirection:"column",
-        flexWrap:"wrap",
+        flexDirection: "column",
+        flexWrap: "wrap",
         width: "50%",
       },
       item:
@@ -37,6 +39,10 @@ const styles = (theme: Theme) =>
         color: theme.palette.secondary.main,
         fontSize: 24,
         marginLeft: 50
+      },
+      deleteButton: {
+       display:"flex",
+       justifyContent:"flex-end",
       }
     });
 interface IState { }
@@ -51,9 +57,17 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
     super(props);
   }
 
+  removeSticker = (): void => {
+    const data: StickerEntity = this.props.sticker;
+    this.store.update({
+      selectedSticker: data
+    });
+    this.store.state.cart.remove(data);
+
+  }
+
   render() {
     const css = this.props.classes;
-
     const Body = () =>
       <Card className={css.root}>
         <CardContent className={css.item}>
@@ -63,10 +77,13 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
           />
           <Typography variant="body2" component="p" className={css.description}>
             {this.props.sticker.Description}
-          </Typography><br/>
+          </Typography><br />
           <Typography variant="body2" component="p" className={css.price}>
             {this.props.sticker.Price} Ft
           </Typography>
+          <Grid item xs={2} className={css.deleteButton}>
+            <DeleteForeverIcon fontSize="large" onClick={this.removeSticker} />
+          </Grid>
         </CardContent>
       </Card>
     return Body();
