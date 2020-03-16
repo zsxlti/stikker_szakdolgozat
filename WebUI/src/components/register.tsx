@@ -19,17 +19,15 @@ import { ToastContainer, toast } from 'react-toastify';
 const styles = (theme: Theme) =>
   createStyles
     ({
-      root:
+      container:
       {
         display: "flex",
-        "& > *": {
-          flexGrow: 1,
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: theme.palette.secondary.main,
-          color: theme.palette.primary.main,
-          justifyContent: "center",
-        }
+        flexGrow: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
+        justifyContent: "center",
       },
       registerContainer:
       {
@@ -37,21 +35,10 @@ const styles = (theme: Theme) =>
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        maxWidth: "40%",
+        width: "40%",
         color: theme.palette.primary.main + "!important",
         margin: "auto",
-        minHeight: "59vh"
-      },
-      bottom:
-      {
-        minHeight: 100,
-        padding: 10,
-        fontSize: 50,
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.secondary.main,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        height:"40%"
       },
       typography:
       {
@@ -95,9 +82,6 @@ const styles = (theme: Theme) =>
         width: "100%",
         marginTop: "10px",
         marginBottom: "10px"
-      },
-      grid: {
-        color: theme.palette.primary.main,
       },
       datePicker:
       {
@@ -171,11 +155,10 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
     console.log(data);
     const token = await WebAPI.Security.register(data)
-                                       .then(x => x.Token)
-                                       .catch();
-    
-    if(token)
-    {
+      .then(x => x.Token)
+      .catch();
+
+    if (token) {
       alert("Sikeres regisztráció!");
     }
     const storage: StorageService = new StorageService();
@@ -184,9 +167,9 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
   }
 
   changeHandler = async (date: Date, event: React.SyntheticEvent<any, Event>): Promise<void> => {
-    var dob: Date =date;
-    dob.setHours(2); 
-    
+    var dob: Date = date;
+    dob.setHours(2);
+
     await this.setState
       ({
         ...this.state,
@@ -205,9 +188,8 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       </Button>
 
     const Body = () =>
-      <React.Fragment>
-        <CssBaseline />
-        <div className={css.root}>
+     
+       
           <div className={css.registerContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
             <div>
@@ -293,8 +275,7 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
               {registerButton}
             </div>
           </div>
-        </div>
-      </React.Fragment>
+   
     return Body();
   }
 }

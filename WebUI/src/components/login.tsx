@@ -14,25 +14,15 @@ import { Routes, Urls } from "./../routing/urls";
 const styles = (theme: Theme) =>
   createStyles
     ({
-      root:
+      container:
       {
         display: "flex",
-        "& > *": {
           flexGrow: 1,
           flexDirection: "column",
           alignItems: "center",
           backgroundColor: theme.palette.secondary.main,
           color: theme.palette.primary.main,
           justifyContent: "center",
-
-        }
-      },
-      logoContainer:
-      {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: "30px",
       },
       loginContainer:
       {
@@ -40,21 +30,10 @@ const styles = (theme: Theme) =>
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        width: "100%",
+        width: "40%",
         color: theme.palette.primary.main + "!important",
         margin: "auto",
-        minHeight: "59vh"
-      },
-      bottom:
-      {
-        minHeight: 215,
-        margin: 10,
-        fontSize: 50,
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.secondary.main,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        height:"40%"
       },
       typography:
       {
@@ -95,18 +74,10 @@ const styles = (theme: Theme) =>
       submit: {
         backgroundColor: theme.palette.primary.main + "!important",
         color: theme.palette.secondary.main,
-        minWidth: "60%",
+        width: "100%",
         marginTop: "10px",
         marginBottom: "10px"
       },
-      grid: {
-        display: "flex",
-        flexGrow: 1,
-        flexDirection: "row",
-        color: theme.palette.primary.main,
-        alignContent: "left"
-      },
-
     });
 interface IState {
   email: string;
@@ -159,12 +130,11 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
     };
     const token = await WebAPI.Security.login(data)
       .then(x => x)
-      .catch();
+      .catch((error) => { console.log(error) });
     if (token) {
       WebAPI.setToken(token.Token!)
       this.props.history.push(Urls.stickers);
     }
-
   }
   render() {
     const css = this.props.classes;
@@ -177,9 +147,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       </Button>
 
     const Body = () =>
-      <React.Fragment>
-        <CssBaseline />
-        <div className={css.root}>
           <div className={css.loginContainer}>
             <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Bejelentkezés</Typography>
             <div>
@@ -231,8 +198,7 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
               {loginButton}
             </div>
           </div>
-        </div>
-      </React.Fragment>
+    
     return Body();
   }
 }

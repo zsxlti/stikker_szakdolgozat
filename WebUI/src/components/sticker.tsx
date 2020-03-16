@@ -16,22 +16,26 @@ const styles = (theme: Theme) =>
         display: "flex",
         flexGrow: 1,
         flexDirection: "row",
-        maxWidth: "256px",
+        maxWidth: "10%",
+        maxHeight:"15%",
         marginRight: 10,
         backgroundColor: theme.palette.primary.main,
         marginTop: 20
-
       },
       media: {
-        width: 256,
-        height: 256,
+        width: 128,
+        height:128,
+        margin:"auto",
+        marginTop:10
       },
       typography: {
-        color: theme.palette.secondary.main
+        color: theme.palette.secondary.main,
+        fontSize:16
       },
       price: {
         float: "right",
-        color: theme.palette.secondary.main
+        color: theme.palette.secondary.main,
+        fontSize:16
       },
       icon:
       {
@@ -85,7 +89,7 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
             <Typography gutterBottom variant="h5" component="h2" className={css.price}>
               {this.props.sticker.Price} Ft
               </Typography>
-            <AddShoppingCartIcon fontSize="large" className={css.icon} onClick={this.onClickHandler} />
+            <AddShoppingCartIcon fontSize="small" className={css.icon} onClick={this.onClickHandler} />
           </CardContent>
         </CardActionArea>
       </Card>

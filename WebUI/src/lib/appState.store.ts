@@ -5,7 +5,6 @@ export interface IAppState {
     //readonly variableName: objectType;
     readonly cart: Cart;
     readonly selectedSticker: StickerEntity;
-
 }
 
 export const setIntitialAppState = (): IAppState => {
@@ -19,8 +18,6 @@ export const setIntitialAppState = (): IAppState => {
             Price: 0
         }
     };
-
     return appState;
 }
-
 export const intitialAppState: IAppState = setIntitialAppState();

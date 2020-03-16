@@ -50,7 +50,6 @@ export const getUniqueID = (): string =>
     {
         return "A token nem érkezett meg!";
     }
-
     const userInfoJSON = JSON.parse(JSON.stringify(getDecodedAccessToken(token)));
     const unique: string = userInfoJSON.sub;
     return unique;

@@ -16,6 +16,7 @@ const styles = (theme: Theme) =>
         minHeight:50,
         fontFamily:"Roboto",
         fontSize:"20px",
+        width:"100%",
         backgroundColor:theme.palette.primary.main
       },
     });

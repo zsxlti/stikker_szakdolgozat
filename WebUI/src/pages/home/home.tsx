@@ -15,17 +15,16 @@ import { Urls } from "./../../routing/urls";
 const styles = (theme: Theme) =>
   createStyles
     ({
-      root:
+      container:
       {
         display: "flex",
-        "& > *": {
-          flexGrow: 1,
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: theme.palette.secondary.main,
-          color: theme.palette.primary.main,
-          justifyContent: "center",
-        }
+        flexGrow: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
+        justifyContent: "center",
+        minHeight: "100vh"
       },
       logoContainer:
       {
@@ -34,55 +33,15 @@ const styles = (theme: Theme) =>
         justifyContent: "center",
         marginTop: "30px",
       },
-      registerContainer:
-      {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        maxWidth: "40%",
-        color: theme.palette.primary.main + "!important",
-        margin: "auto"
-      },
-      bottom:
-      {
-        minHeight: 100,
-        fontSize: 50,
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.secondary.main,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      },
-      typography:
-      {
-        color: theme.palette.primary.main + "!important",
-        fontSize: "30px",
-        alignItems: "center",
-        justifyContent: "center",
-      },
-      textField:
-      {
-        borderWidth: 2,
-        borderColor: theme.palette.primary.main + "!important",
-        width: "100%"
-      },
-      inputColor: {
-        color: theme.palette.primary.main + "!important",
-      },
-      submit: {
-        backgroundColor: theme.palette.primary.main + "!important",
-        color: theme.palette.secondary.main,
-        width: "100%",
-        marginTop: "10px",
-        marginBottom: "10px"
-      },
       statusText: {
         display: "flex",
         flexGrow: 1,
         flexDirection: "row",
         color: theme.palette.primary.main,
         justifyContent: "center",
+      },
+      form:{
+        all:"revert"
       }
     });
 
@@ -138,25 +97,18 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
     const form: JSX.Element = this.state.isRegistered ?
       <RegisterComponent{...this.props} /> :
       <LoginComponent{...this.props} />
-
     const Body = () =>
-      <React.Fragment>
-        <CssBaseline />
-        <div className={css.root}>
-          <Paper>
-            <div className={css.logoContainer}>
-              <img src={LocalImages.images("./stikker.png")} />
-            </div>
-            {form}
-            <div className={css.statusText} onClick={this.onClickHandler}>
-              {this.state.statusText}
-            </div>
-
-            <div className={css.bottom}>
-              <FooterComponent />
-            </div>
-          </Paper>
+        <React.Fragment>
+        <div className={css.container}>
+          <div className={css.logoContainer}>
+            <img src={LocalImages.images("./stikker.png")} />
+          </div>
+          {form}
+          <div className={css.statusText} onClick={this.onClickHandler}>
+            {this.state.statusText}
+          </div>
         </div>
+        <FooterComponent />
       </React.Fragment>
     return Body();
   }

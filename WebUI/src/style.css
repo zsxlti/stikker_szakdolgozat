@@ -1,44 +1,3 @@
-{/*@font-face 
-{
-  font-family: 'Maven Pro';
-  src: url('./fonts/MavenPro-Bold.woff2') format('woff2'),
-       url('./fonts/MavenPro-Bold.woff') format('woff'),
-       url('./fonts/MavenPro-Bold.ttf') format('ttf');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face 
-{
-  font-family: 'Maven Pro';
-  src: url('./fonts/MavenPro-Regular.woff2') format('woff2'),
-       url('./fonts/MavenPro-Regular.woff') format('woff'),
-       url('./fonts/MavenPro-Regular.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face 
-{
-  font-family: 'Maven Pro';
-  src: url('./fonts/MavenPro-Black.woff2') format('woff2'),
-       url('./fonts/MavenPro-Black.woff') format('woff'),
-       url('./fonts/MavenPro-Black.ttf') format('ttf');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face 
-{
-  font-family: 'Maven Pro';
-  src: url('./fonts/MavenPro-Medium.woff2') format('woff2'),
-       url('./fonts/MavenPro-Medium.woff') format('woff'),
-       url('./fonts/MavenPro-Medium.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-}*/}
-
-
 @supports not (-webkit-overflow-scrolling: touch) {
   /* CSS for other than iOS devices */ 
 }
@@ -46,9 +5,8 @@
 html, body
 {
   width: 100%;
-
   height: 100%;
-  margin: 0px;
+  margin: 0;
 
   font-family: 'Roboto' !important;
   font-style: normal;
@@ -58,9 +16,16 @@ html, body
 }
 body
 {
+   width: 100%;
+   height: 100%;
   -webkit-overflow-scrolling: touch;
 }
-
+html
+{
+   width: 100%;
+   height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
 /*material-ui tweeks*/
 
 /* hide up/down arrows ("spinners") on input fields marked type="number" */
@@ -96,4 +61,4 @@ input[type="date"]::-ms-clear { display: none; }
 .react-datepicker-wrapper input[readonly]
 {
   cursor: pointer;
-}
+} 

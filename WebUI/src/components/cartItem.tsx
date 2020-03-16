@@ -17,6 +17,7 @@ const styles = (theme: Theme) =>
         flexDirection: "column",
         flexWrap: "wrap",
         width: "50%",
+        marginBottom:"5px"
       },
       item:
       {
@@ -29,6 +30,8 @@ const styles = (theme: Theme) =>
       media: {
         width: 100,
         height: 100,
+        border:theme.palette.primary.main,
+        borderRadius:"5px"
       },
       description: {
         color: theme.palette.secondary.main,
@@ -63,7 +66,6 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
       selectedSticker: data
     });
     this.store.state.cart.remove(data);
-
   }
 
   render() {

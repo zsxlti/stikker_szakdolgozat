@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa3f5de8-6beb-4630-a58e-f09873aba459" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/models/cart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/cartItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/components/cartItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/lib/appState.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/lib/appState.store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/client/roleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/client/roleService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/client/storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/client/storage.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../stikker-dokumentacio.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../stikker-dokumentacio.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../~$ikker-dokumentacio.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../~$ikker-dokumentacio.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../~WRL0756.tmp" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
