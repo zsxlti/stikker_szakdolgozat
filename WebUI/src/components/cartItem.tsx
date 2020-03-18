@@ -28,23 +28,33 @@ const styles = (theme: Theme) =>
         justifyContent: "center"
       },
       media: {
-        width: 100,
-        height: 100,
+        display:"flex",
+        flexGrow:1,
+        minWidth: 100,
+        minHeight: 100,
+        maxWidth: 100,
+        maxHeight: 100,
         border:theme.palette.primary.main,
         borderRadius:"5px"
       },
       description: {
+        display:"flex",
+        flexGrow:3,
         color: theme.palette.secondary.main,
         fontSize: 24,
-        marginLeft: 50
+        marginLeft: 50,
       },
       price: {
+        display:"flex",
+        flexGrow:1,
+        justifyContent:"flex-end",
         color: theme.palette.secondary.main,
         fontSize: 24,
         marginLeft: 50
       },
       deleteButton: {
        display:"flex",
+       flexGrow:1,
        justifyContent:"flex-end",
       }
     });

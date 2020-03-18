@@ -16,26 +16,33 @@ const styles = (theme: Theme) =>
         display: "flex",
         flexGrow: 1,
         flexDirection: "row",
-        maxWidth: "10%",
-        maxHeight:"15%",
+        minWidth: "20vh",
+        minHeight: "35vh",
+        maxWidth: "20vh",
+        maxHeight: "35vh",
         marginRight: 10,
         backgroundColor: theme.palette.primary.main,
         marginTop: 20
       },
       media: {
         width: 128,
-        height:128,
-        margin:"auto",
-        marginTop:10
+        height: 128,
+        margin: "auto",
+        marginTop: 10,
+        borderColor: theme.palette.secondary.main,
+        borderWidth: 2,
+        borderStyle: "solid",
+        borderRadius: "30%",
       },
-      typography: {
+      description: {
         color: theme.palette.secondary.main,
-        fontSize:16
+        fontSize: 16,
+        minHeight:"6vh"
       },
       price: {
         float: "right",
         color: theme.palette.secondary.main,
-        fontSize:16
+        fontSize: 16
       },
       icon:
       {
@@ -83,7 +90,7 @@ class Sticker extends Connected<typeof React.Component, IProps & WithStyles<type
             image={this.props.sticker.URL}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" className={css.typography}>
+            <Typography gutterBottom variant="h5" component="h2" className={css.description}>
               {this.props.sticker.Description}
             </Typography>
             <Typography gutterBottom variant="h5" component="h2" className={css.price}>

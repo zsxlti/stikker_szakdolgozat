@@ -20,10 +20,8 @@ const styles = (theme: Theme) =>
                 "& > *": {
                     flexGrow: 1,
                     flexDirection: "column",
-                    //alignItems: "center",
                     backgroundColor: theme.palette.secondary.main,
                     color: theme.palette.primary.main,
-                    //justifyContent: "center",
                     minHeight: "100vh"
                 }
             },
@@ -33,7 +31,7 @@ const styles = (theme: Theme) =>
                 flexDirection: "row",
                 flexWrap: "wrap",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
             },
             cards: {
                 alignSelf: "flex-start"

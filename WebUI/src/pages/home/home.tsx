@@ -40,9 +40,6 @@ const styles = (theme: Theme) =>
         color: theme.palette.primary.main,
         justifyContent: "center",
       },
-      form:{
-        all:"revert"
-      }
     });
 
 interface IState {

@@ -13,6 +13,7 @@ import FooterComponent from "./../../../../pages/footer/footer";
 import { minLength } from "./../../../../components/Form/validators/minLength";
 import { StickerEntity } from "./../../../../services/client/stickerService";
 import { WebAPI } from "./../../../../services/webAPI";
+import { Urls } from "./../../../../routing/urls";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -60,7 +61,8 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
             url:
             {
                 id: FieldTypes.url.toLowerCase(),
-                label: "URL"
+                label: "URL",
+                validation: [ {rule: required} ]
             },
             price:
             {
@@ -73,6 +75,7 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
                 id: FieldTypes.description.toLowerCase(),
                 label: "Matrica leírása",
                 editor: "multilinetextbox",
+                validation: [ {rule: required} ]
             },
 
         };

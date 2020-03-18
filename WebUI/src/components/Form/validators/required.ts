@@ -10,5 +10,5 @@ export const required = (values: IValues, fieldName: string): string =>
   values[fieldName] === undefined ||
   values[fieldName] === null ||
   values[fieldName] === ""
-    ? "This field must be populated. (" + fieldName + ")"
+    ? "Kérjük töltse ki ezt a mezőt (" + fieldName + ")!"
     : "";
