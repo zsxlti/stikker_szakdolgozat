@@ -6,20 +6,20 @@ import { Connected } from "../lib/store/connected.mixin";
 import { RouteComponentProps, Route } from "react-router";
 import { AppStore } from "../lib/appStore";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { isMobile, isMobileOnly } from "react-device-detect";
 
 const styles = (theme: Theme) =>
   createStyles
     ({
-      root: {
+      rootDesktop: {
         display: "flex",
         flexGrow: 1,
         flexDirection: "column",
         flexWrap: "wrap",
         width: "50%",
-        marginBottom:"5px"
+        marginBottom: "5px"
       },
-      item:
+      itemDesktop:
       {
         display: "flex",
         backgroundColor: theme.palette.primary.main,
@@ -27,36 +27,87 @@ const styles = (theme: Theme) =>
         alignItems: "center",
         justifyContent: "center"
       },
-      media: {
-        display:"flex",
-        flexGrow:1,
+      mediaDesktop: {
+        display: "flex",
+        flexGrow: 1,
         minWidth: 100,
         minHeight: 100,
         maxWidth: 100,
         maxHeight: 100,
-        border:theme.palette.primary.main,
-        borderRadius:"5px"
+        border: theme.palette.primary.main,
+        borderRadius: "5px"
       },
-      description: {
-        display:"flex",
-        flexGrow:3,
+      descriptionDesktop: {
+        display: "flex",
+        flexGrow: 3,
         color: theme.palette.secondary.main,
         fontSize: 24,
         marginLeft: 50,
       },
-      price: {
-        display:"flex",
-        flexGrow:1,
-        justifyContent:"flex-end",
+      priceDesktop: {
+        display: "flex",
+        flexGrow: 1,
+        justifyContent: "flex-end",
         color: theme.palette.secondary.main,
         fontSize: 24,
         marginLeft: 50
       },
-      deleteButton: {
-       display:"flex",
-       flexGrow:1,
-       justifyContent:"flex-end",
-      }
+      deleteButtonDesktop: {
+        display: "flex",
+        flexGrow: 1,
+        justifyContent: "flex-end",
+      },
+
+      rootMobile: {
+        display: "flex",
+        flexGrow: 1,
+        flexDirection: "column",
+        flexWrap: "wrap",
+        marginBottom: "5px",
+        minWidth: 300,
+        maxWidth: 300,
+        justifyContent: "center"        
+      },
+      itemMobile:
+      {
+        display: "flex",
+        flexDirection: "column",
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.secondary.main,
+        alignItems: "center",
+        justifyContent: "center"
+      },
+      mediaMobile: {
+        display: "flex",
+        flexDirection: "column",
+        minWidth: 100,
+        minHeight: 100,
+        maxWidth: 100,
+        maxHeight: 100,
+        border: theme.palette.primary.main,
+        borderRadius: "5px"
+      },
+      descriptionMobile: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent:"center",
+        alignItems: "center",
+        margin:"auto",
+        color: theme.palette.secondary.main,
+        fontSize: 24,
+      },
+      priceMobile: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        color: theme.palette.secondary.main,
+        fontSize: 24,
+      },
+      deleteButtonMobile: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      },
     });
 interface IState { }
 
@@ -80,24 +131,46 @@ class CartItem extends Connected<typeof React.Component, IProps & WithStyles<typ
 
   render() {
     const css = this.props.classes;
-    const Body = () =>
-      <Card className={css.root}>
-        <CardContent className={css.item}>
-          <CardMedia
-            className={css.media}
-            image={this.props.sticker.URL}
-          />
-          <Typography variant="body2" component="p" className={css.description}>
-            {this.props.sticker.Description}
-          </Typography><br />
-          <Typography variant="body2" component="p" className={css.price}>
-            {this.props.sticker.Price} Ft
-          </Typography>
-          <Grid item xs={2} className={css.deleteButton}>
-            <DeleteForeverIcon fontSize="large" onClick={this.removeSticker} />
-          </Grid>
-        </CardContent>
-      </Card>
+    const Body = () => {
+      if (isMobileOnly) {
+        return <Card className={css.rootMobile}>
+          <CardContent className={css.itemMobile}>
+            <CardMedia
+              className={css.mediaMobile}
+              image={this.props.sticker.URL}
+            />
+            <Typography variant="body2" component="p" className={css.descriptionMobile}>
+              {this.props.sticker.Description}
+            </Typography><br />
+            <Typography variant="body2" component="p" className={css.priceMobile}>
+              {this.props.sticker.Price} Ft
+        </Typography>
+            <Grid item xs={2} className={css.deleteButtonMobile}>
+              <DeleteForeverIcon fontSize="large" onClick={this.removeSticker} />
+            </Grid>
+          </CardContent>
+        </Card>
+      }
+      else {
+        return <Card className={css.rootDesktop}>
+          <CardContent className={css.itemDesktop}>
+            <CardMedia
+              className={css.mediaDesktop}
+              image={this.props.sticker.URL}
+            />
+            <Typography variant="body2" component="p" className={css.descriptionDesktop}>
+              {this.props.sticker.Description}
+            </Typography><br />
+            <Typography variant="body2" component="p" className={css.priceDesktop}>
+              {this.props.sticker.Price} Ft
+        </Typography>
+            <Grid item xs={2} className={css.deleteButtonDesktop}>
+              <DeleteForeverIcon fontSize="large" onClick={this.removeSticker} />
+            </Grid>
+          </CardContent>
+        </Card>
+      }
+    }
     return Body();
   }
 }

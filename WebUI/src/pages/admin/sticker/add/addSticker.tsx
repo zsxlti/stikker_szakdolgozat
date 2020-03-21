@@ -20,21 +20,18 @@ const styles = (theme: Theme) =>
         ({
             container: {
                 backgroundColor: theme.palette.secondary.main,
-                height: "100vh",
+                minHeight: "100vh",
                 color: theme.palette.primary.main
             },
             alert: {
                 fontFamily: "Roboto",
                 fontSize: "20px",
                 marginTop: 20,
-                marginBottom: 20
+                
             },
         })
 
 interface IState {
-    /* url:string,
-     description:string,
-     price:number*/
 }
 
 interface IProps { }
@@ -50,9 +47,6 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
 
         this.state =
         {
-            /*url:"",
-            description:"",
-            price:0*/
         }
     }
 

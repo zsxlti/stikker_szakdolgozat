@@ -11,6 +11,8 @@ import FooterComponent from "../footer/footer";
 import { PurchaseRequest, PurchaseEntity } from "./../../services/client/purchaseService";
 import { WebAPI } from "./../../services/webAPI";
 import { getUniqueID } from "./../../services/client/roleService";
+import CartItemComponent from "./../../components/cartItem";
+import { isMobile, isMobileOnly } from "react-device-detect";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -24,8 +26,19 @@ const styles = (theme: Theme) =>
                 height: "100%",
                 alignSelf: "flex-start"
             },
-            cost:
+            costMobile:
             {
+                display: "flex",
+                flexDirection:"column",
+                color: theme.palette.primary.main,
+                padding: 10,
+                fontFamily: "Roboto",
+                fontSize: 20,
+                justifyContent:"center"
+            },
+            costDesktop:
+            {
+
                 display: "flex",
                 justifyContent: "flex-end",
                 color: theme.palette.primary.main,
@@ -55,10 +68,17 @@ const styles = (theme: Theme) =>
                 alignItems: "center",
                 fontSize: 36
             },
-            button:
+            buttonMobile:
             {
+                display:"flex",
                 color: theme.palette.secondary.main,
-                marginRight: "10px"
+                marginBottom:"10px"
+            },
+            buttonDesktop:
+            {
+                display:"flex",
+                color: theme.palette.secondary.main,
+                marginRight:"10px"
             },
             emptyDiv:
             {
@@ -71,7 +91,13 @@ const styles = (theme: Theme) =>
                 backgroundColor: theme.palette.secondary.main,
                 minHeight: "80vh",
                 alignSelf: "flex-start"
-            }
+            },
+            sum:
+            {
+                display:"flex",
+                justifyContent:"flex-end"
+            }            
+
         })
 
 interface IState {
@@ -143,20 +169,22 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         const css = this.props.classes;
         const stickers: JSX.Element[] = this.state.stickers.map
             (
-                x => <Route key={x.Id} render={props => <CartEntryComponent sticker={x} {...props} />} />
+                x => <Route key={x.Id} render={props => <CartItemComponent sticker={x} {...props} />} />
             );
 
         const priceTag = this.isCartFilled() ?
             <div>
-                <div className={css.cost}>
-                    <Button variant="contained" color="primary" className={css.button} onClick={this.purchaseClickHandler}>
+                <div className={isMobileOnly ?  css.costMobile : css.costDesktop}>
+                    <Button variant="contained" color="primary" className={isMobileOnly?  css.buttonMobile : css.buttonDesktop} onClick={this.purchaseClickHandler}>
                         Vásárlás elküldése
-                </Button>
-                    <Button variant="contained" color="primary" className={css.button} onClick={this.clearCartContent}>
+                    </Button>
+                    <Button variant="contained" color="primary" className={isMobileOnly?  css.buttonMobile : css.buttonDesktop} onClick={this.clearCartContent}>
                         A kosár ürítése
-                </Button>
+                    </Button>
+                    <div className={css.sum}>
                     Végösszeg: {this.sumCost()} Ft<br />
                     Áfa(27%): {this.calcAfa()} Ft
+                    </div>
                 </div>
             </div>
             :
