@@ -29,7 +29,7 @@ const styles = (theme: Theme) =>
             {
                 flexGrow:3,
                 width: 196,
-                height: 100
+                height: 120
             },
             right: {
                 display: "flex",

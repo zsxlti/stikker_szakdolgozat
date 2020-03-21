@@ -6,13 +6,13 @@ import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, But
 import withRoot from "./../../withRoot";
 import HeaderComponent from "../header/header";
 import { StickerEntity } from "./../../services/client/stickerService";
-import CartEntryComponent from "./../../components/cartItem";
 import FooterComponent from "../footer/footer";
 import { PurchaseRequest, PurchaseEntity } from "./../../services/client/purchaseService";
 import { WebAPI } from "./../../services/webAPI";
 import { getUniqueID } from "./../../services/client/roleService";
-import CartItemComponent from "./../../components/cartItem";
-import { isMobile, isMobileOnly } from "react-device-detect";
+import { isMobileOnly } from "react-device-detect";
+import CartItemMobileComponent from "./../../components/cartItemMobile";
+import CartItemDesktopComponent from "./../../components/cartItemDesktop";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -29,12 +29,12 @@ const styles = (theme: Theme) =>
             costMobile:
             {
                 display: "flex",
-                flexDirection:"column",
+                flexDirection: "column",
                 color: theme.palette.primary.main,
                 padding: 10,
                 fontFamily: "Roboto",
                 fontSize: 20,
-                justifyContent:"center"
+                justifyContent: "center"
             },
             costDesktop:
             {
@@ -70,15 +70,15 @@ const styles = (theme: Theme) =>
             },
             buttonMobile:
             {
-                display:"flex",
+                display: "flex",
                 color: theme.palette.secondary.main,
-                marginBottom:"10px"
+                marginBottom: "10px"
             },
             buttonDesktop:
             {
-                display:"flex",
+                display: "flex",
                 color: theme.palette.secondary.main,
-                marginRight:"10px"
+                marginRight: "10px"
             },
             emptyDiv:
             {
@@ -94,10 +94,9 @@ const styles = (theme: Theme) =>
             },
             sum:
             {
-                display:"flex",
-                justifyContent:"flex-end"
-            }            
-
+                display: "flex",
+                justifyContent: "flex-end"
+            }
         })
 
 interface IState {
@@ -167,22 +166,27 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
     render() {
         const css = this.props.classes;
-        const stickers: JSX.Element[] = this.state.stickers.map
+        const stickers:  JSX.Element[] = isMobileOnly? this.state.stickers.map
             (
-                x => <Route key={x.Id} render={props => <CartItemComponent sticker={x} {...props} />} />
+                x => <Route key={x.Id} render={props => <CartItemMobileComponent sticker={x} {...props} />} />
+            )
+            :
+            this.state.stickers.map
+            (
+                x => <Route key={x.Id} render={props => <CartItemDesktopComponent sticker={x} {...props} />} />
             );
 
         const priceTag = this.isCartFilled() ?
             <div>
-                <div className={isMobileOnly ?  css.costMobile : css.costDesktop}>
-                    <Button variant="contained" color="primary" className={isMobileOnly?  css.buttonMobile : css.buttonDesktop} onClick={this.purchaseClickHandler}>
+                <div className={isMobileOnly ? css.costMobile : css.costDesktop}>
+                    <Button variant="contained" color="primary" className={isMobileOnly ? css.buttonMobile : css.buttonDesktop} onClick={this.purchaseClickHandler}>
                         Vásárlás elküldése
                     </Button>
-                    <Button variant="contained" color="primary" className={isMobileOnly?  css.buttonMobile : css.buttonDesktop} onClick={this.clearCartContent}>
+                    <Button variant="contained" color="primary" className={isMobileOnly ? css.buttonMobile : css.buttonDesktop} onClick={this.clearCartContent}>
                         A kosár ürítése
                     </Button>
                     <div className={css.sum}>
-                    Végösszeg: {this.sumCost()} Ft<br />
+                        Végösszeg: {this.sumCost()} Ft<br />
                     Áfa(27%): {this.calcAfa()} Ft
                     </div>
                 </div>
