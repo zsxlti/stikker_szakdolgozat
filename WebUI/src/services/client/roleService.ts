@@ -1,7 +1,7 @@
 import * as jwt_decode from "jwt-decode";
 
 import { StorageService } from "./../../services/client/storage.service";
-import { StorageKeys } from "./../../settings/constans";
+import { StorageKeys } from "./../../settings/constants";
 
 const getToken = (): string | undefined =>
 {

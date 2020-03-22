@@ -9,11 +9,10 @@ import { Field } from "../../../../components/Form/component/Field";
 import { IFields } from "./../../../../components/Form/interfaces/IFields";
 import { required } from "./../../../../components/Form/validators/required";
 import HeaderComponent from "./../../../../pages/header/header";
-import FooterComponent from "./../../../../pages/footer/footer";
+import FooterComponent from "../../../../components/footer/footer";
 import { minLength } from "./../../../../components/Form/validators/minLength";
 import { StickerEntity } from "./../../../../services/client/stickerService";
 import { WebAPI } from "./../../../../services/webAPI";
-import { Urls } from "./../../../../routing/urls";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -27,7 +26,6 @@ const styles = (theme: Theme) =>
                 fontFamily: "Roboto",
                 fontSize: "20px",
                 marginTop: 20,
-                
             },
         })
 
@@ -56,7 +54,7 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
             {
                 id: FieldTypes.url.toLowerCase(),
                 label: "URL",
-                validation: [ {rule: required} ]
+                validation: [{ rule: required }]
             },
             price:
             {
@@ -69,9 +67,8 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
                 id: FieldTypes.description.toLowerCase(),
                 label: "Matrica leírása",
                 editor: "multilinetextbox",
-                validation: [ {rule: required} ]
+                validation: [{ rule: required }]
             },
-
         };
 
     submit = async (): Promise<void> => {
@@ -82,8 +79,8 @@ class AddSticker extends Connected<typeof React.Component, IProps & WithStyles<t
             description: data["description"]
         };
         const stickerItem = await WebAPI.Sticker.stickerPost(sticker)
-                                         .then(x => x)
-                                         .catch();  
+                                                .then(x => x)
+                                                .catch();
     }
 
     render() {

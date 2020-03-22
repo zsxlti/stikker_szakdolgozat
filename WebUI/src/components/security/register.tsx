@@ -1,20 +1,19 @@
 import * as React from "react";
-import { Connected } from "./../lib/store/connected.mixin";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "./../lib/appStore";
-import { StorageService } from "./../services/client/storage.service";
+import { AppStore } from "../../lib/appStore";
+import { StorageService } from "../../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
-import withRoot from "./../withRoot";
-import { StorageKeys } from "./../settings/constans";
-import { RegisterRequest, TokenResponse } from "./../services/client/securityService";
-import { WebAPI } from "./../services/webAPI";
-import { Validation } from "./../validators";
+import withRoot from "../../withRoot";
+import { StorageKeys } from "../../settings/constants";
+import { RegisterRequest, TokenResponse, ApiException } from "../../services/client/securityService";
+import { WebAPI } from "../../services/webAPI";
+import { Validation } from "../../validators";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import hu from "date-fns/locale/hu";
 registerLocale("hu", hu);
-import { Urls } from "./../routing/urls";
-import { ToastContainer, toast } from 'react-toastify';
+import { Urls } from "../../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -38,7 +37,7 @@ const styles = (theme: Theme) =>
         width: "40%",
         color: theme.palette.primary.main + "!important",
         margin: "auto",
-        height:"40%"
+        height: "40%"
       },
       typography:
       {
@@ -102,6 +101,7 @@ interface IState {
   password: string;
   birthday: Date;
   isRegistered: boolean;
+  error:string;
 }
 
 interface IProps { }
@@ -119,7 +119,8 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       email: "",
       password: "",
       birthday: new Date(),
-      isRegistered: true
+      isRegistered: true,
+      error:""
     }
   }
 
@@ -152,15 +153,13 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       Name: this.state.name,
       BirthDate: this.state.birthday
     };
+    
 
     console.log(data);
     const token = await WebAPI.Security.register(data)
-      .then(x => x.Token)
-      .catch();
+                                       .then(x => x.Token)
+                                       .catch();
 
-    if (token) {
-      alert("Sikeres regisztráció!");
-    }
     const storage: StorageService = new StorageService();
     storage.write(StorageKeys.JWT, token);
     this.props.history.push(Urls.stickers);
@@ -169,7 +168,6 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
   changeHandler = async (date: Date, event: React.SyntheticEvent<any, Event>): Promise<void> => {
     var dob: Date = date;
     dob.setHours(2);
-
     await this.setState
       ({
         ...this.state,
@@ -179,6 +177,8 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
 
   render() {
     const css = this.props.classes;
+   
+
     const registerButton = this.isFormFilled() ?
       <Button variant="contained" color="primary" type="submit" className={css.submit} onClick={this.onRegisterClickHandler}>
         Regisztráció
@@ -188,94 +188,91 @@ class Register extends Connected<typeof React.Component, IProps & WithStyles<typ
       </Button>
 
     const Body = () =>
-     
-       
-          <div className={css.registerContainer}>
-            <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
-            <div>
-              <TextField InputLabelProps={{
-                classes: {
-                  root: css.textFieldLabel,
-                  focused: css.textFieldFocused
-                }
-              }}
-                InputProps={{
-                  classes: {
-                    root: css.textFieldOutlinedInput,
-                    focused: css.textFieldFocused,
-                    notchedOutline: css.textFieldNotchedOutline,
-                    input: css.textFieldFocused
-                  },
-                }}
-                autoComplete="off"
-                variant="outlined"
-                margin="normal"
-                id="name"
-                label="Név"
-                name="name"
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <TextField InputLabelProps={{
-                classes: {
-                  root: css.textFieldLabel,
-                  focused: css.textFieldFocused
-                }
-              }}
-                InputProps={{
-                  classes: {
-                    root: css.textFieldOutlinedInput,
-                    focused: css.textFieldFocused,
-                    notchedOutline: css.textFieldNotchedOutline,
-                    input: css.textFieldFocused
-                  },
-                }}
-                autoComplete="off"
-                variant="outlined"
-                margin="normal"
-                id="email"
-                label="E-mail cím"
-                name="email"
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <TextField InputLabelProps={{
-                classes: {
-                  root: css.textFieldLabel,
-                  focused: css.textFieldFocused
-                }
-              }}
-                InputProps={{
-                  classes: {
-                    root: css.textFieldOutlinedInput,
-                    focused: css.textFieldFocused,
-                    notchedOutline: css.textFieldNotchedOutline,
-                    input: css.textFieldFocused
-                  },
-                }}
-                autoComplete="off"
-                variant="outlined"
-                margin="normal"
-                id="password"
-                label="Jelszó"
-                name="password"
-                type="password"
-                required
-                className={css.textField}
-                onChange={this.onTextChanged} />
-              <DatePicker
-                className={css.datePicker}
-                dateFormat="yyyy/MM/dd"
-                selected={this.state.birthday}
-                onChange={this.changeHandler}
-                locale="hu"
-                placeholderText="Születési dátum megadása"
-                name="birthdayComponent"
-              />
-              {registerButton}
-            </div>
-          </div>
-   
+      <div className={css.registerContainer}>
+        <Typography className={css.typography} component="h1" variant="h5" gutterBottom>Regisztráció</Typography>
+        <div>
+          <TextField InputLabelProps={{
+            classes: {
+              root: css.textFieldLabel,
+              focused: css.textFieldFocused
+            }
+          }}
+            InputProps={{
+              classes: {
+                root: css.textFieldOutlinedInput,
+                focused: css.textFieldFocused,
+                notchedOutline: css.textFieldNotchedOutline,
+                input: css.textFieldFocused
+              },
+            }}
+            autoComplete="off"
+            variant="outlined"
+            margin="normal"
+            id="name"
+            label="Név"
+            name="name"
+            required
+            className={css.textField}
+            onChange={this.onTextChanged} />
+          <TextField InputLabelProps={{
+            classes: {
+              root: css.textFieldLabel,
+              focused: css.textFieldFocused
+            }
+          }}
+            InputProps={{
+              classes: {
+                root: css.textFieldOutlinedInput,
+                focused: css.textFieldFocused,
+                notchedOutline: css.textFieldNotchedOutline,
+                input: css.textFieldFocused
+              },
+            }}
+            autoComplete="off"
+            variant="outlined"
+            margin="normal"
+            id="email"
+            label="E-mail cím"
+            name="email"
+            required
+            className={css.textField}
+            onChange={this.onTextChanged} />
+          <TextField InputLabelProps={{
+            classes: {
+              root: css.textFieldLabel,
+              focused: css.textFieldFocused
+            }
+          }}
+            InputProps={{
+              classes: {
+                root: css.textFieldOutlinedInput,
+                focused: css.textFieldFocused,
+                notchedOutline: css.textFieldNotchedOutline,
+                input: css.textFieldFocused
+              },
+            }}
+            autoComplete="off"
+            variant="outlined"
+            margin="normal"
+            id="password"
+            label="Jelszó"
+            name="password"
+            type="password"
+            required
+            className={css.textField}
+            onChange={this.onTextChanged} />
+          <DatePicker
+            className={css.datePicker}
+            dateFormat="yyyy/MM/dd"
+            selected={this.state.birthday}
+            onChange={this.changeHandler}
+            locale="hu"
+            placeholderText="Születési dátum megadása"
+            name="birthdayComponent"
+          />
+          {registerButton}
+        </div>
+      </div>
     return Body();
   }
 }

@@ -6,10 +6,10 @@ import { StorageService } from "../../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
 import withRoot from "../../withRoot";
 import { LocalImages } from "./../../staticFiles/images";
-import { StorageKeys } from "./../../settings/constans";
-import FooterComponent from "../footer/footer";
-import LoginComponent from "./../../components/login";
-import RegisterComponent from "./../../components/register";
+import { StorageKeys } from "./../../settings/constants";
+import FooterComponent from "../../components/footer/footer";
+import LoginComponent from "../../components/security/login";
+import RegisterComponent from "../../components/security/register";
 import { Urls } from "./../../routing/urls";
 
 const styles = (theme: Theme) =>
@@ -73,11 +73,9 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
   componentWillMount() {
     const storage: StorageService = new StorageService();
-
     const token: string | undefined = storage.read<string>(StorageKeys.JWT);
-
     if (token) {
-      this.props.history.push(Urls.stickers)
+      this.props.history.push(Urls.stickers);
     }
   }
 
@@ -95,7 +93,7 @@ class Home extends Connected<typeof React.Component, IProps & WithStyles<typeof 
       <RegisterComponent{...this.props} /> :
       <LoginComponent{...this.props} />
     const Body = () =>
-        <React.Fragment>
+      <React.Fragment>
         <div className={css.container}>
           <div className={css.logoContainer}>
             <img src={LocalImages.images("./stikker.png")} />

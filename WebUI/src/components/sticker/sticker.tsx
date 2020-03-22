@@ -1,17 +1,15 @@
 import * as React from "react";
 import { Theme, createStyles, withStyles, WithStyles, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from "@material-ui/core"
-import withRoot from "./../withRoot";
-import { StickerEntity } from "../services/client/stickerService";
-import { Connected } from "./../lib/store/connected.mixin";
+import withRoot from "../../withRoot";
+import { StickerEntity } from "../../services/client/stickerService";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "./../lib/appStore";
+import { AppStore } from "../../lib/appStore";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { toast } from 'react-toastify';
 
 const styles = (theme: Theme) =>
   createStyles
     ({
-
       root: {
         display: "flex",
         flexGrow: 1,
@@ -37,7 +35,7 @@ const styles = (theme: Theme) =>
       description: {
         color: theme.palette.secondary.main,
         fontSize: 16,
-        minHeight:"6vh"
+        minHeight: "6vh"
       },
       price: {
         float: "right",

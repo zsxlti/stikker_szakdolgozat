@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6af8cbd0-e80f-42ef-89b0-dc16329571a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../WebUI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WebUI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/cartItemDesktop.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/cartItemMobile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/desktopHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/mobileHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/register.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/components/sticker.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/admin/sticker/add/addSticker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/admin/sticker/add/addSticker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/footer/footer.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/stickers/stickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/adminRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/adminRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/routing/protectedRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/client/roleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/client/roleService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/services/webAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/settings/constans.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dokumentacio/stikker-dokumentacio.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../dokumentacio/stikker-dokumentacio.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +41,11 @@
   </component>
   <component name="ProjectId" id="1ZOfrFWlZfiqgTucPclAL49OHyc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.14861235" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>

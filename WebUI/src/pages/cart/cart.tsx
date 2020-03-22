@@ -6,18 +6,17 @@ import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, But
 import withRoot from "./../../withRoot";
 import HeaderComponent from "../header/header";
 import { StickerEntity } from "./../../services/client/stickerService";
-import FooterComponent from "../footer/footer";
+import FooterComponent from "../../components/footer/footer";
 import { PurchaseRequest, PurchaseEntity } from "./../../services/client/purchaseService";
 import { WebAPI } from "./../../services/webAPI";
 import { getUniqueID } from "./../../services/client/roleService";
 import { isMobileOnly } from "react-device-detect";
-import CartItemMobileComponent from "./../../components/cartItemMobile";
-import CartItemDesktopComponent from "./../../components/cartItemDesktop";
+import CartItemMobileComponent from "../../components/cartItem/cartItemMobile";
+import CartItemDesktopComponent from "../../components/cartItem/cartItemDesktop";
 
 const styles = (theme: Theme) =>
     createStyles
         ({
-
             container:
             {
                 display: "flex",
@@ -38,7 +37,6 @@ const styles = (theme: Theme) =>
             },
             costDesktop:
             {
-
                 display: "flex",
                 justifyContent: "flex-end",
                 color: theme.palette.primary.main,
@@ -155,6 +153,7 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
         }
         else alert("A vásárlás során hiba lépett fel!");
     }
+
     clearCartContent = async (): Promise<void> => {
         this.store.state.cart.clear();
         console.log(this.store.state.cart.content());
@@ -166,14 +165,14 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
     render() {
         const css = this.props.classes;
-        const stickers:  JSX.Element[] = isMobileOnly? this.state.stickers.map
+        const stickers: JSX.Element[] = isMobileOnly ? this.state.stickers.map
             (
                 x => <Route key={x.Id} render={props => <CartItemMobileComponent sticker={x} {...props} />} />
             )
             :
             this.state.stickers.map
             (
-                x => <Route key={x.Id} render={props => <CartItemDesktopComponent sticker={x} {...props} />} />
+                    x => <Route key={x.Id} render={props => <CartItemDesktopComponent sticker={x} {...props} />} />
             );
 
         const priceTag = this.isCartFilled() ?
@@ -210,13 +209,13 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
                 <div className={css.div}>{stickers}</div>
                 {priceTag}
             </div>
+            
         const Body = () =>
             <React.Fragment>
                 <Route render={props => <HeaderComponent {...props} />} />
                 {cartContent}
                 <FooterComponent />
             </React.Fragment>
-
         return Body();
     }
 }

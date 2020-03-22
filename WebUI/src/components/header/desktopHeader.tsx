@@ -1,22 +1,22 @@
 import * as React from "react";
 import { createStyles, Theme, withStyles, WithStyles, MuiThemeProvider } from "@material-ui/core";
-import withRoot from "./../withRoot";
+import withRoot from "../../withRoot";
 import "typeface-roboto";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
-import { StorageService } from "./../services/client/storage.service";
-import { StorageKeys } from "./../settings/constans";
-import { Routes, Urls } from "./../routing/urls";
+import { StorageService } from "../../services/client/storage.service";
+import { StorageKeys } from "../../settings/constants";
+import { Routes, Urls } from "../../routing/urls";
 import { RouteComponentProps, Route } from "react-router";
-import { LocalImages } from "./../staticFiles/images";
-import { Connected } from "./../lib/store/connected.mixin";
-import { AppStore } from "./../lib/appStore";
+import { LocalImages } from "../../staticFiles/images";
+import { Connected } from "../../lib/store/connected.mixin";
+import { AppStore } from "../../lib/appStore";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { isAdmin } from "./../services/client/roleService";
+import { isAdmin } from "../../services/client/roleService";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -48,7 +48,7 @@ const styles = (theme: Theme) =>
             },
             menuButton: {
                 marginRight: 10,
-            },
+            }
         });
 
 const StyledBadge = withStyles((theme: Theme) =>
@@ -60,8 +60,6 @@ const StyledBadge = withStyles((theme: Theme) =>
             padding: "0 4px",
             backgroundColor: theme.palette.secondary.main
         },
-
-
     }),
 )(Badge);
 
@@ -121,7 +119,7 @@ class desktopHeader extends Connected<typeof React.Component, IProps & WithStyle
         const cartCount = this.state.cartCount;
 
         const Body = () => {
-           return <React.Fragment><AppBar position="static" className={css.appbar}>
+            return <React.Fragment><AppBar position="static" className={css.appbar}>
                 <Toolbar>
                     <img src={LocalImages.images("./stikker_menu.png")} className={css.logoContainer} onClick={this.stickerClickHandler} />
                     <Typography variant="h6" onClick={this.stickerClickHandler} className={css.title}>

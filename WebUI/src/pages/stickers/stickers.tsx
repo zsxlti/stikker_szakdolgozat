@@ -7,8 +7,8 @@ import withRoot from "./../../withRoot";
 import HeaderComponent from "../header/header";
 import { StickerEntity } from "./../../services/client/stickerService";
 import { WebAPI } from "./../../services/webAPI";
-import StickerComponent from "./../../components/sticker";
-import FooterComponent from "../footer/footer";
+import StickerComponent from "../../components/sticker/sticker";
+import FooterComponent from "../../components/footer/footer";
 import { toast } from "react-toastify";
 
 const styles = (theme: Theme) =>
@@ -55,6 +55,7 @@ class Stickers extends Connected<typeof React.Component, IProps & WithStyles<typ
             stickerArray: []
         }
     }
+
     componentWillMount = async (): Promise<void> => {
         const stickersDB: StickerEntity[] = await WebAPI.Sticker.all().then(x => x);
         this.setState

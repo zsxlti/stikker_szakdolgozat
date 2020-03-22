@@ -4,7 +4,7 @@ import { Redirect, Route } from "react-router";
 import * as jwt_decode from "jwt-decode";
 
 import { StorageService } from "../services/client/storage.service";
-import { StorageKeys } from "../settings/constans";
+import { StorageKeys } from "../settings/constants";
 import { ProtectedRouteProps } from "./protectedRouteProps";
 
 /*

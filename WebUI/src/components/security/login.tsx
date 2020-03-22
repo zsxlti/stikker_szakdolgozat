@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Connected } from "./../lib/store/connected.mixin";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "./../lib/appStore";
-import { StorageService } from "./../services/client/storage.service";
+import { AppStore } from "../../lib/appStore";
+import { StorageService } from "../../services/client/storage.service";
 import { Theme, createStyles, withStyles, WithStyles, TextField, Typography, FormControlLabel, Checkbox, Button, Grid, Link, CssBaseline, Paper } from "@material-ui/core"
-import withRoot from "./../withRoot";
-import { StorageKeys } from "./../settings/constans";
-import { LoginRequest } from "./../services/client/securityService";
-import { WebAPI } from "./../services/webAPI";
-import { Validation } from "./../validators";
-import { Routes, Urls } from "./../routing/urls";
+import withRoot from "../../withRoot";
+import { StorageKeys } from "../../settings/constants";
+import { LoginRequest } from "../../services/client/securityService";
+import { WebAPI } from "../../services/webAPI";
+import { Validation } from "../../validators";
+import { Routes, Urls } from "../../routing/urls";
 
 const styles = (theme: Theme) =>
   createStyles
@@ -129,8 +129,8 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
       password: this.state.password
     };
     const token = await WebAPI.Security.login(data)
-      .then(x => x)
-      .catch((error) => { console.log(error) });
+                                       .then(x => x)
+                                       .catch((error) => { console.log(error) });
     if (token) {
       WebAPI.setToken(token.Token!)
       this.props.history.push(Urls.stickers);
@@ -198,7 +198,6 @@ class Login extends Connected<typeof React.Component, IProps & WithStyles<typeof
               {loginButton}
             </div>
           </div>
-    
     return Body();
   }
 }

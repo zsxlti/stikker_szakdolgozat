@@ -1,61 +1,60 @@
 import * as React from "react";
-import { Connected } from "./../lib/store/connected.mixin";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps } from "react-router";
-import { AppStore } from "./../lib/appStore";
+import { AppStore } from "../../lib/appStore";
 import { Theme, createStyles, withStyles, WithStyles, Typography, Button, AppBar, Toolbar, IconButton, Drawer, Badge } from "@material-ui/core"
-import withRoot from "./../withRoot";
+import withRoot from "../../withRoot";
 import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { LocalImages } from "./../staticFiles/images";
-import { StorageService } from "./../services/client/storage.service";
-import { StorageKeys } from "./../settings/constans";
-import { Urls } from "./../routing/urls";
-import { isAdmin } from "./../services/client/roleService";
+import { LocalImages } from "../../staticFiles/images";
+import { StorageService } from "../../services/client/storage.service";
+import { StorageKeys } from "../../settings/constants";
+import { Urls } from "../../routing/urls";
+import { isAdmin } from "../../services/client/roleService";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const styles = (theme: Theme) =>
     createStyles
         ({
             root: {
-                display:"flex",
-                flexDirection:"column",
-                flexGrow:1
+                display: "flex",
+                flexDirection: "column",
+                flexGrow: 1
             },
             menuButton: {
-                flexGrow:1,
-                color:theme.palette.secondary.main
+                flexGrow: 1,
+                color: theme.palette.secondary.main
             },
             logoContainer:
             {
-                flexGrow:3,
+                flexGrow: 3,
                 width: 196,
                 height: 120
             },
             right: {
                 display: "flex",
-                flexGrow:1,
-                justifyContent:"flex-end"
+                flexGrow: 1,
+                justifyContent: "flex-end"
             },
             drawerPaper: {
-                backgroundColor:theme.palette.primary.main,
+                backgroundColor: theme.palette.primary.main,
             },
             drawerHeader:
             {
-                color:theme.palette.secondary.main
+                color: theme.palette.secondary.main
             },
             drawerInner:
             {
-                display:"flex",
-                flexGrow:1,
-                flexDirection:"column",
-                justifyContent:"center",
-                color:theme.palette.secondary.main
+                display: "flex",
+                flexGrow: 1,
+                flexDirection: "column",
+                justifyContent: "center",
+                color: theme.palette.secondary.main
             },
             button:
             {
-                color:theme.palette.secondary.main
+                color: theme.palette.secondary.main
             }
-
         })
 const StyledBadge = withStyles((theme: Theme) =>
     createStyles({
@@ -77,7 +76,6 @@ interface IState {
 }
 
 interface IProps { }
-
 
 class mobileHeader extends Connected<typeof React.Component, IProps & WithStyles<typeof styles> & RouteComponentProps<{}>, IState, AppStore>(React.Component)
 {
@@ -138,7 +136,7 @@ class mobileHeader extends Connected<typeof React.Component, IProps & WithStyles
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton className={classes.menuButton} onClick={this.handleDrawerOpen}  aria-label="Menu">
+                        <IconButton className={classes.menuButton} onClick={this.handleDrawerOpen} aria-label="Menu">
                             <MenuIcon />
                         </IconButton>
                         <img src={LocalImages.images("./stikker_menu.png")} className={classes.logoContainer} onClick={this.stickerClickHandler} />
@@ -156,23 +154,21 @@ class mobileHeader extends Connected<typeof React.Component, IProps & WithStyles
                     classes={{
                         paper: classes.drawerPaper,
                     }}
-                    
+
                     open={this.state.drawerIsOpen}
                 >
                     <div >
-                        <IconButton className={classes.drawerHeader}  onClick={this.handleDrawerClose}>
+                        <IconButton className={classes.drawerHeader} onClick={this.handleDrawerClose}>
                             <KeyboardArrowUpIcon />
                         </IconButton>
                     </div>
                     <div className={classes.drawerInner}>
-                        <Button className={classes.button} onClick={this.stickerClickHandler}>Matricák</Button><br/>
-                        {isAdmin() &&<Button className={classes.button} onClick={this.adminClickHandler}>
+                        <Button className={classes.button} onClick={this.stickerClickHandler}>Matricák</Button><br />
+                        {isAdmin() && <Button className={classes.button} onClick={this.adminClickHandler}>
                             Admin
                             </Button>}
-                        <br/> 
-                        
+                        <br />
                         <Button className={classes.button} onClick={this.logoutClickHandler}>{this.state.loginStateText}</Button>
-
                     </div>
                 </Drawer>
             </div>

@@ -1,12 +1,11 @@
 import * as React from "react";
 import { Theme, createStyles, withStyles, WithStyles, withWidth, Card, CardContent, Typography, CardActions, Button, CardMedia, Grid } from "@material-ui/core"
-import withRoot from "../withRoot";
-import { StickerEntity } from "../services/client/stickerService";
-import { Connected } from "../lib/store/connected.mixin";
+import withRoot from "../../withRoot";
+import { StickerEntity } from "../../services/client/stickerService";
+import { Connected } from "../../lib/store/connected.mixin";
 import { RouteComponentProps, Route } from "react-router";
-import { AppStore } from "../lib/appStore";
+import { AppStore } from "../../lib/appStore";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { isMobile, isMobileOnly } from "react-device-detect";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -98,7 +97,6 @@ class CartItemDesktop extends Connected<typeof React.Component, IProps & WithSty
                     </Grid>
                 </CardContent>
             </Card>
-
         return Body();
     }
 }

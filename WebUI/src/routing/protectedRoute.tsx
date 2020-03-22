@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Redirect, Route } from "react-router";
 
 import { StorageService } from "./../services/client/storage.service";
-import { StorageKeys } from "./../settings/constans";
+import { StorageKeys } from "./../settings/constants";
 import { ProtectedRouteProps } from "./protectedRouteProps";
 
 /*
