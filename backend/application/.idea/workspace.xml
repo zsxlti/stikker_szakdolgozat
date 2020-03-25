@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6af8cbd0-e80f-42ef-89b0-dc16329571a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../WebUI/src/pages/cart/cart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/Models/src/main/java/entity/PurchaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../library/WebAPI/src/main/java/controllers/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dokumentacio/stikker-dokumentacio.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../dokumentacio/stikker-dokumentacio.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

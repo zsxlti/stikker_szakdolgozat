@@ -31,11 +31,11 @@ class Header extends Connected<typeof React.Component, IProps & WithStyles<typeo
     render() {
         const css = this.props.classes;
         const Body = () => {
-            if (isMobileOnly) {
-                return <React.Fragment><Route render={props => <MobileHeaderComponent {...props} />} /></React.Fragment>
-            }
-            else if (isTablet) {
+            if (isTablet) {
                 return <React.Fragment><Route render={props => <DesktopHeaderComponent {...props} />} /></React.Fragment>
+            }
+            else if (isMobileOnly) {
+                return <React.Fragment><Route render={props => <MobileHeaderComponent {...props} />} /></React.Fragment>
             }
             else {
                 return <React.Fragment><Route render={props => <DesktopHeaderComponent {...props} />} /></React.Fragment>

@@ -13,6 +13,7 @@ import { getUniqueID } from "./../../services/client/roleService";
 import { isMobileOnly } from "react-device-detect";
 import CartItemMobileComponent from "../../components/cartItem/cartItemMobile";
 import CartItemDesktopComponent from "../../components/cartItem/cartItemDesktop";
+import { Urls } from "./../../routing/urls";
 
 const styles = (theme: Theme) =>
     createStyles
@@ -87,7 +88,7 @@ const styles = (theme: Theme) =>
                 display: "flex",
                 flexDirection: "column",
                 backgroundColor: theme.palette.secondary.main,
-                minHeight: "80vh",
+                minHeight: "100vh",
                 alignSelf: "flex-start"
             },
             sum:
@@ -145,12 +146,11 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             stickers: this.store.state.cart.content()
         }
         const purchase = await WebAPI.Purchase.purchasePost(purchaseRequest)
-            .then(x => x)
-            .catch((error) => { console.log(error) });
-
+                                              .then(x => x);
         if (purchase) {
+            this.store.state.cart.clear();
+            this.props.history.push(Urls.stickers);
             alert("A vásárlás sikeres!");
-            
         }
         else alert("A vásárlás során hiba lépett fel!");
     }

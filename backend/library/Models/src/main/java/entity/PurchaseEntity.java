@@ -17,28 +17,4 @@ public class PurchaseEntity {
         this.CustomerID = customerID;
         this.PurchaseDate = purchaseDate;
     }
-
-    /*public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public String getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }*/
 }
