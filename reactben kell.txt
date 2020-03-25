@@ -1,8 +1,0 @@
-routing adminRoute.tsx
-	protectedRoute.tsx
-	protectedRouteProps.ts
-services settings webAPI(settoken function)
-if(token)
-{
-webapi.settoken(token.Token!) loginclickhandlerben
-}
