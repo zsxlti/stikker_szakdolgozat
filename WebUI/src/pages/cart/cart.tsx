@@ -150,6 +150,7 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
 
         if (purchase) {
             alert("A vásárlás sikeres!");
+            
         }
         else alert("A vásárlás során hiba lépett fel!");
     }
@@ -179,7 +180,7 @@ class Cart extends Connected<typeof React.Component, IProps & WithStyles<typeof 
             <div>
                 <div className={isMobileOnly ? css.costMobile : css.costDesktop}>
                     <Button variant="contained" color="primary" className={isMobileOnly ? css.buttonMobile : css.buttonDesktop} onClick={this.purchaseClickHandler}>
-                        Vásárlás elküldése
+                        Vásárlás befejezése
                     </Button>
                     <Button variant="contained" color="primary" className={isMobileOnly ? css.buttonMobile : css.buttonDesktop} onClick={this.clearCartContent}>
                         A kosár ürítése
